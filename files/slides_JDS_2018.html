@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="" />
+  <meta name="author" content="Arthur LEROY - MAP5 | IRMES" />
+  <meta name="author" content="Servane GEY - MAP5" />
+  <meta name="author" content="Benjamin GUEDJ - MODAL INRIA" />
+  <meta name="author" content="Jean-François TOUSSAINT - IRMES" />
+  <title>Clustering de courbes :  Application à la détection de   potentiel en natation</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_JDS_2018_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_JDS_2018_files/reveal.js-3.3.0.1/css/theme/serif.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Clustering de courbes : <font size="20"> Application à la détection de <br> potentiel en natation </font></h1>
+    <h2 class="author"><br /></h2>
+    <h2 class="author">Arthur LEROY - MAP5 | IRMES</h2>
+    <h2 class="author">Servane GEY - MAP5</h2>
+    <h2 class="author">Benjamin GUEDJ - MODAL INRIA</h2>
+    <h2 class="author">Jean-François TOUSSAINT - IRMES</h2>
+    <h3 class="date">Journées de Statistique - 29 mai 2018</h3>
+</section>
+
+<section id="problematique-sportive" class="slide level2">
+<h2>Problématique sportive</h2>
+<p>La détection aujourd’hui :<br />
+<span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Meilleurs jeunes + intuition entraineurs</span></p>
+<p><br> G. Boccia et al. (2017) :</p>
+<blockquote>
+<p><span class="math inline">\(\simeq\)</span> <strong>60% des top jeunes à 16 ans</strong> ne maintiennent pas leur niveau étant adultes</p>
+</blockquote>
+<p>Philip E. Kearney &amp; Philip R. Hayes (2018) :</p>
+<blockquote>
+<p><span class="math inline">\(\simeq\)</span> <strong>10% seulement</strong> du top 20 sénior était<br />
+top 20 en - 13 ans</p>
+</blockquote>
+<aside class="notes">
+<p>-ON BOSSE AVEC SPORTIF IMPORTANT,ECHANGES QU’ILS COMPRENNE ET ETRE PERTINENT -Athlétisme anglais (Homme 9%; Femme 13%) top 20 adulte étaient top 20 en U13 Peu reste top 20 pendant leur évolution : 23% U13-U17; 13% U13-U20;43.3% U15-U17; 22.1% U15-U20; 41.8% U17-U20)</p>
+<p>-Athlétisme Italien Environ 60% des tops à 16 ans n’ont pas eu de meilleurs perf adulte.<br />
+-Constat autre sport autre pays, on peut imaginer le même en France,MIEUX : imaginer solutions</p>
+</section>
+<section id="les-donnees" class="slide level2">
+<h2>Les données</h2>
+<p>Base de données de la Fédération Française de Natation sur <strong>l’exhausitivité des performances</strong> des licenciés depuis 2002 :</p>
+<ul>
+<li>10 000 000 performances</li>
+<li>moins de 10 variables informatives</li>
+<li><span class="math inline">\(\simeq\)</span> X0 000 observations et <span class="math inline">\(\simeq\)</span> 1 000 individus par épreuves</li>
+</ul>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-1-1.png" width="652.8" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<ul>
+<li>NETOYAGE BASE</li>
+<li>35 EPREUVES</li>
+<li>AGE | PERF | CLUB | TEMPS INTER| COMPET</li>
+</ul>
+</section>
+<section id="les-donnees-1" class="slide level2">
+<h2>Les données</h2>
+<p>Base de données de la Fédération Française de Natation sur <strong>l’exhausitivité des performances</strong> des licenciés depuis 2002 :</p>
+<ul>
+<li>10 000 000 performances</li>
+<li>moins de 10 variables informatives</li>
+<li><span class="math inline">\(\simeq\)</span> X0 000 observations et <span class="math inline">\(\simeq\)</span> 1 000 individus par épreuves</li>
+</ul>
+<p><img src="slides_JDS_2018_files/figure-revealjs/b-1.png" width="652.8" style="display: block; margin: auto;" /></p>
+</section>
+<section id="les-donnees-2" class="slide level2">
+<h2>Les données</h2>
+<p>Base de données de la Fédération Française de Natation sur <strong>l’exhausitivité des performances</strong> des licenciés depuis 2002 :</p>
+<ul>
+<li>10 000 000 performances</li>
+<li>moins de 10 variables informatives</li>
+<li><span class="math inline">\(\simeq\)</span> X0 000 observations et <span class="math inline">\(\simeq\)</span> 1 000 individus par épreuves</li>
+</ul>
+<p><img src="slides_JDS_2018_files/figure-revealjs/a-1.png" width="652.8" style="display: block; margin: auto;" /></p>
+</section>
+<section id="quelle-modelisation" class="slide level2">
+<h2>Quelle modélisation ?</h2>
+<ul>
+<li>Séries temporelles très <strong>inhomogènes</strong> : comment les comparer ?</li>
+<li>Nécessité d’une métrique pertinente mathématiquement et sportivement.</li>
+<li>Intérêt sportif pour l’étude des <strong>dynamiques de progression</strong>.<br />
+   </li>
+</ul>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Analyse de données fonctionnelles :</span></p>
+<ul>
+<li>Lissage par fonctions de bases communes.</li>
+<li>Cohérence avec la nature fonctionnelle de la progression.</li>
+<li>Possibilité d’étudier les dérivées des fonctions observées.</li>
+</ul>
+<aside class="notes">
+<pre><code>    -  AGE != et NB POINTS != 
+      FONCTION DE BASES COMMUNES
+    - PAS ACCORDEON AGE POUR RECALER
+    pROGRESSION INTRINSEQUEMENT
+    FONCTIONNELLE ET CONTINUE
+    - != MATURITéS, uTILITé DERIVéES</code></pre>
+</section>
+<section id="les-b-splines" class="slide level2">
+<h2>Les B-splines</h2>
+<span class="math display">\[\begin{equation*}
+    f(t) = \sum\limits_{i = 1}^{N}{\alpha_{i} B_{i}^n(t) }
+\end{equation*}\]</span>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-2-1.png" width="768" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<pre><code>- FOURIER ONDELETTES PERIODICITE
+- SPLINES NATURELLES TROP COEFS  
+
+- APPROXIME GRANDE VARIERE FCT  
+
+- COMBINAISON LINEAIRE DE 
+  FONCTIONS DE BASE POLYNOMIALES
+    - PAS UNE INTERPOLATION
+    - SUPPORT LOCAL DES FONCTIONS</code></pre>
+</section>
+<section id="choix-de-la-base-de-b-splines" class="slide level2">
+<h2>Choix de la base de B-splines</h2>
+<ul>
+<li>12-20 ans | 20+ observations | 1 noeud par âge</li>
+<li>11 B-splines | Ordre 4 | Pénalité par minimisation VCG</li>
+</ul>
+<p><img src="slides_JDS_2018_files/figure-revealjs/Spline%20base%20creation-1.png" width="768" style="display: block; margin: auto;" /></p>
+</section>
+<section id="choix-de-la-base-de-b-splines-1" class="slide level2">
+<h2>Choix de la base de B-splines</h2>
+<ul>
+<li>12-20 ans | 20+ observations | 1 noeud par âge</li>
+<li>11 B-splines | Ordre 4 | Pénalité par minimisation VCG</li>
+</ul>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-3-1.png" width="768" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<pre><code>    - NOEUDS DEFINISSE SUPPORT FONCTION
+    - CERTAIN PARAMETRE PAS OPTIMAUX
+    - JUSTIF SPORTIVE POUR CERTAINS
+    - ORDRE 4 POUR DERIVEE REGULIERE
+    - VALIDATION CROISEE GENERALISEE
+    - 11 BSPLINES = 7 PTS + ORDRE 4
+    - FIT MOINDRE CARREE PENALISé 
+    - CLEMENT MIGNON CHMP FRANCE 17ANS</code></pre>
+</section>
+<section id="le-clustering-sur-les-coefficients" class="slide level2">
+<h2>Le clustering sur les coefficients</h2>
+<p><br></p>
+<p>Les caractéristiques sont contenues dans les coefficients<br />
+<span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Méthodes usuelles de clustering </span></p>
+<p><br></p>
+<p><strong>L’algorithme des k-means :</strong></p>
+<ul>
+<li>Choix du nombre de centres k</li>
+<li>Choix de la position initale des centres</li>
+<li>Algorithme itératif à deux étapes</li>
+<li>Convergence vers un minimum local</li>
+</ul>
+<aside class="notes">
+<pre><code>- CARACT FONCTION DS COEFS
+- CLUSTER COEFS CLUST FCTS
+    - CLUSTERING KMEANS PROUVé 
+    CONSISTANT ABRAHAM (2003)
+    - FAIBLE DIMENSION CAR FLEAU
+    - K CENTRE INITIAUX 
+    - ALGO A 2 ETAPES
+    - K ET INITIAUX AVEC CAH </code></pre>
+</section>
+<section id="clustering-de-courbes-et-de-derivees" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/K-means%20on%20spline%20coefficients-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="clustering-de-courbes-et-de-derivees-1" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="clustering-de-courbes-et-de-derivees-2" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-5-1.png" width="960" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<pre><code>    - RECORD MONDE 20,26
+    - blabla
+    </code></pre>
+</section>
+<section id="clustering-de-courbes-et-de-derivees-3" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/K-means%20on%20the%20derivative%20coefficients-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="clustering-de-courbes-et-de-derivees-4" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<pre><code>    - RECORD MONDE 20,26
+    - blabla
+    </code></pre>
+</section>
+<section id="comparaison-des-clusterings" class="slide level2">
+<h2>Comparaison des clusterings</h2>
+<p>Score d’adéquation moyen des clusters <span class="math inline">\(\simeq\)</span> 45%<br />
+<span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Information supplémentaire avec la dérivée </span></p>
+<img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" />
+<aside class="notes">
+<pre><code>    - SI QUESTION : 76% VAR EXPLIQUEE 
+    PAR CLUSTERING
+    - ENVIRON 45% DE SIMILARITé DES 
+    CLUSTERS. AVEC LE HASARD : 20% 
+    - CRITERES DE REGROUPEMENT /=
+    - DONC INFO EN LIEN MAIS
+    LA DERIV APPORTE UN +
+    - ON A TESTE COURBE+DERIV MAIS
+    C POURRI</code></pre>
+</section>
+<section id="comparaison-des-clusterings-1" class="slide level2">
+<h2>Comparaison des clusterings</h2>
+<p>Score d’adéquation moyen des clusters <span class="math inline">\(\simeq\)</span> 45%<br />
+<span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Information supplémentaire avec la dérivée </span></p>
+<img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" />
+<aside class="notes">
+<pre><code>    - SI QUESTION : 76% VAR EXPLIQUEE 
+    PAR CLUSTERING
+    - ENVIRON 45% DE SIMILARITé DES 
+    CLUSTERS. AVEC LE HASARD : 20% 
+    - CRITERES DE REGROUPEMENT /=
+    - DONC INFO EN LIEN MAIS
+    LA DERIV APPORTE UN +
+    - ON A TESTE COURBE+DERIV MAIS
+    C POURRI</code></pre>
+</section>
+<section id="clustering-de-courbes-et-de-derivees-5" class="slide level2">
+<h2>Clustering de courbes et de dérivées</h2>
+<p><img src="slides_JDS_2018_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" style="display: block; margin: auto;" /></p>
+<aside class="notes">
+<pre><code>    - SI QUESTION : 76% VAR EXPLIQUEE 
+    PAR CLUSTERING
+    - ENVIRON 45% DE SIMILARITé DES 
+    CLUSTERS. AVEC LE HASARD : 20% 
+    - CRITERES DE REGROUPEMENT /=
+    - DONC INFO EN LIEN MAIS
+    LA DERIV APPORTE UN +
+    - ON A TESTE COURBE+DERIV MAIS
+    C POURRI</code></pre>
+</section>
+<section id="perspectives-et-references" class="slide level2">
+<h2>Perspectives et références</h2>
+<ul>
+<li>Modèles de mélange fonctionnels</li>
+<li>Modèles mixtes fonctionels</li>
+<li>Classification supervisée - <em>moyen terme</em></li>
+<li>Prédiction - <em>long terme</em></li>
+</ul>
+<p><br></p>
+<p><font size="6"><em>Functional Data Analysis (2005) | J. Ramsay &amp; B.W. Silverman<br />
+Unsupervised Curve Clustering using B-Splines (2003) | C.Abraham &amp;al<br />
+Clustering of time series data - a survey (2005) | T.Warren Liao</em> </font></p>
+<aside class="notes">
+<pre><code>    - Notes
+    - blabla
+    </code></pre>
+</section>
+<section id="a-retenir-pour-discuter-a-la-cantine" class="slide level2">
+<h2>À retenir pour discuter à la cantine</h2>
+<ul>
+<li>Meilleur jeune <span class="math inline">\(\neq\)</span> meilleur adulte</li>
+<li>Séries temporelles modélisées par B-splines</li>
+<li>Méthodes usuelles sur les coefficients</li>
+<li>Clusters performances <span class="math inline">\(\neq\)</span> clusters dynamiques</li>
+</ul>
+<p>   </p>
+<iframe src="https://78.media.tumblr.com/6f2c5d66ec3f6f76dee649af948c6930/tumblr_ns7zq6cSaC1upwhqjo1_500.gif" width="560" height="320" frameBorder="0" class="giphy-embed" allowFullScreen>
+</iframe>
+<aside class="notes">
+<pre><code>    - Notes
+    - blabla
+    </code></pre>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_JDS_2018_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_JDS_2018_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'slides_JDS_2018_files/reveal.js-3.3.0.1/plugin/notes/notes.js', async: true },
+          { src: 'slides_JDS_2018_files/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
