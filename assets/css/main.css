@@ -2497,7 +2497,7 @@
 			-webkit-flex-shrink: 0;
 			-ms-flex-shrink: 0;
 			flex-shrink: 0;
-			padding: 0em;
+			padding: 3em;
 		}
 
 			#header > header .avatar {
@@ -2507,7 +2507,7 @@
 			}
 
 			#header > header h1 {
-				font-size: 1.75em;
+				font-size: 1.5em;
 				margin: 0;
 			}
 
