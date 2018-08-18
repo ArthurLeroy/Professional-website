@@ -2502,12 +2502,12 @@
 
 			#header > header .avatar {
 				display: block;
-				margin: 0 auto 2.25em auto;
+				margin: 0 auto 1em auto;
 				width: 8em;
 			}
 
 			#header > header h1 {
-				font-size: 1.5em;
+				font-size: 1.75em;
 				margin: 0;
 			}
 
@@ -2524,7 +2524,7 @@
 			flex-shrink: 0;
 			bottom: 0;
 			left: 0;
-			padding: 2em;
+			padding: 0em;
 			width: 100%;
 		}
 
