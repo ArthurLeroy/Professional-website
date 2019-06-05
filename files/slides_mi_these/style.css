@@ -1,0 +1,38 @@
+﻿.reveal section p {
+  color: black;
+  text-align: left;
+}
+
+.reveal h1 { 
+	font-size: 2.3em;
+ 	color : rgb(51, 102, 153)
+} 
+
+.reveal h2 { 
+	color: rgb(51, 102, 153) ;
+	vertical-align: top;
+	text-align: left;
+ }
+
+h2.author {
+  font-size: 28px;
+  color: black;
+}
+
+h3.date {
+  font-size: 20px;
+}
+
+
+.reveal {
+overflow: visible;
+}
+
+.emphasized{
+	color : rgb(51, 102, 153);
+}
+.reveal section img {
+	text-align: center;
+}
+
+
