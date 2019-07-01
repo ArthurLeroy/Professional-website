@@ -514,7 +514,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="data" class="slide level2">
 <h2>Data</h2>
-<p>Performances of FFNatation members since 2002:</p>
+<p>Performances from FF of Swimming members since 2002:</p>
 <ul>
 <li><strong>Irregular</strong> time series</li>
 <li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
@@ -527,7 +527,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="data-1" class="slide level2">
 <h2>Data</h2>
-<p>Performances of FFNatation members since 2002:</p>
+<p>Performances from FF of Swimming members since 2002:</p>
 <ul>
 <li><strong>Irregular</strong> time series</li>
 <li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
@@ -540,7 +540,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="data-2" class="slide level2">
 <h2>Data</h2>
-<p>Performances of FFNatation members since 2002:</p>
+<p>Performances from FF of Swimming members since 2002:</p>
 <ul>
 <li><strong>Irregular</strong> time series</li>
 <li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
@@ -758,7 +758,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    Initialize hyperparameters
     <span class="cf">while</span>(sufficient condition of convergence){
     Iterate alternatively steps E and M}</code></pre></div>
-<p><span class="math inline">\(\rightarrow\)</span> For a new time <span class="math inline">\(t^*\)</span>, we have a posterior density for <span class="math inline">\(Y_i(t^*)\)</span></p>
+</section>
+<section id="conclusion" class="slide level2">
+<h2>Conclusion</h2>
+<p><br></p>
+<ul>
+<li><p>For a new time <span class="math inline">\(t^*\)</span>, we have a posterior density for <span class="math inline">\(Y_i(t^*)\)</span></p></li>
+<li><p>Prediction + uncertainty for future performances</p></li>
+<li><p>Split a <span class="math inline">\(O(\color{red}{N^3})\)</span> problem into <span class="math inline">\(M \ O(\color{green}{N_i^3})\)</span> problems</p></li>
+<li><p>Remains computationaly extensive but tractable</p></li>
+<li><p>Code available soon on <a href="">https://github.com/ArthurLeroy</a></p></li>
+</ul>
 </section>
 <section id="perspectives" class="slide level2">
 <h2>Perspectives</h2>
