@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="" />
+  <meta name="author" content="Arthur LEROY (MAP5 - Université de Paris)" />
+  <meta name="author" content="Servane GEY (MAP5 - Université de Paris) - Jean-Francois TOUSSAINT (IRMES)" />
+  <meta name="author" content="Pierre LATOUCHE (MAP5 - Université de Paris) - Benjamin GUEDJ (INRIA)" />
+  <title>Apprentissage multi-tâches de données fonctionnelles :   Applications à la détection pour le sport de haut niveau</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_GTE_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="slides_GTE_files/reveal.js-3.3.0.1/css/theme/serif.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Apprentissage multi-tâches de données fonctionnelles : <br> Applications à la détection pour le sport de haut niveau</h1>
+    <h2 class="author"><br /></h2>
+    <h2 class="author">Arthur LEROY (MAP5 - Université de Paris)</h2>
+    <h2 class="author">Servane GEY (MAP5 - Université de Paris) - Jean-Francois TOUSSAINT (IRMES)</h2>
+    <h2 class="author">Pierre LATOUCHE (MAP5 - Université de Paris) - Benjamin GUEDJ (INRIA)</h2>
+    <h3 class="date">GTE MAP5 (version distanciation sociale) - 24/04/2019</h3>
+</section>
+
+<section id="context" class="slide level2">
+<h2>Context</h2>
+<p>Traditional talent identification:<br />
+<span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Best young athlete + coach intuition </span></p>
+<p><br> G. Boccia et al. (2017) :</p>
+<blockquote>
+<p><span class="math inline">\(\simeq\)</span> <strong>60% of 16 years old elite athletes</strong> do not maintain their level of performance</p>
+</blockquote>
+<p>Philip E. Kearney &amp; Philip R. Hayes (2018) :</p>
+<blockquote>
+<p><span class="math inline">\(\simeq\)</span> <strong>only 10% </strong> of senior top 20 were also top 20 before 13 years</p>
+</blockquote>
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<p>Performances from FF of Swimming members since 2002:</p>
+<ul>
+<li><strong>Irregular</strong> time series</li>
+<li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
+<li>Different observational timestamps <span class="math inline">\(t_i^k\)</span></li>
+<li><font color='green'><span class="math inline">\(N_i\)</span></font> <span class="math inline">\(\simeq x \times10^1\)</span>
+<center>
+<img src="images/data1.png" width="580" />
+</center></li>
+</ul>
+</section>
+<section id="data-1" class="slide level2">
+<h2>Data</h2>
+<p>Performances from FF of Swimming members since 2002:</p>
+<ul>
+<li><strong>Irregular</strong> time series</li>
+<li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
+<li>Different observational timestamps <span class="math inline">\(t_i^k\)</span></li>
+<li><font color='green'><span class="math inline">\(N_i\)</span></font> <span class="math inline">\(\simeq x \times10^1\)</span> | <font color='red'><span class="math inline">\(N\)</span></font> <span class="math inline">\(= \sum\limits_{i=1}^{M}\)</span> <font color='green'><span class="math inline">\(N_i\)</span></font> <span class="math inline">\(\simeq x \times 10^5\)</span></li>
+</ul>
+<center>
+<img src="images/data2.png" width="580" />
+</center>
+</section>
+<section id="data-2" class="slide level2">
+<h2>Data</h2>
+<p>Performances from FF of Swimming members since 2002:</p>
+<ul>
+<li><strong>Irregular</strong> time series</li>
+<li>Different number <span class="math inline">\(N_i\)</span> of observations between individuals</li>
+<li>Different observational timestamps <span class="math inline">\(t_i^k\)</span></li>
+<li><font color='green'><span class="math inline">\(N_i\)</span></font> <span class="math inline">\(\simeq x \times10^1\)</span> | <font color='red'><span class="math inline">\(N\)</span></font> <span class="math inline">\(= \sum\limits_{i=1}^{M}\)</span> <font color='green'><span class="math inline">\(N_i\)</span></font> <span class="math inline">\(\simeq x \times 10^5\)</span></li>
+</ul>
+<center>
+<img src="images/data3.png" width="580" />
+</center>
+</section>
+<section id="curves-clustering" class="slide level2">
+<h2>Curves clustering</h2>
+<p>Functional data <span class="math inline">\(\simeq\)</span> coefficients <span class="math inline">\(\alpha_k\)</span> of B-splines functions:</p>
+<p><span class="math display">\[y_i(t) = \sum\limits_{k=1}^{K}{\alpha_k B_k(t)}\]</span></p>
+<p><span class="emphasized">Clustering:</span> Algo <strong>FunHDDC</strong> (gaussian mixture + EM)<br />
+<em>Bouveyron &amp; Jacques - 2011</em></p>
+<p><br> Using the multidimensional version : curve + derivative<br />
+<span class="math inline">\(\rightarrow\)</span> Information about performance <strong>level</strong> and <strong>trend</strong> of improvement</p>
+</section>
+<section id="curve-clustering" class="slide level2">
+<h2>Curve clustering</h2>
+<p><em>Leroy et al. - 2018</em></p>
+<ul>
+<li>Different patterns of progression</li>
+<li>Consistent groups for sport experts</li>
+</ul>
+<center>
+<img src="images/multclust_all.png" width="920" height="450" />
+</center>
+</section>
+<section id="curve-clustering-1" class="slide level2">
+<h2>Curve clustering</h2>
+<p><em>Leroy et al. - 2018</em></p>
+<ul>
+<li>Different patterns of progression</li>
+<li>Consistent groups for sport experts</li>
+</ul>
+<center>
+<img src="images/multclust.png" width="920" height="450" />
+</center>
+</section>
+<section id="new-objectives" class="slide level2">
+<h2>New objectives</h2>
+<ul>
+<li>Prediction of the future values of the progression curve<br />
+<span class="math inline">\(\rightarrow\)</span> Functional regression</li>
+<li>Quantification of prediction uncertainty<br />
+<span class="math inline">\(\rightarrow\)</span> Probabilistic framework</li>
+</ul>
+<center>
+<img src="images/gpfda_unique.png" width="600" />
+</center>
+</section>
+<section id="gaussian-process-regression" class="slide level2">
+<h2>Gaussian process regression</h2>
+<p><em>Bishop - 2006 | Rasmussen &amp; Williams - 2006</em></p>
+<p>GPR : a kernel method to estimate <span class="math inline">\(f\)</span> when:</p>
+<p><span class="math display">\[y = f(x) +\epsilon\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> <strong>No restrictions</strong> on <span class="math inline">\(f\)</span> but a <strong>prior probability</strong>:</p>
+<p><span class="math display">\[f \sim \mathcal{GP}(0,C(\cdot,\cdot))\]</span></p>
+<p><em>An example of exponential kernel for the covariance function:</em> <span class="math display">\[cov(f(x),f(x&#39;))= C(x,x&#39;) = \alpha exp(- \dfrac{1}{2\theta^2} |x - x&#39;|^2)\]</span> Kernel definition <span class="math inline">\(\Rightarrow\)</span> <em>prefered</em> properties on <span class="math inline">\(f\)</span></p>
+</section>
+<section id="prediction" class="slide level2">
+<h2>Prediction</h2>
+<p><span class="math inline">\(\textbf{y}_{N+1} = (y_1,...,y_{N+1})\)</span> has the following prior density: <span class="math display">\[\textbf{y}_{N+1} \sim \mathcal{N}(0, C_{N+1}), \ C_{N+1} = \begin{pmatrix} C_N &amp; k_{N+1} \\ k_{N+1}^T &amp; c_{N+1} \end{pmatrix}\]</span></p>
+<p>When the joint density is gaussian, so does the conditionnal dentisty:</p>
+<p><span class="math display">\[y_{N+1}|\textbf{y}_{N}, \textbf{x}_{N+1} \sim \mathcal{N}(k^T \color{red}{C_N^{-1}}\textbf{y}_{N}, c_{N+1}- k_{N+1}^T  \color{red}{C_N^{-1}} k_{N+1})\]</span></p>
+<p><br></p>
+<ul>
+<li><span class="emphasized">Prediction:</span> <span class="math inline">\(\hat{y}_{N+1} = \mathbb{E}[y_{N+1}|\textbf{y}_{N}, \textbf{x}_{N+1}]\)</span></li>
+<li><span class="emphasized">Uncertainty:</span> CI with <span class="math inline">\(\mathbb{V}[y_{N+1}|\textbf{y}_{N}, \textbf{x}_{N+1}]\)</span></li>
+</ul>
+</section>
+<section id="visualization-of-gpr" class="slide level2">
+<h2>Visualization of GPR</h2>
+<center>
+<img src="images/GP.png" />
+</center>
+<p><strong>Key points:</strong></p>
+<ul>
+<li>Define a covariance function with desirable properties</li>
+<li>Non parametric method giving probabilistic predictions</li>
+<li>Complexity <span class="math inline">\(O(\color{red}{N^3})\)</span> (inversion of a <span class="math inline">\(\color{red}{N} \times \color{red}{N}\)</span> matrix)</li>
+</ul>
+</section>
+<section id="gp-estimation-from-data" class="slide level2">
+<h2>GP estimation from data</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+</ul>
+<center>
+<img src="images/gpfda_1pts.png" height="500" />
+</center>
+</section>
+<section id="gp-estimation-from-data-1" class="slide level2">
+<h2>GP estimation from data</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+</ul>
+<center>
+<img src="images/gpfda_5pts.png" height="500" />
+</center>
+</section>
+<section id="gp-estimation-from-data-2" class="slide level2">
+<h2>GP estimation from data</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+</ul>
+<center>
+<img src="images/gpfda_10pts.png" height="500" />
+</center>
+</section>
+<section id="gp-estimation-from-data-3" class="slide level2">
+<h2>GP estimation from data</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+</ul>
+<center>
+<img src="images/gpfda_15pts.png" height="500" />
+</center>
+</section>
+<section id="gp-estimation-from-data-4" class="slide level2">
+<h2>GP estimation from data</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+</ul>
+<center>
+<img src="images/gpfda_totalpts.png" height="500" />
+</center>
+</section>
+<section id="reaching-a-coherent-modeling" class="slide level2">
+<h2>Reaching a coherent modeling</h2>
+<p>Estimating a GP on each individuals (<span class="math inline">\(O(\color{green}{N_i^3})\)</span>):</p>
+<ul>
+<li><span class="emphasized">Uncertainty:</span> Ok</li>
+<li><span class="emphasized">Coherence:</span> Improvement required</li>
+</ul>
+<center>
+<img src="images/GPFDA_image.png" height="370" />
+</center>
+<p><span class="math inline">\(\rightarrow\)</span> Using the <strong>shared information</strong> between individuals (GPR-ME)</p>
+</section>
+<section id="the-gpfr-model" class="slide level2">
+<h2>The GPFR model</h2>
+<p><font size="6"><em>Shi &amp; Wang - 2008 | Shi &amp; Choi - 2011</em> </font></p>
+<p><span class="math display">\[y_i(t) = \mu_0(t) + f_i(t) + \epsilon_i\]</span> with:</p>
+<ul>
+<li><span class="math inline">\(\mu_0(t) = \sum\limits_{k =1}^{K} \alpha_k \mathcal{B}_k(t)\)</span> with <span class="math inline">\((\mathcal{B}_k)_k\)</span> a spline basis</li>
+<li><span class="math inline">\(f_i(\cdot) \sim \mathcal{GP}(0, \Sigma_{\theta_i}(\cdot,\cdot)), \ f_i \perp \!\!\! \perp\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{N}(0, \sigma^2), \ \epsilon_i \perp \!\!\! \perp\)</span></li>
+</ul>
+<p><span class="emphasized">GPFDA R package</span></p>
+<p><strong>Limits:</strong></p>
+<ul>
+<li>No uncertainty about <span class="math inline">\(\mu_0\)</span></li>
+<li>Does not allow irregular time series</li>
+</ul>
+</section>
+<section id="an-extension-to-gpfr" class="slide level2">
+<h2>An extension to GPFR</h2>
+<p><span class="math display">\[y_i(t) = \mu_0(t) + f_i(t) + \epsilon_i\]</span> with:</p>
+<ul>
+<li><span class="math inline">\(\mu_0(\cdot) \sim \mathcal{GP}(m_0, K_{\theta_0}(\cdot,\cdot))\)</span></li>
+<li><span class="math inline">\(f_i(\cdot) \sim \mathcal{GP}(0, \Sigma_{\theta_i}(\cdot,\cdot)), \ f_i \perp \!\!\! \perp\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{N}(0, \sigma^2), \ \epsilon_i \perp \!\!\! \perp\)</span></li>
+</ul>
+<p>It follows that:</p>
+<p><span class="math display">\[y_i(\cdot) \vert \mu_0 \sim \mathcal{GP}(\mu_0(\cdot),   \Sigma_{\theta_i}(\cdot,\cdot) + \sigma^2), \ Y_i \vert \mu_0 \perp \!\!\! \perp\]</span></p>
+<p><span class="math inline">\(\rightarrow\)</span> Shared information through <span class="math inline">\(\mu_0\)</span> and its uncertainty<br />
+<span class="math inline">\(\rightarrow\)</span> Unified non parametric probabilistic framework<br />
+<span class="math inline">\(\rightarrow\)</span> Effective even for irregular time series</p>
+</section>
+<section id="notations" class="slide level2">
+<h2>Notations</h2>
+<p><span class="math inline">\(\textbf{y} = (y_1^1,\dots,y_i^k,\dots,y_M^{N_M})^T\)</span><br />
+<span class="math inline">\(\textbf{t} = (t_1^1,\dots,t_i^k,\dots,t_M^{N_M})^T\)</span><br />
+<span class="math inline">\(\Theta = \{ \theta_0, (\theta_i)_i, \sigma^2 \}\)</span></p>
+<p><span class="math inline">\(\Sigma\)</span>: covariance matrix from the process <span class="math inline">\(f_i\)</span> evaluated on <span class="math inline">\(\textbf{t}\)</span></p>
+<p><span class="math inline">\(\Sigma = \left[ \Sigma_{\theta_i}(t_i^k, t_j^l)_{(i,j), (j,l)} \right]\)</span></p>
+<p><span class="math inline">\(\Psi = \Sigma + \sigma^2 Id_N\)</span></p>
+</section>
+<section id="bayes-law-is-the-new-bible" class="slide level2">
+<h2>Bayes’ law is the new Bible</h2>
+<p>Reminder of its simple definition:</p>
+<p><span class="math display">\[ \mathbb{P}(T \vert D) = \dfrac{\mathbb{P}(D \vert T) \mathbb{P}(T)}{\mathbb{P}(D)}  \]</span> Powerful implication when it comes to learning from data:</p>
+<ul>
+<li><span class="math inline">\(\mathbb{P}(T)\)</span>, probability of your theory, what you think <strong>a priori</strong></li>
+<li><span class="math inline">\(\mathbb{P}(D \vert T)\)</span>, probability of data if theory is true, <strong>likelihood</strong></li>
+<li><span class="math inline">\(\mathbb{P}(D)\)</span>, probability that your data occur, norm. <strong>constant</strong></li>
+</ul>
+<p>Bayes’ law tells you how and what you should learn on theory T according to data D:</p>
+<p><span class="math inline">\(\rightarrow \mathbb{P}(T \vert D)\)</span>, what you should think <strong>a posteriori</strong></p>
+</section>
+<section id="learning-hp-and-mu_0-an-em-algorithm" class="slide level2">
+<h2>Learning HP and <span class="math inline">\(\mu_0\)</span> : an EM algorithm</h2>
+<p><span class="emphasized">Step E:</span> Computing the posterior (knowing <span class="math inline">\(\Theta\)</span>)</p>
+<p><span class="math display">\[
+\begin{align}
+  p(\mu_0(\textbf{t}) \vert \textbf{t}, \textbf{y}, \Theta) 
+  &amp;\propto  p(\textbf{y} \vert \textbf{t}, \mu_0(\textbf{t}), \Theta) \ p(\mu_0(\textbf{t}) \vert \textbf{t}, \Theta)   \\
+  &amp;\propto \mathcal{N}( \mu_0(\textbf{t}), \Psi)  \ \mathcal{N}(m_0, K) \\
+  &amp;= [Insert \ here \ some \ PhD \ student \ ideas] \\
+  &amp;= \mathcal{N}( \hat{\mu}_0(\textbf{t}), \hat{K})
+\end{align}
+\]</span></p>
+<p><span class="emphasized">Step M:</span> Estimating <span class="math inline">\(\Theta\)</span> (knowing <span class="math inline">\(p(\mu_0)\)</span>)</p>
+<p><span class="math display">\[\hat{\Theta} = \underset{\Theta}{\arg\max} \ \mathbb{E}_{\mu_0} [ \log \ p(\textbf{y}, \mu_0(\textbf{t}) \vert \textbf{t}, \Theta ) \ \vert \Theta]\]</span></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    Initialize hyperparameters
+    <span class="cf">while</span>(sufficient condition of convergence){
+    Iterate alternatively steps E and M}</code></pre></div>
+</section>
+<section id="a-picture-is-worth-1000-words" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_0.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>0</strong></p>
+</section>
+<section id="a-picture-is-worth-1000-words-1" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_1.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>1</strong></p>
+</section>
+<section id="a-picture-is-worth-1000-words-2" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_2.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>2</strong></p>
+</section>
+<section id="a-picture-is-worth-1000-words-3" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_4.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>4</strong></p>
+</section>
+<section id="a-picture-is-worth-1000-words-4" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_5.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>5</strong></p>
+</section>
+<section id="a-picture-is-worth-1000-words-5" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<p><span class="math inline">\(\mathbb{E} \left[ \mu_0(\textbf{t}) \vert Data \right] \pm CI_{0.95}\)</span></p>
+<center>
+<img src="images/train_it_6.png" height="450" />
+</center>
+<p><em>Iteration counter</em> : <strong>6</strong> <span class="math inline">\(\rightarrow\)</span> <em>break</em> and <em>return</em></p>
+</section>
+<section id="coupure-pub" class="slide level2">
+<h2>Coupure pub</h2>
+<p>Petit jeu concours pour savoir qui sont ceux qui suivent et ceux qui scrollent sur Facebook :</p>
+<p>L’orateur a oublié de sortir un graph et a donc sauté une itération.</p>
+<h3 id="saurez-vous-retrouver-laquelle">Saurez vous retrouver laquelle ?</h3>
+<p> </p>
+<p><span class="math inline">\(\rightarrow\)</span> Une bière pour le vainqueur. Un jour. Peut être.</p>
+</section>
+<section id="making-predictions" class="slide level2">
+<h2>Making predictions</h2>
+<p><span class="math display">\[ \forall i, \ \ y_i(t) = \mu_0(t) + f_i(t) + \epsilon_i \]</span> Suppose that, after the learning step, you observe data from a new individual <span class="math inline">\(\star\)</span>. <em>Multitask learning</em> consists in improving performance by <strong>sharing information</strong> across individuals.</p>
+<p>Also recall that if <span class="math inline">\(p(y_*(\textbf{t}), y_*(t^{new})) = \mathcal{N}(  \begin{bmatrix}  m_*^{\textbf{t}} \\  m_*^{new} \\  \end{bmatrix},  \begin{pmatrix}  \Psi_*^{\textbf{t},\textbf{t}} &amp; \Psi_*^{\textbf{t},new} \\  \Psi_*^{new,\textbf{t}} &amp; \Psi_*^{new,new}  \end{pmatrix})\)</span></p>
+<p>GP prediction’s formula gives:</p>
+<p><span class="math display">\[\begin{align}
+  p(y_*(t^{new}) \vert y_*(\textbf{t})) 
+  &amp;=\mathcal{N} \big( m_*^{new} + \Psi_*^{new,\textbf{t}} {\Psi_*^{\textbf{t},\textbf{t}}}^{-1} (y_*(\textbf{t}) -              m_*^{\textbf{t}}); \\
+  &amp; \hspace{1.2cm}  \Psi_*^{new,new} - \Psi_*^{new,\textbf{t}} {\Psi_*^{\textbf{t},\textbf{t}}}^{-1} \Psi_*^{\textbf{t},new} \big)
+\end{align}\]</span></p>
+</section>
+<section id="making-predictions-1" class="slide level2">
+<h2>Making predictions</h2>
+<p>Multitask regression : <strong>conditioning on observations</strong> Incertitude on the mean process : <strong>integrate over <span class="math inline">\(\mu_0\)</span></strong></p>
+<p><span class="math display">\[\begin{align}
+  p(y_* \vert \textbf{y}) 
+  &amp;= \int p(y_*, \mu_0 \vert \textbf{y}) \ d \mu_0\\
+  &amp;\underbrace{=}_{Bayes \heartsuit} \int p(y_* \vert \textbf{y}, \mu_0) p(\mu_0 \vert \textbf{y}) \ d \mu_0\\
+  &amp;\underbrace{=}_{(y_i \vert \mu_0)_i \perp \!\!\! \perp} \int p(y_* \vert \mu_0)                                    p(\mu_0 \vert \textbf{y}) \ d \mu_0 \\
+  &amp;= \mathcal{N}( \hat{\mu}_0, \hat{K} + \Psi)
+\end{align}\]</span></p>
+</section>
+<section id="a-gif-is-worth-109-words" class="slide level2">
+<h2>A gif is worth <span class="math inline">\(10^9\)</span> words</h2>
+<p><img src="images/GP_standard.gif" height="450" /> <img src="images/Our_algo_wide.gif" height="450" /></p>
+<ul>
+<li>Same data, same hyperparameters from learning</li>
+<li>Standard GP (left) | Our Multitask GP (right)</li>
+</ul>
+</section>
+<section id="a-gif-is-worth-109-words-1" class="slide level2">
+<h2>A gif is worth <span class="math inline">\(10^9\)</span> words</h2>
+<center>
+<img src="images/Our_algo_zoom.gif" height = "600" width="700">
+</center>
+</section>
+<section id="why-probabilistic-prediction-is-better" class="slide level2">
+<h2>Why probabilistic prediction is better ?</h2>
+<p>Making a prediction is <span class="math inline">\(\mathbb{P}(\)</span>saying something wrong<span class="math inline">\() \simeq 1\)</span>.<br />
+A probabilistic prediction tells you how much:</p>
+<center>
+<img src="images/heatmap.png" height="500" />
+</center>
+</section>
+<section id="perspectives" class="slide level2">
+<h2>Perspectives</h2>
+<p><br></p>
+<ul>
+<li><p>Improve and release the package</p></li>
+<li><p>Integrate to the app and launch tests with FFN</p></li>
+<li><p>Enable association with sparse GP approximations</p></li>
+<li><p>Maybe multivariate functional regression</p></li>
+<li><p>Write down a thesis. Someday.</p></li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<section style="text-align: left;">
+<font size="5"><em>Pattern Recognition and Machine Learning - Bishop - 2006<br />
+Gaussian processes for machine learning - Rasmussen &amp; Williams - 2006<br />
+Curve prediction and clustering with mixtures of Gaussian process […] - Shi &amp; Wang - 2008<br />
+Gaussian Process Regression Analysis for Functional Data - Shi &amp; Choi - 2011<br />
+Nonparametric Bayesian Mixed-effect Model: a Sparse […] - Wang &amp; Khardon - 2012<br />
+Career Performance Trajectories in Track and Field Jumping Events […] - Boccia &amp; al - 2017<br />
+Efficient Bayesian hierarchical functional data analysis […] - Yang &amp; al - 2017<br />
+Excelling at youth level in competitive track and field […] - Kearney &amp; Hayes - 2018<br />
+Functional Data Analysis in Sport Science: Example of Swimmers’ […] - Leroy &amp; al. - 2018<br />
+</em></font>
+</section>
+<p><br><br><br><br><br><br><br><br><br><br></p>
+</section>
+<section id="a-cat-gif-is-priceless" class="slide level2">
+<h2>A cat gif is priceless</h2>
+<center>
+<img src="images/gif_chat.gif" height="500" />
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_GTE_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_GTE_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
