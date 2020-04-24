@@ -5,9 +5,9 @@
   <meta name="generator" content="pandoc">
   <meta name="author" content="" />
   <meta name="author" content="Arthur LEROY (MAP5 - Université de Paris)" />
-  <meta name="author" content="Servane GEY (MAP5 - Université de Paris) - Jean-Francois TOUSSAINT (IRMES)" />
-  <meta name="author" content="Pierre LATOUCHE (MAP5 - Université de Paris) - Benjamin GUEDJ (INRIA)" />
-  <title>Apprentissage multi-tâches de données fonctionnelles :   Applications à la détection pour le sport de haut niveau</title>
+  <meta name="author" content="Servane GEY (MAP5) - Jean-Francois TOUSSAINT (IRMES)" />
+  <meta name="author" content="Pierre LATOUCHE (MAP5) - Benjamin GUEDJ (INRIA)" />
+  <title>Apprentissage multi-tâches de données fonctionnelles :    Applications à la détection pour le sport de haut niveau</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -491,11 +491,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
     <div class="slides">
 
 <section>
-    <h1 class="title">Apprentissage multi-tâches de données fonctionnelles : <br> Applications à la détection pour le sport de haut niveau</h1>
+    <h1 class="title">Apprentissage multi-tâches de données fonctionnelles : <br> <font size="20"> Applications à la détection pour le sport de haut niveau </font></h1>
     <h2 class="author"><br /></h2>
     <h2 class="author">Arthur LEROY (MAP5 - Université de Paris)</h2>
-    <h2 class="author">Servane GEY (MAP5 - Université de Paris) - Jean-Francois TOUSSAINT (IRMES)</h2>
-    <h2 class="author">Pierre LATOUCHE (MAP5 - Université de Paris) - Benjamin GUEDJ (INRIA)</h2>
+    <h2 class="author">Servane GEY (MAP5) - Jean-Francois TOUSSAINT (IRMES)</h2>
+    <h2 class="author">Pierre LATOUCHE (MAP5) - Benjamin GUEDJ (INRIA)</h2>
     <h3 class="date">GTE MAP5 (version distanciation sociale) - 24/04/2019</h3>
 </section>
 
@@ -710,10 +710,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><span class="math inline">\(\mu_0(\cdot) \sim \mathcal{GP}(m_0, K_{\theta_0}(\cdot,\cdot))\)</span></li>
 <li><span class="math inline">\(f_i(\cdot) \sim \mathcal{GP}(0, \Sigma_{\theta_i}(\cdot,\cdot)), \ f_i \perp \!\!\! \perp\)</span></li>
-<li><span class="math inline">\(\epsilon_i \sim \mathcal{N}(0, \sigma^2), \ \epsilon_i \perp \!\!\! \perp\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{N}(0, \sigma_i^2), \ \epsilon_i \perp \!\!\! \perp\)</span></li>
 </ul>
 <p>It follows that:</p>
-<p><span class="math display">\[y_i(\cdot) \vert \mu_0 \sim \mathcal{GP}(\mu_0(\cdot),   \Sigma_{\theta_i}(\cdot,\cdot) + \sigma^2), \ Y_i \vert \mu_0 \perp \!\!\! \perp\]</span></p>
+<p><span class="math display">\[y_i(\cdot) \vert \mu_0 \sim \mathcal{GP}(\mu_0(\cdot),   \Sigma_{\theta_i}(\cdot,\cdot) + \sigma^2), \ y_i \vert \mu_0 \perp \!\!\! \perp\]</span></p>
 <p><span class="math inline">\(\rightarrow\)</span> Shared information through <span class="math inline">\(\mu_0\)</span> and its uncertainty<br />
 <span class="math inline">\(\rightarrow\)</span> Unified non parametric probabilistic framework<br />
 <span class="math inline">\(\rightarrow\)</span> Effective even for irregular time series</p>
@@ -722,10 +722,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Notations</h2>
 <p><span class="math inline">\(\textbf{y} = (y_1^1,\dots,y_i^k,\dots,y_M^{N_M})^T\)</span><br />
 <span class="math inline">\(\textbf{t} = (t_1^1,\dots,t_i^k,\dots,t_M^{N_M})^T\)</span><br />
-<span class="math inline">\(\Theta = \{ \theta_0, (\theta_i)_i, \sigma^2 \}\)</span></p>
+<span class="math inline">\(\Theta = \{ \theta_0, (\theta_i)_i, \sigma_i^2 \}\)</span></p>
 <p><span class="math inline">\(\Sigma\)</span>: covariance matrix from the process <span class="math inline">\(f_i\)</span> evaluated on <span class="math inline">\(\textbf{t}\)</span></p>
 <p><span class="math inline">\(\Sigma = \left[ \Sigma_{\theta_i}(t_i^k, t_j^l)_{(i,j), (j,l)} \right]\)</span></p>
-<p><span class="math inline">\(\Psi = \Sigma + \sigma^2 Id_N\)</span></p>
+<p><span class="math inline">\(\Psi = \Sigma + \sigma_i^2 Id_N\)</span></p>
 </section>
 <section id="bayes-law-is-the-new-bible" class="slide level2">
 <h2>Bayes’ law is the new Bible</h2>
@@ -737,7 +737,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><span class="math inline">\(\mathbb{P}(D)\)</span>, probability that your data occur, norm. <strong>constant</strong></li>
 </ul>
 <p>Bayes’ law tells you how and what you should learn on theory T according to data D:</p>
-<p><span class="math inline">\(\rightarrow \mathbb{P}(T \vert D)\)</span>, what you should think <strong>a posteriori</strong></p>
+<p><span class="math inline">\(\rightarrow \mathbb{P}(T \vert D)\)</span>, what you should think <strong>a posteriori</strong> Computational burden, among solutions: <strong>empirical Bayes</strong></p>
 </section>
 <section id="learning-hp-and-mu_0-an-em-algorithm" class="slide level2">
 <h2>Learning HP and <span class="math inline">\(\mu_0\)</span> : an EM algorithm</h2>
@@ -849,6 +849,37 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <img src="images/Our_algo_zoom.gif" height = "600" width="700">
 </center>
 </section>
+<section id="we-talked-about-clustering-did-we" class="slide level2">
+<h2>We talked about clustering, did we ?</h2>
+<p>Assumption : 1 underlying mean process might be strong<br />
+<span class="math inline">\(\rightarrow\)</span> Mixture model of multitask GP:</p>
+<p><span class="math display">\[\forall i , \forall k ,  \ \ y_i(t) \vert (Z_{ik} = 1)  = \mu_k(t) + f_i(t) + \epsilon_i\]</span> with:</p>
+<ul>
+<li><span class="math inline">\(Z_{i} \sim \mathcal{M}(1, \pi)\)</span></li>
+<li><span class="math inline">\(\mu_k(\cdot) \sim \mathcal{GP}(m_k, K_{\theta_0}(\cdot,\cdot))\)</span></li>
+<li><span class="math inline">\(f_i(\cdot) \sim \mathcal{GP}(0, \Sigma_{\theta_i}(\cdot,\cdot)), \ f_i \perp \!\!\! \perp\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{N}(0, \sigma_i^2), \ \epsilon_i \perp \!\!\! \perp\)</span></li>
+</ul>
+<p>It follows that:</p>
+<p><span class="math display">\[y_i(\cdot) \vert (\mu_k)_k, \pi \sim \sum\limits_{k=1}^K{\pi_k \ \mathcal{GP}(\mu_k(\cdot),   \Psi_i)}, \ y_i \vert (\mu_k)_k, \pi \perp \!\!\! \perp\]</span></p>
+</section>
+<section id="learning-mu_k_k-z_i_i-and-hps-vem" class="slide level2">
+<h2>Learning <span class="math inline">\((\mu_k)_k, (Z_i)_i\)</span> and HPs : VEM</h2>
+<p>Posterior dependencies <span class="math inline">\((\mu_k)_k\)</span> and <span class="math inline">\((Z_i)_i\)</span> <span class="math inline">\(\rightarrow\)</span> variational EM</p>
+<p><span class="emphasized">Step E:</span></p>
+<p>Approximation assumption: <span class="math inline">\(r(\mu, Z) = r(\mu)p(Z)\)</span><br />
+True likelihood becomes : <span class="math inline">\(\mathcal{L}(model) = \mathcal{L}(r(\mu, Z)) + KL \big( r(\mu, Z) \vert \vert p(\mu, Z \vert \textbf{y})\big)\)</span></p>
+<p><span class="emphasized">Step M:</span></p>
+<p><span class="math inline">\(\mathcal{L}(r(\mu, Z))\)</span> provides a <strong>lower bound</strong> for LL maximization<br />
+Then buisiness as usual</p>
+<p><span class="math inline">\(\rightarrow\)</span> Each step is proved to <strong>increase likelihood</strong>. Repeat until convergence.</p>
+</section>
+<section id="did-i-mention-that-i-like-gifs" class="slide level2">
+<h2>Did I mention that I like gifs ?</h2>
+<center>
+<img src="images/pred_clust.gif" height = "600" width="700">
+</center>
+</section>
 <section id="why-probabilistic-prediction-is-better" class="slide level2">
 <h2>Why probabilistic prediction is better ?</h2>
 <p>Making a prediction is <span class="math inline">\(\mathbb{P}(\)</span>saying something wrong<span class="math inline">\() \simeq 1\)</span>.<br />
@@ -862,9 +893,10 @@ A probabilistic prediction tells you how much:</p>
 <p><br></p>
 <ul>
 <li><p>Improve and release the package</p></li>
-<li><p>Integrate to the app and launch tests with FFN</p></li>
 <li><p>Enable association with sparse GP approximations</p></li>
+<li><p>Integrate to the app and launch tests with FFN</p></li>
 <li><p>Maybe multivariate functional regression</p></li>
+<li><p>If <em>you</em> have another idea, let’s work on that together</p></li>
 <li><p>Write down a thesis. Someday.</p></li>
 </ul>
 </section>
