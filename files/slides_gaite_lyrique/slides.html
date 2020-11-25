@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Arthur Leroy - MAP5, Université de Paris" />
+  <title>Quand la statistique et le sport font équipe</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Quand la statistique et le sport font équipe <br> <br></h1>
+    <h2 class="author">Arthur Leroy - MAP5, Université de Paris <br> <br> <br> <br></h2>
+    <h3 class="date">Le corps statistique - La Gaîté Lyrique - 26/11/2020</h3>
+</section>
+
+<section id="historique-aux-origines" class="slide level2">
+<h2>Historique : aux origines</h2>
+<p><strong>Professionnalisation</strong> du sport dans la fin du 20ème siècle, et émergence des problématiques:</p>
+<ul>
+<li>de préparation physique,</li>
+<li>de nutrition,</li>
+<li>d'analyses vidéos,</li>
+</ul>
+<p>pour lesquelles des spécialistes intègrent parfois les staffs, ou collaborent avec les entraineurs.</p>
+<p>Généralisation du <strong>recueil de données</strong>, d'abord par le biais des médias dans un but d'interaction avec les (télé)-spéctateurs.</p>
+</section>
+<section id="historique-débuts-prommetteurs-aux-usa" class="slide level2">
+<h2>Historique : débuts prommetteurs aux USA</h2>
+<p>Premiers pas remarqués des analyses statistiques dans les sports US à cette période. Notamment le cas emblématique de l'équipe baseball des Athletics d'Oakland:</p>
+<center>
+<img src="images/moneyball.jpg" height="400" />
+</center>
+</section>
+<section id="historique-lessor-technologique" class="slide level2">
+<h2>Historique : l'essor technologique</h2>
+<p>Recueil plus massif de données avec la généralisation des divers capteurs et équipements technologiques:</p>
+<ul>
+<li>GPS,</li>
+<li>Accéléromètres,</li>
+<li>Cardio-fréquencemètres,</li>
+<li>Capteurs de chocs, ...</li>
+</ul>
+<p>Utilisation des données <em>brutes</em>, sans analyses sophistiquées dans un premier temps.</p>
+</section>
+<section id="historique-lessor-méthodologique" class="slide level2">
+<h2>Historique : l'essor méthodologique</h2>
+<p>Emergence forte de l'IA, notamment des méthodes de <em>machine learning</em>, dans de nombreuses applications à partir des années 2010.</p>
+<p>Début de l'intérêt pour analyser les grandes bases de données précédemment recueuillies. Pour le sport de haut niveau, plusieurs axes sont généralement d'intérêt:</p>
+<ul>
+<li>analyse de la performance,</li>
+<li>analyse tactique et décisions dans les sports collectifs,</li>
+<li>prévention des blessures,</li>
+<li>identification des talents prometteurs.</li>
+</ul>
+</section>
+<section id="historique-une-approche-scientifique" class="slide level2">
+<h2>Historique : une approche scientifique</h2>
+<p>Développement fort d'une <strong>approche scientifique de la performance</strong> dans les pays anglo-saxon (USA, GB, Australie).</p>
+<p>Emergence de postes de <em>sports scientists</em>, voir de <em>data analysts</em> spécifiquement dédiés à l'étude des données sportives</p>
+<p>Cas typique de la Grande Bretagne pour les JO 2012 et 2016.</p>
+<p>Développement plus tardif dans les autres nations, notamment en France en vue des JO 2024</p>
+</section>
+<section id="historique-une-approche-scientifique-1" class="slide level2">
+<h2>Historique : une approche scientifique</h2>
+<p>Plusieurs conséquences, notamment <strong>stratégiques</strong>, comme par exemple au basket avec le <em>small ball</em>.</p>
+<p>Des changements dans l'<strong>organisation</strong> des évènements (tirage au sort UEFA), dans l'<strong>interraction</strong> avec les supporters (développement des <em>fantasy</em>), et bien d'autres.</p>
+<p>Aujourd'hui il existe pour l'application de méthodes mathématiques aux problèmatiques sportives:</p>
+<ul>
+<li>des congrès mondiaux (Mathsport Athènes 2019),</li>
+<li>des groupes de recherche français (<em>Stat et sport</em> - SFdS),</li>
+<li>des groupes de recherche européens (S-training).</li>
+</ul>
+</section>
+<section id="stat-sport-quelques-cas-concrets" class="slide level2">
+<h2>Stat &amp; Sport : quelques cas concrets</h2>
+<center>
+<img src="images/nat_bayes.png" height="500" />
+</center>
+</section>
+<section id="stat-sport-quelques-cas-concrets-1" class="slide level2">
+<h2>Stat &amp; Sport : quelques cas concrets</h2>
+<center>
+<img src="images/appli_nat.png" height="500" />
+</center>
+</section>
+<section id="stat-sport-quelques-cas-concrets-2" class="slide level2">
+<h2>Stat &amp; Sport : quelques cas concrets</h2>
+<center>
+<img src="images/penta.jpg" height="500" />
+</center>
+</section>
+<section id="stat-sport-de-quoi-a-t-on-besoin" class="slide level2">
+<h2>Stat &amp; Sport : de quoi a-t-on besoin ?</h2>
+<center>
+<img src="images/data1.png" height="400" />
+</center>
+<ul>
+<li>de données <strong>pertinentes</strong> et <strong>'propres'</strong>,</li>
+</ul>
+</section>
+<section id="stat-sport-de-quoi-a-t-on-besoin-1" class="slide level2">
+<h2>Stat &amp; Sport : de quoi a-t-on besoin ?</h2>
+<center>
+<img src="images/data2.png" height="400" />
+</center>
+<ul>
+<li>de données <strong>pertinentes</strong> et <strong>'propres'</strong>,</li>
+<li>de problèmes (possiblement difficiles) <strong>bien posés</strong>,</li>
+</ul>
+</section>
+<section id="stat-sport-de-quoi-a-t-on-besoin-2" class="slide level2">
+<h2>Stat &amp; Sport : de quoi a-t-on besoin ?</h2>
+<center>
+<img src="images/data3.png" height="400" />
+</center>
+<ul>
+<li>de données <strong>pertinentes</strong> et <strong>'propres'</strong>,</li>
+<li>de problèmes (possiblement difficiles) <strong>bien posés</strong>,</li>
+<li>des méthodes <strong>adaptées</strong> pour y répondre.</li>
+</ul>
+</section>
+<section id="et-en-vrai-comment-on-fait" class="slide level2">
+<h2>Et en vrai, comment on fait ?</h2>
+<center>
+<img src="images/formule_GP.png" height="350" />
+</center>
+<p>Si le problème est réellement compliqué, un temps <strong>non-négligeable</strong> est consacré à la modélisation et à la résolution théorique (<span class="math inline">\(\simeq\)</span> 2 ans dans mon cas).</p>
+</section>
+<section id="et-en-vrai-comment-on-fait-1" class="slide level2">
+<h2>Et en vrai, comment on fait ?</h2>
+<center>
+<img src="images/code_R.png" height="600" />
+</center>
+</section>
+<section id="et-en-vrai-quest-ce-que-ça-donne" class="slide level2">
+<h2>Et en vrai, qu'est ce que ça donne ?</h2>
+<center>
+<img src="images/Our_algo_zoom.gif" height="600" />
+</center>
+</section>
+<section id="connaître-les-limites-et-choisir-ses-batailles" class="slide level2">
+<h2>Connaître les limites et choisir ses batailles</h2>
+<ul>
+<li>Possible résistance du monde sportif<br />
+</li>
+<li>Science et sport, deux temporalités bien différentes<br />
+</li>
+<li>A fait ses preuves sur des problèmes très spécifiques</li>
+<li>Certains sports sont fondamentalement non adaptés</li>
+</ul>
+<center>
+<img src="images/gif_foot.gif" height="400" />
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
