@@ -1726,7 +1726,7 @@
 	}
 
 	header.major h2 {
-		color: #c32d8d;
+		color: rgb(146,1,120);
 		font-size: 3.5em;
 	}
 
@@ -2462,7 +2462,7 @@
 		-ms-justify-content: space-between;
 		justify-content: space-between;
 		background: #fdede5;
-		color: #c32d8d;
+		color: rgb(146,1,120);
 		height: 100%;
 		overflow-y: auto;
 		position: fixed;
@@ -2473,23 +2473,23 @@
 	}
 
 		#header h1, #header h2, #header h3, #header h4, #header h5, #header h6 {
-			color: #c32d8d;
+			color: rgb(146,1,120);
 		}
 
 			#header h1 a, #header h2 a, #header h3 a, #header h4 a, #header h5 a, #header h6 a {
-				color: #c32d8d;
+				color: rgb(146,1,120);
 			}
 
 		#header header p {
-			color: #c32d8d;
+			color: rgb(146,1,120);
 		}
 
 		#header a {
-			color: #c32d8d;
+			color: rgb(146,1,120);
 		}
 
 			#header a:hover {
-				color: #c32d8d!important;
+				color: rgb(146,1,120)!important;
 			}
 
 		#header > header {
@@ -2512,7 +2512,7 @@
 			}
 
 			#header > header p {
-				color: #c32d8d;
+				color: rgb(146,1,120);
 				font-style: italic;
 				margin: 0.5em 0 0 0;
 			}
@@ -2561,15 +2561,15 @@
 						-ms-transition: none;
 						transition: none;
 						border: 0;
-						color: #ffffff !important;
+						color: rgb(146,1,120) !important;
 						display: block;
 						padding: 0.85em 0;
 						text-decoration: none;
 					}
 
 						#header > nav ul li a.active {
-							background: #fff;
-							color: #4acaa8 !important;
+							background: #fdede5;
+							color: rgb(146,1,120) !important;
 						}
 
 					#header > nav ul li:first-child {
