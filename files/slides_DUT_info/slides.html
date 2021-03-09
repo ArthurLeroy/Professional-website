@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>slides.utf8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="slides_files/header-attrs-2.6/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><img data-src="images/UniversiteParis_logo.jpg" style="width:8cm" alt="image alt &lt;" /> <img data-src="images/map5.jpg" style="width:6cm" alt="image alt &gt;" /> <br> <br>
+<hr>
+IA et sport : <br> <font size="6"> Prédire les performances futures en natation avec des algorithmes </font> <br>
+<hr></h1>
+    <h2 class="author"><p style="text-align:center;">
+<font size="6"><strong>Arthur Leroy</strong></font>
+</p></h2>
+    <h2 class="author"><p style="text-align:center;">
+<font size="6">MAP5, Université de Paris</font>
+</p></h2>
+    <h2 class="author"><center>
+<img data-src="images/photo.jpg" style="width:22.0%" />
+</center></h2>
+    <h3 class="date">Conférence DUT informatique - 09/03/2021</h3>
+</section>
+
+<section class="slide level2">
+
+
+</section>
+<section id="les-origines" class="slide level2">
+<h2>Les origines</h2>
+<hr>
+<p>Projet de <span class="emphasized">3 ans (2017-2020)</span>, dans le cadre d’un doctorat de mathématiques appliquées, portant sur le développement de méthodes d’<strong>apprentissage automatique pour le sport de haut-niveau</strong>.</p>
+<p><span class="fragment">Une problématique:</span></p>
+<ul>
+<li class = "fragment">
+Plusieurs études scientifiques récentes remarquent que les meilleurs jeunes sportifs atteignent rarement le haut niveau,
+<li class = "fragment">
+Les experts du monde sportif (fédérations, entraineurs, …) demandent de nouveaux indicateurs objectifs pour aider la <span class="emphasized">détection</span> des jeunes à fort potentiel.
+</ul>
+<p><br> <span class="fragment">Une opportunité :</span></p>
+<ul class = "fragment">
+<li>
+La Fédération Française de Natation (FFN) propose une base de données contenant des millions de résultats issus des compétitions disputées en France depuis 2002.
+</ul>
+</section>
+<section id="les-données-étudiées" class="slide level2">
+<h2>Les données étudiées</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur 100m nage libre :</p>
+<center>
+<img data-src="images/data1.png" style="width:100.0%" />
+</center>
+</section>
+<section id="les-données-étudiées-1" class="slide level2">
+<h2>Les données étudiées</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur 100m nage libre :</p>
+<center>
+<img data-src="images/data2.png" style="width:100.0%" />
+</center>
+<ul>
+<li>
+Données temporelles <span class="emphasized">irrégulières</span> (nombre de points et temps d’observations <strong>différents</strong>),
+<li class = "fragment">
+<span class="emphasized">Beaucoup</span> de nageurs pour chaque épreuve,
+</ul>
+</section>
+<section id="les-données-étudiées-2" class="slide level2">
+<h2>Les données étudiées</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur 100m nage libre :</p>
+<center>
+<img data-src="images/data3.png" style="width:100.0%" />
+</center>
+<ul>
+<li>Données temporelles <span class="emphasized">irrégulières</span> (nombre de points et temps d’observations <strong>différents</strong>),</li>
+<li><span class="emphasized">Beaucoup</span> de nageurs pour chaque épreuve,</li>
+<li><span class="emphasized">Peu </span>d’observations pour chaque nageur.</li>
+</ul>
+</section>
+<section id="un-problème-trois-questions" class="slide level2">
+<h2>Un problème, trois questions</h2>
+<hr>
+<p><span class="fragment"> <strong>Existe-t-il des profils de progressions spécifiques parmi les nageurs ?</strong> </span><br />
+<span class="fragment"><br />
+Leroy et al. - <em>Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</em> - Applied Sciences - 2018 </span></p>
+<p><br> <span class="fragment"> <strong>Est-il possible de prédire des performances futures (et quantifier nos certitudes) ?</strong> </span><br />
+<span class="fragment"><br />
+Leroy et al. - <em><span class="smallcaps">Magma</span>: Inference and Prediction with Multi-Task Gaussian Processes</em> - <em>Under submission in Statistics and Computing</em> - 2020 - <a href="https://github.com/ArthurLeroy/MAGMA" class="uri">https://github.com/ArthurLeroy/MAGMA</a> </span></p>
+<p><br> <span class="fragment"> <strong>Est-ce-que former des groupes d’individus permet d’améliorer les prédictions ?</strong> </span><br />
+<span class="fragment"><br />
+Leroy et al. - <em>Cluster-Specific Predictions with Multi-Task Gaussian Processes</em> - <em>Under submission in JMLR</em> - 2020 - <a href="https://github.com/ArthurLeroy/MAGMAclust" class="uri">https://github.com/ArthurLeroy/MAGMAclust</a> </span></p>
+<!-- Trois questions applicatives qui ont conduits à des problèmes statistiques assez généraux et non triviaux. Une a pu être traitée à partir d'une analyse exploratoire initiale. Les deux autres ont nécessité des contributions méthodologiques spécifiques. Ces questions sont somme toute classiques, mais présentent des difficultés dans le cadre assez inconfortable, que sont irrégulières. Ces particularité sont une des difficultés majeurs du travail qui va suivre et aura demandé une attention spécifique tout au long de la thèse. -->
+</section>
+<section id="un-problème-trois-questions-1" class="slide level2">
+<h2>Un problème, trois questions</h2>
+<hr>
+<p><strong>Existe-t-il des profils de progressions spécifiques parmi les nageurs?</strong></p>
+<center>
+<img data-src="images/raw_curves.png" style="width:80.0%" />
+</center>
+</section>
+<section id="travailler-avec-des-fonctions-et-faire-des-groupes" class="slide level2">
+<h2>Travailler avec des fonctions et faire des groupes</h2>
+<hr>
+<p>Pour pouvoir comparer les individus il est nécessaire de définir une <strong>représentation commune</strong>, et de reconstruire des <span class="emphasized">données fonctionnelles</span> à partir des points d’observations.</p>
+<p><span class="fragment"> L’utilisation d’algorithmes de <strong>clustering de courbes</strong> permet d’identifier <span class="emphasized">différents profils</span> de progression, correspondant bien à ce qui est observé par les experts de la natation en pratique. </span></p>
+<span class="fragment">
+<center>
+<img data-src="images/multclust.png" height="450" />
+</center>
+<p></span></p>
+</section>
+<section id="limites-des-algorithmes-existants" class="slide level2">
+<h2>Limites des algorithmes existants</h2>
+<hr>
+<p><br></p>
+<ul>
+<li>
+Modélisation individuel insatisfaisante,
+<li class="fragment">
+Pas de prise en compte de l’incertitude,
+<li class="fragment">
+Difficulté de traitement des temps d’observation irréguliers.
+</ul>
+<center>
+<img data-src="images/splines.png" style="width:75.0%" />
+</center>
+</section>
+<section id="une-question-bonus" class="slide level2">
+<h2>Une question bonus</h2>
+<hr>
+<p><strong>Mais au fait, comment fait on pour apprendre ?</strong></p>
+<center>
+<img data-src="images/robot-reading-ai.jpg" style="width:60.0%" />
+</center>
+</section>
+<section id="quelques-clarifications-sur-les-termes-à-la-mode" class="slide level2">
+<h2>Quelques clarifications sur les termes à la mode</h2>
+<hr>
+<center>
+<img data-src="images/IA.png" style="width:50.0%" />
+</center>
+<p>Le travail présenté ici se concentre sur deux grands problèmes de <em>machine learning </em>:</p>
+<ul>
+<li class="fragment">
+L’apprentissage <span class="emphasized">supervisé</span>, où l’on cherche à généraliser à partir de données du type entrée-sortie pour faire des prédictions.
+<li class="fragment">
+L’apprentissage <span class="emphasized">non-supervisé</span> (ou clustering), où l’on cherche les structures de groupe dans des données de même type.
+</ul>
+</section>
+<section id="apprentissage-supervisé-les-grands-principes" class="slide level2">
+<h2>Apprentissage supervisé, les grands principes</h2>
+<hr>
+<p><br></p>
+<div class="block">
+<p><span class="math display">\[y = \color{green}{f}(x) + \epsilon\]</span></p>
+</div>
+<p>où :</p>
+<div class="block fragment">
+<ul>
+<li class="fragment">
+<span class="math inline">\(x\)</span> est la donnée d’entrée (ici l’âge du nageur),
+<li class="fragment">
+<span class="math inline">\(y\)</span> est la donnée de sortie (ici la performance sur 100m),
+<li class="fragment">
+<span class="math inline">\(\epsilon\)</span> est le bruit, un terme d’erreur aléatoire,
+<li class="fragment">
+<span class="math inline">\(\color{green}{f}\)</span> est une <span class="emphasized">fonction inconnue</span> qui définie la <strong>relation</strong> entre les données d’entrée et de sortie.
+</ul>
+</div>
+<p><br></p>
+<p><span class="fragment"> Tout le problème de l’apprentissage supervisé consiste à trouver la <em>bonne</em> fonction <span class="math inline">\(\color{green}{f}\)</span>, en s’aidant de données observées <span class="math inline">\(\{(x_1, y_1), \dots, (x_n, y_n) \}\)</span>, pour pouvoir effectuer des <strong>prédictions</strong> lorsque l’on observe une nouvelle donnée <span class="math inline">\(x_{n+1}\)</span>. </span></p>
+</section>
+<section id="apprentissage-supervisé-1.0-le-regréssion-linéaire" class="slide level2">
+<h2>Apprentissage supervisé 1.0, le regréssion linéaire</h2>
+<hr>
+<p>L’exemple le plus simple est celui de la régression linéaire, où l’on fait l’hypothèse que :</p>
+<div class="block">
+<p><span class="math display">\[\color{green}{f}(x) = a x + b\]</span></p>
+</div>
+<p>Trouver la meilleure fonction <span class="math inline">\(\color{green}{f}\)</span> revient à estimer la bonne valeur de <span class="math inline">\(a\)</span> et <span class="math inline">\(b\)</span> pour nos données.</p>
+<center>
+<img data-src="images/linear_reg.gif" style="width:50.0%" />
+</center>
+</section>
+<section id="la-formule-de-bayes" class="slide level2">
+<h2>La formule de Bayes</h2>
+<hr>
+<p>Cette simple formule a de grandes implications sur la façon d’apprendre à partir de données.</p>
+<p><br></p>
+<div class="block">
+<p><span class="math display">\[\mathbb{P}(\color{red}{T} \mid D) = \dfrac{\mathbb{P}(D \mid \color{red}{T}) \times  \mathbb{P}(\color{red}{T})}{\mathbb{P}(D)}\]</span></p>
+</div>
+<p>avec :</p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\color{red}{T})\)</span>, la probabilité que la théorie <span class="math inline">\(\color{red}{T}\)</span> soit vraie, ce que l’on pense <span class="emphasized">a priori</span>.
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(D \mid \color{red}{T})\)</span>, la probabilité d’obtenir ces données si la théorie <span class="math inline">\(\color{red}{T}\)</span> est vraie, la <span class="emphasized">vraisemblance</span>.
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(D)\)</span>, la probabilité d’obtenir ces données, une <span class="emphasized">constante</span> de normalisation.
+</ul>
+<p><span class="fragment"> La formule de Bayes indique comment <strong>mettre à jour</strong> ce que l’on pense de <span class="math inline">\(\color{red}{T}\)</span> en tenant compte des données D : </span></p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\color{red}{T} \mid D)\)</span>, la probabilité que la théorie <span class="math inline">\(\color{red}{T}\)</span> soit vraie au vu des données, ce qu’il faut penser <span class="emphasized">a posteriori</span>.
+</ul>
+</section>
+<section id="mais-comment-on-apprend-à-bien-apprendre" class="slide level2">
+<h2>Mais comment on apprend à bien apprendre ?</h2>
+<hr>
+<p>Illustrons ce résultat avec un exemple classique. Si il existe une maladie telle que :</p>
+<p><br></p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\color{red}{M}) = 0.001\)</span>, 1 personne sur 1000 est malade en moyenne,
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(D \mid \color{red}{M}) = 0.99\)</span>, un test de dépistage est fiable à 99% si vous êtes malade,
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\bar{D} \mid \bar{\color{red}{M}}) = 0.99\)</span>, ce même test de dépistage est fiable à 99% si vous n’êtes malade,
+</ul>
+<p><span class="fragment"> Alors, si vous avez un résultat positif au test, la formule de Bayes vous informe que vous avez en réalité une probabilité d’être malade égale à : </span></p>
+<div class="block fragment">
+<p><span class="math display">\[\mathbb{P}(\color{red}{M} \mid D) = \dfrac{\mathbb{P}(D \mid \color{red}{M}) \times  \mathbb{P}(\color{red}{M})}{\mathbb{P}(D)} = \dfrac{0.99 \times 0.001}{0.99 \times 0.001 + 0.01 \times 0.999} \simeq 0.09\]</span></p>
+</div>
+<p><br></p>
+<p><span class="fragment">Ainsi, on aurait seulement <span class="emphasized">9% de chance</span> environ d’être effectivement malade malgré un résultat positif au test. <span></p>
+</section>
+<section id="apprendre-une-fonction-grâce-à-bayes" class="slide level2">
+<h2>Apprendre une fonction grâce à Bayes ?</h2>
+<hr>
+<p><br></p>
+<p><span class="fragment"> Bien que la formule de Bayes soit connue depuis longtemps, il est général <strong>très difficile</strong> de calculer certains termes.</span> <br></p>
+<p><span class="fragment"> Cependant, les récents développements de l’informatique et les grandes puissances de calcul ont permis de le développement de la <span class="emphasized">statistique Bayésienne</span>, qui au coeur de nombreux algorithmes d’apprentissage.</span> <br></p>
+<p><span class="fragment"> Cette approche permet de raisonner en terme de probabilités, et de <strong>quantifier l’incertitude</strong> de nos prédictions.</span> <br></p>
+<p><span class="fragment"> En particulier, un algorithme très populaire pour apprendre notre fonction d’apprentissage <span class="math inline">\(\color{green}{f}\)</span> et effectuer des prédictions probabilistes repose sur l’utilisation des <span class="emphasized">processus gaussiens</span>. </span></p>
+</section>
+<section id="processus-gaussien-ou-le-miracle-de-lapprentissage-probabiliste" class="slide level2">
+<h2>Processus gaussien, ou le miracle de l’apprentissage probabiliste</h2>
+<hr>
+<p><br> <strong>Pas de restrictions</strong> sur <span class="math inline">\(\color{green}{f}\)</span> mais des <span class="emphasized">probabilités a priori</span> parmi toutes les fonctions possibles. <br><br></p>
+<center>
+<img data-src="images/GP.png" height="420" />
+</center>
+</section>
+<section id="prédiction-à-laide-dun-processus-gaussien" class="slide level2">
+<h2>Prédiction à l’aide d’un processus gaussien</h2>
+<hr>
+<center>
+<img data-src="images/gif_gp.gif" style="width:65.0%" />
+</center>
+<p>Les processus gaussiens offrent un cadre de <strong>modélisation idéal</strong> mais restent <span class="emphasized">insuffisants</span> pour faire des prédictions (surtout à long terme).</p>
+</section>
+<section id="un-problème-trois-questions-2" class="slide level2">
+<h2>Un problème, trois questions</h2>
+<hr>
+<p><strong>Est-il possible de prédire des performances futures (et quantifier nos certitudes) ?</strong></p>
+<center>
+<img data-src="images/magma_swimmers.png" style="width:80.0%" />
+</center>
+</section>
+<section id="parfois-le-problème-concret-inspire-linnovation-mathématique" class="slide level2">
+<h2>Parfois le problème concret inspire l’innovation mathématique</h2>
+<hr>
+<p><br></p>
+<p><span class="fragment"> Partant du constat que tous les nageurs partagent de nombreuses <span class="emphasized">caractéristiques communes</span>, pourquoi ne pas introduire un processus gaussien <span class="math inline">\(\mu_0\)</span>, <strong>commun à tous les individus</strong> ? </span></p>
+<div class="block fragment">
+<p><span class="math display">\[y_i(t) = \mu_0(t) + f_i(t) + \epsilon_i\]</span></p>
+</div>
+<p><span class="fragment"> avec : </span></p>
+<div class="block fragment">
+<ul>
+<li>
+<span class="math inline">\(t\)</span> : le temps d’observation (l’age du nageur),
+<li>
+<span class="math inline">\(y_i(t)\)</span>: l’observation (la performance du nageur).
+</ul>
+</div>
+<p><br> <span class="fragment"> Cette équation est appelé le <strong>modèle génératif</strong> de nos données. On fait l’hypothèse que les données réelles sont issues d’un phénomène qui fonctionne selon cette formule. </span> <br></p>
+<p><span class="fragment"> Une telle approche, de partage d’information entre plusieurs individus, est généralement appelée <span class="emphasized">apprentissage multi-tâches</span>. </span></p>
+</section>
+<section id="multi-task-gp-with-common-mean-magma" class="slide level2">
+<h2>Multi-tAsk GP with coMmon meAn (<span class="smallcaps">Magma</span>)</h2>
+<hr>
+<p><br></p>
+<p>Un nouvel algorithme, appelé <span class="smallcaps">Magma</span>, est développé pour apprendre les valeurs probables de <span class="math inline">\(\mu_0\)</span> sachant nos données, en utilisant la formule de Bayes :</p>
+<p><br></p>
+<div class="block">
+<p><span class="math display">\[\mathbb{P}(\mu_0 \mid y_i) = \dfrac{\mathbb{P}(y_i \mid \mu_0) \mathbb{P}(\mu_0)}{\mathbb{P}(y_i)}\]</span></p>
+</div>
+<p><br> Ainsi, <strong>tous les individus</strong> déjà observés vont servir à estimer la loi de probabilité du processus commun <span class="math inline">\(\mu_0\)</span>.</p>
+</section>
+<section id="utiliser-mu_0-dans-la-prédiction-lidée-clef" class="slide level2">
+<h2>Utiliser <span class="math inline">\(\mu_0\)</span> dans la prédiction : l’idée clef</h2>
+<hr>
+<p>Une fois que l’on a <em>appris</em> <span class="math inline">\(\mu_0\)</span>, il est très difficile de savoir comment utiliser les <strong>informations qu’il contient</strong>. Même si cette étape aura été (de loin) la plus longue à accomplir, la solution à ce problème s’écrit finalement en quelques lignes. Il faut pour cela :</p>
+<ul>
+<li class="fragment">
+considérer que l’on connait (<span class="emphasized">conditionnement</span>) toutes les données d’entrainement à chaque fois que l’on veut effectuer des prédictions pour un nouvel individu,
+<li class="fragment">
+faire <em>transiter</em> l’information par <span class="math inline">\(\mu_0\)</span> (<span class="emphasized">intégration</span>).
+</ul>
+<div class="block fragment">
+<p><span class="math display">\[\begin{align}
+  p(y_* (\textbf{t}_*^{p}) \mid \textbf{y})
+   &amp;= \int p\left(y_* (\textbf{t}_*^{p}) \mid \textbf{y}, \mu_0(\textbf{t}_*^{p})\right) p(\mu_0 (\textbf{t}_*^{p}) \mid \textbf{y}) \ d \mu_0(\mathbf{t}^{p}_{*}) \\
+  &amp;= \int \underbrace{ p \left(y_* (\textbf{t}_*^{p}) \mid \mu_0 (\textbf{t}_*^{p}) \right)}_{\mathcal{N}(y_*; \mu_0, \Psi_*)} \ \underbrace{p(\mu_0 (\textbf{t}_*^{p}) \mid \textbf{y})}_{\mathcal{N}(\mu_0; \hat{m}_0, \hat{K})} \ d \mu_0(\mathbf{t}^{p}_{*}) \\
+  &amp;= \mathcal{N}( \hat{m}_0 (\mathbf{t}^{p}_{*}), \Gamma)
+\end{align}\]</span></p>
+</div>
+</section>
+<section id="des-formules-et-du-code" class="slide level2">
+<h2>Des formules et du code</h2>
+<hr>
+<p>Quelques étapes supplémentaires seront nécessaires pour achever notre algorithme :</p>
+<ul>
+<li>
+Définir les formules de prédiction pour les temps non-observés,
+<li>
+Résoudre le problème des observations à temps irréguliers,
+<li>
+Implémenter les équations (<span class="math inline">\(\simeq 2000\)</span> lignes de code).
+</ul>
+<div class="block">
+<center>
+<img data-src="images/code.png" style="width:70.0%" />
+</center>
+</div>
+</section>
+<section id="une-image-vaut-1000-mots" class="slide level2">
+<h2>Une image vaut 1000 mots</h2>
+<hr>
+<ul>
+<li>Mêmes <strong>données</strong>, mêmes <strong>paramètres</strong></li>
+<li>Processus gaussien strandard (gauche), <span class="smallcaps">Magma</span> (droite)</li>
+</ul>
+<p><br></p>
+<center>
+<img data-src="images/Figure_1.png" style="width:100.0%" />
+</center>
+</section>
+<section id="un-gif-vaut-109-mots" class="slide level2">
+<h2>Un GIF vaut <span class="math inline">\(10^9\)</span> mots</h2>
+<hr>
+<center>
+<img src="images/gif_magma.gif" width="80%">
+</center>
+</section>
+<section id="un-problème-trois-questions-3" class="slide level2">
+<h2>Un problème, trois questions</h2>
+<hr>
+<p><strong>Est ce que former des groupes d’individus permet d’améliorer les prédictions?</strong></p>
+<p><br></p>
+<center>
+<img data-src="images/shape_cluster.png" style="width:100.0%" />
+</center>
+</section>
+<section id="magma-clustering-magmaclust" class="slide level2">
+<h2><span class="smallcaps">Magma</span> + Clustering = <span class="smallcaps">MagmaClust</span></h2>
+<hr>
+<p><br> <span class="fragment"> Encore une fois, la problèmatique sportive nous offre une perspective d’amélioration du modèle.</span></p>
+<p><span class="fragment"> En identifiant <strong>différents groupes</strong>, le partage d’information pourrait être plus pertinent entre les individus qui se ressemblent.</span> <br></p>
+<p><span class="fragment"> On peut ainsi definir une <span class="emphasized">procédure de clustering</span> au sein de notre algorithme, simplement en définissant un processus <span class="math inline">\(\mu_k\)</span> spécifique pour chaque groupe.</span></p>
+<div class="block fragment">
+<p><span class="math display">\[y_i(t) = \mu_{\color{red}{k}}(t) + f_i(t) + \epsilon_i\]</span></p>
+</div>
+<p><br></p>
+<p><span class="fragment"> Et il est toujours possible d’apprendre tous les <span class="math inline">\(\mu_k\)</span>, mais aussi les <strong>probabilités d’appartenance</strong> à chacun des groupes, pour tous les individus. </span></p>
+</section>
+<section id="le-duel-final-magma-vs-magmaclust" class="slide level2">
+<h2>Le duel final : <span class="smallcaps">Magma</span> vs <span class="smallcaps">MagmaClust</span></h2>
+<hr>
+<br> <br> <br>
+<center>
+<img data-src="images/illu_compare2.png" height="430" /> <img data-src="images/illu_compare3.png" height="430" />
+</center>
+</section>
+<section id="une-prédiction-qui-dépend-du-groupe-dappartenance" class="slide level2">
+<h2>Une prédiction qui dépend du groupe d’appartenance</h2>
+<hr>
+<br><br><br>
+<center>
+<img data-src="images/illu_2_other_clusters.png" style="width:100.0%" />
+</center>
+</section>
+<section id="lapprentissage-des-processus-moyens-en-image" class="slide level2">
+<h2>L’apprentissage des processus moyens en image</h2>
+<hr>
+<br><br><br>
+<center>
+<img data-src="images/shape_cluster.png" style="width:100.0%" />
+</center>
+</section>
+<section id="qualité-de-prédiction-sur-données-simulées" class="slide level2">
+<h2>Qualité de prédiction sur données simulées</h2>
+<hr>
+<p><br><br><br><br></p>
+<center>
+<img data-src="images/table_magmaclust.png" style="width:100.0%" />
+</center>
+</section>
+<section id="la-complexité-algorithmique" class="slide level2">
+<h2>La complexité algorithmique</h2>
+<hr>
+<p><span class="fragment"> Un aspect important de tout algorithme, notamment pour l’apprentissage automatique, réside dans sa <span class="emphasized">complexité algorithmique</span> <br></p>
+<p><span class="fragment"> Cette mesure nous indique dans quel ordre de grandeur le nombre d’opérations (et donc le temps de calcul) augmente en fonction de la dimension des données d’entrées du modèle. Dans notre cas de figure, nous avons :</p>
+<ul>
+<li  class="fragment">
+<span class="smallcaps">Magma</span>: <span class="math display">\[ 
+\mathcal{O}(M\times N_i^3 + N^3)
+\]</span>
+<li  class="fragment">
+<span class="smallcaps">MagmaClust</span>: <span class="math display">\[ 
+\mathcal{O}(M\times N_i^3 + K \times N^3)
+\]</span>
+</ul>
+<p><span class="fragment"> avec : </span></p>
+<ul class="fragment">
+<li>
+<span class="math inline">\(M\)</span>, le nombre d’individus,
+<li>
+<span class="math inline">\(N_i\)</span>, le nombre de temps d’observations de l’individus <span class="math inline">\(i\)</span>,
+<li>
+<span class="math inline">\(N\)</span>, le nombre de points d’observations différents totaux,
+<li>
+<span class="math inline">\(K\)</span>, le nombre de clusters.
+</ul>
+</section>
+<section id="et-nos-nageurs-dans-tout-ça" class="slide level2">
+<h2>Et nos nageurs dans tout ça ?</h2>
+<hr>
+<center>
+Processus gaussien standard
+</center>
+</center>
+<center>
+<img data-src="images/gp_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="et-nos-nageurs-dans-tout-ça-1" class="slide level2">
+<h2>Et nos nageurs dans tout ça ?</h2>
+<hr>
+<center>
+<span class="smallcaps">Magma</span>
+</center>
+<center>
+<img data-src="images/magma_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="et-nos-nageurs-dans-tout-ça-2" class="slide level2">
+<h2>Et nos nageurs dans tout ça ?</h2>
+<hr>
+<center>
+<span class="smallcaps">MagmaClust</span>
+</center>
+<center>
+<img data-src="images/magmaclust_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="qualité-de-prédiction-pour-tous-les-nageurs" class="slide level2">
+<h2>Qualité de prédiction pour tous les nageurs</h2>
+<hr>
+<p><br></p>
+<center>
+<img data-src="images/table_swimmers.png" style="width:100.0%" />
+</center>
+</section>
+<section id="ai-je-précisé-que-jaimais-les-gifs" class="slide level2">
+<h2>Ai-je précisé que j’aimais les GIFs ?</h2>
+<hr>
+<center>
+<img src="images/gif_heatmap.gif" width=80%>
+</center>
+</section>
+<section id="intégration-dans-une-application-web-ffn" class="slide level2">
+<h2>Intégration dans une application web FFN</h2>
+<hr>
+<center>
+<img data-src="images/screenshot_appli_nat_1.png" height="800" />
+</center>
+</section>
+<section id="intégration-dans-une-application-web-ffn-1" class="slide level2">
+<h2>Intégration dans une application web FFN</h2>
+<hr>
+<center>
+<img data-src="images/screenshot_appli_nat_4.png" height="650" />
+</center>
+</section>
+<section id="projets-à-venir" class="slide level2">
+<h2>Projets à venir</h2>
+<hr>
+<p><br> <br> <br></p>
+<ul>
+<li class = "fragment">
+<bp>Amélioration des modèles et recherche théorique,</bp>
+<li class = "fragment">
+<bp>Optimisation du code et implémentation de librairies R et Python,</bp>
+<li class = "fragment">
+<bp>Intégration à l’appli web FFN,</bp>
+<li class = "fragment">
+<bp>Tests grandeur nature avec de jeunes nageurs ?</bp>
+</ul>
+</section>
+<section id="un-gif-de-chat-ça-na-pas-de-prix" class="slide level2">
+<h2>Un GIF de chat, ça n’a pas de prix</h2>
+<hr>
+<center>
+<img data-src="images/gif_chat.gif" height="500" />
+</center>
+<center>
+<bp> Si vous avez des questions, c’est le moment ! </bp>
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
