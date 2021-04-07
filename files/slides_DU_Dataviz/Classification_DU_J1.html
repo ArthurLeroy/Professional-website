@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Classification_DU_J1.utf8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Classification_DU_J1_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="Classification_DU_J1_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="Classification_DU_J1_files/header-attrs-2.6/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><img data-src="Images/UniversiteParis_logo.jpg" style="width:9cm" alt="image alt &lt;" /> <img data-src="Images/map5.jpg" style="width:7cm" alt="image alt &gt;" /> <br> <br>
+<hr />
+Classification automatique : <br> <font size="7"> Méthodes et mise en application </font> <br>
+<hr /></h1>
+    <h2 class="author"><p style="text-align:center;">
+<font size="6"><strong>Arthur Leroy - Université de Paris</strong></font>
+</p></h2>
+    <h3 class="date">DU Dataviz - 7 et 8 Avril 2021 <br> <img data-src="Images/gif_titre.gif" style="width:10cm" /></h3>
+</section>
+
+<section id="coordonnées-et-références" class="slide level2">
+<h2>Coordonnées et références</h2>
+<hr>
+<ul>
+<li><p>Arthur Leroy :</p>
+<ul>
+<li><a href="mailto:arthur.leroy.pro@gmail.com" class="email">arthur.leroy.pro@gmail.com</a></li>
+<li><a href="https://arthur-leroy.netlify.app/" class="uri">https://arthur-leroy.netlify.app/</a></li>
+</ul></li>
+<li><p><strong>Références</strong> (liste non-exhaustive) :</p>
+<ul>
+<li>Analyse de Données avec R, <em>F. Husson, S. Lê, J. Pagès</em>, Presses Universitaires de Rennes.</li>
+<li>Statistique Exploratoire Multidimensionnelle, <em>L. Lebart, M. Piron, A. Morineau</em>, DUNOD.</li>
+<li>Package R FactoMineR : <a href="http://factominer.free.fr/" class="uri">http://factominer.free.fr/</a></li>
+<li>MOOC Analyse des Données Multidimensionnelles, <em>F. Husson</em>, sur plateforme FUN.</li>
+</ul></li>
+</ul>
+</section>
+<section id="planning-de-la-journée" class="slide level2">
+<h2>Planning de la journée</h2>
+<hr>
+<ol type="1">
+<li><strong>Introduction</strong>
+<ul>
+<li>Données et exemples de visualisation</li>
+<li>Classification automatique</li>
+</ul></li>
+<li><strong>Méthodes et mise en oeuvre</strong>
+<ul>
+<li>Classification Ascendante Hiérarchique</li>
+<li>Centres mobiles</li>
+<li>Classification sur facteurs</li>
+</ul></li>
+</ol>
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<hr>
+</section>
+<section id="table-de-données-brutes" class="slide level2">
+<h2>Table de données brutes</h2>
+<hr>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>satisf <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Villes.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisf[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisf<span class="sc">$</span>ville</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(x)</span></code></pre></div>
+<pre><code>##            accessibilite dynamisme.economique emploi taille cadre.de.vie
+## Lille               18.3                 10.4   12.5   15.8         10.3
+## douai-lens          14.5                 13.2    8.2   12.4          9.9
+## lyon                14.4                 12.9   18.5   20.0          8.3
+## rouen               14.0                 10.8   12.7   17.6         11.0
+## nantes              13.9                 16.5   17.9   15.0         11.2
+## rennes              13.2                 14.9   17.9   18.2         10.1
+##            culture immobilier meteo offre.de.soins securite
+## Lille         18.9        2.4   4.7            6.6      3.0
+## douai-lens    10.1       14.6   4.7            2.0      5.4
+## lyon          19.8        3.2  14.7           10.1      2.6
+## rouen         16.6        5.2   1.7            9.4      5.7
+## nantes        16.6        5.9   7.6            9.8      9.8
+## rennes        17.1        5.4   6.8           17.8     14.9</code></pre>
+</section>
+<section id="visualisation-des-données-sur-le-premier-plan-factoriel" class="slide level2">
+<h2>Visualisation des données sur le premier plan factoriel</h2>
+<hr>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="visualisation-des-groupes-sur-le-premier-plan-factoriel" class="slide level2">
+<h2>Visualisation des groupes sur le premier plan factoriel</h2>
+<hr>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" style="display: block; margin: auto;" /></p>
+<!-- ## Visualisation des données sur une carte (dite carte de Kohonen) -->
+<!-- ```{r, echo = FALSE} -->
+<!-- library(kohonen) -->
+<!-- carte = som(x.scaled, grid = somgrid(3,3,"hexagonal")) -->
+<!-- par(mfrow = c(1,2)) -->
+<!-- plot(carte, type = "mapping", labels = rownames(x), cex=0.6) -->
+<!-- plot(carte, type="codes") -->
+<!-- ``` -->
+<!-- ## Visualisation des groupes sur une carte -->
+<!-- ```{r, echo = FALSE} -->
+<!-- carte = som(x.scaled, grid = somgrid(3,3,"hexagonal")) -->
+<!-- neurones = data.frame(carte$codes) -->
+<!-- distance = dist(neurones) -->
+<!-- dendro = hclust(distance, method="ward.D2") -->
+<!-- # plot(dendro) -->
+<!-- indicateurs = R2.PseudoF(neurones, dendro, graph = FALSE) -->
+<!-- nclass = 3 -->
+<!-- # class = cutree(dendro, k=nclass) -->
+<!-- km = kmeans(neurones, nclass, nstart=10) -->
+<!-- class = km$cluster -->
+<!-- par(mfrow = c(1,2)) -->
+<!-- plot(carte, type = "mapping", labels = rownames(x), bgcol = c("pink", "cyan", "yellow")[class], cex=0.6) -->
+<!-- add.cluster.boundaries(carte, clustering = class) -->
+<!-- plot(carte, type="codes") -->
+<!-- ``` -->
+</section>
+<section id="classification-automatique" class="slide level2">
+<h2>Classification automatique</h2>
+<hr>
+<ul>
+<li><p><strong>Objectifs</strong> : à partir d’une table de données contenant <span class="math inline">\(n\)</span> individus et <span class="math inline">\(p\)</span> variables <strong>quantitatives</strong>,</p>
+<ul>
+<li>regrouper les individus en <span class="math inline">\(k\)</span> groupes, avec <span class="math inline">\(k&lt;n\)</span>, de telle sorte que
+<ul>
+<li>les individus d’un même groupe soient les plus ressemblants possibles,</li>
+<li>les individus appartenant à des groupes différents soient les plus dissemblables possibles,</li>
+<li>un individu appartient à un et un seul groupe.</li>
+</ul></li>
+<li>Caractériser les groupes.</li>
+</ul></li>
+<li><p><strong>Mise en oeuvre</strong> : algorithmes d’approximation (solution optimale inatteignable en termes de complexité de calcul).</p></li>
+<li><p><strong>Contraintes</strong> : les groupes, ainsi que leur nombre <span class="math inline">\(k\)</span>, sont en général <strong>inconnus</strong>.</p></li>
+</ul>
+</section>
+<section id="méthodes-de-classification-automatique" class="slide level2">
+<h2>Méthodes de classification automatique</h2>
+<hr>
+<ul>
+<li><strong>Classification ascendante hiérarchique (CAH)</strong> :
+<ul>
+<li>regroupement des individus, puis des groupes, deux à deux, de manière à former une hiérarchie de groupes,</li>
+<li>choix d’un nombre de groupes,</li>
+<li>caractérisation de la classification obtenue.</li>
+</ul></li>
+<li><strong>Centres mobiles</strong> :
+<ul>
+<li>choix de <span class="math inline">\(k\)</span> fixé a priori,</li>
+<li>formation de <span class="math inline">\(k\)</span> groupes rassemblant les individus les plus proches de <span class="math inline">\(k\)</span> centres fixés a priori,</li>
+<li>mise à jour des centres par les points moyens à l’intérieur de chaque groupe,</li>
+<li>itération jusqu’à convergence vers une classification stable.</li>
+</ul></li>
+</ul>
+<!--* **Cartes auto-organisatrices** : méthode dérivée des centres mobiles permettant une visualisation en 2 dimensions sous forme de carte.-->
+</section>
+<section id="méthodes-et-mise-en-oeuvre" class="slide level2">
+<h2>Méthodes et Mise en Oeuvre</h2>
+<hr>
+</section>
+<section id="classification-ascendante-hiérarchique" class="slide level2">
+<h2>Classification Ascendante Hiérarchique</h2>
+<hr>
+<ul>
+<li><strong>Hiérarchie de parties</strong> : ensemble de groupes ``emboîtés’’.</li>
+<li>Cette représentation traduit la façon dont ils sont construits :
+<ul>
+<li>soit par réunion successive de parties (ascendante),</li>
+<li>soit par division successive (descendante).</li>
+</ul></li>
+<li>La relation d’inclusion conduit à une représentation graphique du type :</li>
+</ul>
+<center>
+<img data-src="Images/dendro1.jpg" style="width:40.0%" alt="Dendrogramme" />
+</center>
+</section>
+<section id="représentation-graphique" class="slide level2">
+<h2>Représentation graphique</h2>
+<hr>
+<ul>
+<li><strong>Ordre de formation</strong> : traduction des différents niveaux de ressemblance entre les groupes.</li>
+<li>Ordre utilisé pour <strong>ordonner</strong> le graphique suivant l’axe vertical :</li>
+</ul>
+<center>
+<img data-src="Images/dendro1.jpg" style="width:60.0%" alt="Dendrogramme" />
+</center>
+</section>
+<section id="représentation-graphique-2" class="slide level2">
+<h2>Représentation graphique (2)</h2>
+<hr>
+<ul>
+<li><strong>Indice de diamètre</strong> : indice numérique quantifiant la variabilité entre les groupes</li>
+</ul>
+<center>
+<img data-src="Images/dendro2.jpg" style="width:55.0%" alt="Dendrogramme" />
+</center>
+<ul>
+<li><span class="math inline">\(\Longrightarrow\)</span> <strong>hiérarchie indicée</strong>.</li>
+<li>Représentation graphique = <strong>dendrogramme</strong>.</li>
+</ul>
+</section>
+<section id="cah-lalgorithme-de-base" class="slide level2">
+<h2>CAH : l’algorithme de base</h2>
+<hr>
+<ul>
+<li><strong>Etape 1</strong>:
+<ul>
+<li>Calcul des distances entre chaque élément de l’échantillon de données.</li>
+<li>Regroupement des 2 individus les plus proches <span class="math inline">\(\Rightarrow\)</span> obtention de <span class="math inline">\(n-1\)</span> groupes.</li>
+<li>L’indice de diamètre des parties à 1 individu est <span class="math inline">\(0\)</span>, et celui de la partie obtenue par fusion des 2 individus est proportionnel à la distance entre ces 2 individus.</li>
+</ul></li>
+<li><strong>Etape j (<span class="math inline">\(1\leqslant j\leqslant n-1\)</span>)</strong> :
+<ul>
+<li>Calcul des <strong>dissemblances</strong> entre chaque partie obtenue à l’étape <span class="math inline">\(j-1\)</span>.</li>
+<li>Regroupement des deux parties les plus proches <span class="math inline">\(\Rightarrow\)</span> obtention de <span class="math inline">\(n-j\)</span> groupes.</li>
+<li>L’indice de diamètre du nouveau groupe obtenu est proportionnel à la dissemblance entre les 2 groupes dont il est issu.</li>
+</ul></li>
+<li><strong>Fin de l’algorithme</strong> : A l’étape <span class="math inline">\(n-1\)</span>, lorsque tous les individus sont regroupés dans un seul groupe.</li>
+</ul>
+</section>
+<section id="agrégation-de-groupes" class="slide level2">
+<h2>Agrégation de groupes</h2>
+<hr>
+<ul>
+<li><strong>Agrégation des groupes</strong> : choix d’une <strong>dissemblance <span class="math inline">\(\delta\)</span></strong> permettant de quantifier la <strong>différence</strong> entre les groupes. <span class="math inline">\(\delta\)</span> repose elle-même sur le choix d’une <strong>distance</strong> <span class="math inline">\(d\)</span> entre les points, en général <span class="math inline">\(d =\)</span> distance euclidienne : pour <span class="math inline">\(p=2\)</span></li>
+</ul>
+<center>
+<img data-src="Images/Euclidienne.png" style="width:30.0%" alt="Distance euclidienne" />
+</center>
+<p>Si <span class="math inline">\(x = (x^{(1)};\ldots;x^{(p)})\)</span> et <span class="math inline">\(y = (y^{(1)};\ldots;y^{(p)})\)</span>, alors <span class="math display">\[d(x,y) = \sqrt{\sum_{j=1}^p\left(x^{(j)}-y^{(j)}\right)^2}\]</span></p>
+</section>
+<section id="dissemblance-les-choix" class="slide level2">
+<h2>Dissemblance : les choix</h2>
+<hr>
+<ul>
+<li><strong>Dissemblances</strong> : Exemples
+<ul>
+<li>saut minimal (lien simple) : <span class="math display">\[\delta_{min}(A,B)=\mbox{min}\{d(x,y) \ ; \ x\in A, \ y\in B\}\]</span></li>
+<li>saut maximal (lien complet) : <span class="math display">\[\delta_{max}(A,B)=\mbox{max}\{d(x,y) \ ; \ x\in A, \ y\in B\}\]</span></li>
+<li>saut moyen (lien moyen) : <span class="math display">\[\delta_{moy}(A,B)=\frac{\sum_{\{ x\in A, \ y\in B\}}d(x,y)}{card(A)\times card(B)}\]</span></li>
+</ul></li>
+</ul>
+</section>
+<section id="dissemblance-les-choix-2" class="slide level2">
+<h2>Dissemblance : les choix (2)</h2>
+<hr>
+<p>Exemple pour <span class="math inline">\(\delta_{min}\)</span> et <span class="math inline">\(\delta_{max}\)</span></p>
+<center>
+<img data-src="Images/Dissemblances.png" style="width:70.0%" alt="Exemple de dissemblances" />
+</center>
+</section>
+<section id="critère-de-ward" class="slide level2">
+<h2>Critère de Ward</h2>
+<hr>
+<p>Critère nécessitant l’utilisation de la distance <strong>euclidienne</strong></p>
+<ul>
+<li><span class="math inline">\(d\)</span> distance entre 2 points = distance euclidienne.</li>
+<li>Les groupes sont représentés par leur <strong>point moyen</strong> (ou <strong>centre de gravité</strong>).</li>
+<li>La fusion de 2 groupes est représentée par le remplacement des 2 représentants de chaque groupe par le centre de gravité des 2 points, muni de la somme des masses.</li>
+<li>Dans ce cadre, on ne regarde plus les distances pour choisir les groupes à fusionner, mais la décomposition de <strong>l’inertie</strong> (ou <strong>variance</strong>) selon les groupes d’une classification.</li>
+</ul>
+<!-- %frame -->
+<!-- \begin{frame} -->
+<!-- \frametitle{Inertie inter et inertie intra} -->
+<!-- \begin{itemize} -->
+<!-- \item $n$ individus dans $k$ groupes $P_1,\ldots, P_k$, -->
+<!-- \item $G$~: isobarycentre des $n$ individus, $G=$ \hspace{3cm},%\displaystyle{\frac{1}{n}\sum_{i=1}^nx_i}$, -->
+<!-- \item $n_j$~: effectif du groupe $P_j$, -->
+<!-- \item $G_j$~: isobarycentre du groupe $P_j$, $G_j=$ \hspace{3cm}.%\displaystyle{\frac{1}{n_j}\sum_{\{i \ ; \ x_i\in P_j\}}x_i}$. -->
+<!-- %\item $p_{*}$~: poids associ\'e au point $*$. -->
+<!-- \item \bleubf{Inertie intra-classe}~: Somme des inerties des points du groupe $P_j$ au -->
+<!-- barycentre $G_j$. $$I_{intra}(k)=\frac{1}{n}\sum_{j=1}^k\sum_{\{i \ ; \ x_i \in P_j\}}d^2(x_i,G_j)$$ -->
+<!-- \item \bleubf{Inertie inter-classe}~: Inertie des barycentres $G_j$ au -->
+<!-- barycentre $G$. $$I_{inter}(k)=\frac{1}{n}\sum_{j=1}^kn_jd^2(G_j,G)$$ -->
+<!-- \end{itemize} -->
+<!-- \end{frame} -->
+<!-- %frame -->
+<!-- \begin{frame} -->
+<!-- \frametitle{Inertie totale} -->
+<!-- \begin{itemize} -->
+<!-- \item \bleubf{Inertie totale}~: Inertie des $n$ points au barycentre -->
+<!-- $G$. $$I_G=\frac{1}{n}\sum_{i=1}^nd^2(x_i,G)$$ -->
+<!-- \item \bleubf{Relation de Huygens}~: L'inertie totale est la somme des inerties intra et -->
+<!-- inter classes. $$I_G=I_{intra}(k)+I_{inter}(k)$$ -->
+<!-- \item \bleubf{2 cas extr\^emes}~: -->
+<!-- \begin{itemize} -->
+<!-- \item $k=n$~: $I_{intra}(n)=0$ et $I_{inter}(n)=I_G$. -->
+<!-- \item $k=1$~: $I_{intra}(1)=I_G$ et $I_{inter}(1)=0$. -->
+<!-- \end{itemize} -->
+<!-- \end{itemize} -->
+<!-- \end{frame} -->
+</section>
+<section id="décomposition-de-linertie-lmp" class="slide level2">
+<h2>Décomposition de l’inertie (LMP)</h2>
+<hr>
+<p>Variance totale <span class="math inline">\(=\)</span> Variance inter-groupes <span class="math inline">\(+\)</span> Variance Intra-groupes</p>
+<center>
+<img data-src="Images/partition1.jpg" style="width:100.0%" alt="Décomposition de l’inertie" />
+</center>
+</section>
+<section id="qualité-dune-classification-lmp" class="slide level2">
+<h2>Qualité d’une classification (LMP)</h2>
+<hr>
+<center>
+<img data-src="Images/partition2.jpg" style="width:100.0%" alt="Qualité de la classification en 2 groupes suivant la variance intra-groupes" />
+</center>
+</section>
+<section id="algorithme-dagrégation-par-critère-de-ward" class="slide level2">
+<h2>Algorithme d’agrégation par critère de Ward</h2>
+<hr>
+<ul>
+<li><strong>Principe général</strong> : Au depart de l’algorithme, l’inertie inter-classes est maximale (<span class="math inline">\(n\)</span> classes). A la fin, celle-ci est nulle (1 classe).</li>
+</ul>
+<p><span class="math inline">\(\Rightarrow\)</span> On minimise à chaque étape la perte d’inertie inter-classes (ou on maximise le gain d’inertie intra-classe).</p>
+<ul>
+<li><strong>A chaque étape</strong>: On regroupe les 2 groupes pour lesquels la perte d’inertie inter-classes est minimale.</li>
+</ul>
+<p>Cela revient à regrouper les groupes <span class="math inline">\(j\)</span> et <span class="math inline">\(j&#39;\)</span> (représentés par leurs centres <span class="math inline">\(G_j\)</span> et <span class="math inline">\(G_j&#39;\)</span>) pour lesquels la perte <span class="math display">\[\Delta_{jj&#39;}=\frac{n_jn_{j&#39;}}{n_j+n_{j&#39;}}d^2(G_j,G_{j&#39;})\]</span> est minimale.</p>
+</section>
+<section id="un-exemple-simple" class="slide level2">
+<h2>Un exemple simple</h2>
+<hr>
+<center>
+<img data-src="Images/jouet1.jpg" style="width:20.0%" />
+</center>
+<ul>
+<li>Carrés des distances euclidiennes</li>
+</ul>
+<center>
+<img data-src="Images/tabdist1.jpg" style="width:20.0%" />
+</center>
+<ul>
+<li>Regroupement 1 et 3 <span class="math inline">\(\Rightarrow\)</span> nouvel individu 6</li>
+</ul>
+</section>
+<section id="un-exemple-simple-2" class="slide level2">
+<h2>Un exemple simple (2)</h2>
+<hr>
+<center>
+<img data-src="Images/jouet2.jpg" style="width:20.0%" />
+</center>
+<ul>
+<li>Carrés des distances euclidiennes pondérés (arrondis)</li>
+</ul>
+<center>
+<img data-src="Images/tabdist2.jpg" style="width:15.0%" />
+</center>
+<ul>
+<li>Regroupement 2 et 5 <span class="math inline">\(\Rightarrow\)</span> nouvel individu 7</li>
+</ul>
+</section>
+<section id="un-exemple-simple-3" class="slide level2">
+<h2>Un exemple simple (3)</h2>
+<hr>
+<center>
+<img data-src="Images/jouet3.jpg" style="width:20.0%" />
+</center>
+<ul>
+<li>Carrés des distances euclidiennes pondérés (arrondis)</li>
+</ul>
+<center>
+<img data-src="Images/tabdist3.jpg" style="width:15.0%" />
+</center>
+<ul>
+<li>Regroupement 4 et 6 <span class="math inline">\(\Rightarrow\)</span> nouvel individu 8</li>
+</ul>
+</section>
+<section id="un-exemple-simple-4" class="slide level2">
+<h2>Un exemple simple (4)</h2>
+<hr>
+<center>
+<img data-src="Images/jouet4.jpg" style="width:20.0%" />
+</center>
+<center>
+<img data-src="Images/dendrojouet_petit.jpg" style="width:20.0%" />
+</center>
+</section>
+<section id="choix-du-nombre-de-groupes" class="slide level2">
+<h2>Choix du nombre de groupes</h2>
+<hr>
+<ul>
+<li><p><strong>Coupure du dendrogramme</strong> à un niveau donné de l’indice <span class="math inline">\(\Longrightarrow\)</span> classification.</p></li>
+<li><p>La coupure doit se faire :</p>
+<ul>
+<li><strong>après</strong> les agrégations correspondant à des valeurs peu élevées de l’indice,</li>
+<li><strong>avant</strong> les agrégations correpondant à des niveaux élevés de l’indice (dissocient les groupes bien distincts dans la population).</li>
+</ul></li>
+<li><p>Règle empirique : sélection d’une coupure lors d’un saut important de l’indice par inspection visuelle du dendrogramme.</p></li>
+<li><p>Ce saut traduit le passage brutal entre des groupes d’une certaine homogénéité de l’ensemble à des classes beaucoup moins homogènes.</p></li>
+<li><p>Dans la plupart des cas, il y a <strong>plusieurs paliers</strong> et donc <strong>plusieurs choix de classifications</strong> possibles.</p></li>
+</ul>
+</section>
+<section id="choix-du-nombre-de-groupes-exemple" class="slide level2">
+<h2>Choix du nombre de groupes : exemple</h2>
+<hr>
+<center>
+<img data-src="Images/dendrojouet.png" style="width:40.0%" alt="Dendrogramme" />
+</center>
+<!-- ## Choix du nombre de groupes : $R^2$ -->
+<!-- * **Critère numérique** de choix du nombre de classes : pour $k=1,\ldots,n$, -->
+<!-- $$R^2(k)  =  \frac{\mbox{Inertie inter-classes}}{\mbox{Inertie totale}}$$ -->
+<!-- * **Repérage** du point $k$ où il y a un coude dans la représentation graphique du $R^2$ : -->
+<!-- ![R2](Images/R2.jpg) -->
+<!-- ## Choix du nombre de groupes : $PseudoF$ -->
+<!-- * Autre **critère numérique** (plus stable) : pour $k=1,\ldots,n$, -->
+<!-- $$PseudoF(k) = \frac{R^2(k)/(k-1)}{(1-R^2(k))/(n-k)}$$ -->
+<!-- * **Repérage** du point $k$ où $PseudoF$ est maximal : -->
+<!-- ![PseudoF](Images/pseudoF.jpg) -->
+</section>
+<section id="création-des-profils-dindividus" class="slide level2">
+<h2>Création des profils d’individus</h2>
+<hr>
+<ul>
+<li><p><strong>Profils</strong> : profils créés à partir</p>
+<ul>
+<li>des <strong>représentants</strong> de chaque groupe constituant la classification,</li>
+<li>de la visualisation des groupes sur les plans factoriels, avec le cercle des corrélations.</li>
+</ul></li>
+<li><p><strong>Représentant</strong> : individu moyen du groupe, dont les mesures sur chaque variable sont les mesures moyennes calculées dans le groupe.</p></li>
+<li><p><strong>Analyse des profils</strong> à partir</p>
+<ul>
+<li>de l’analyse des représentants de chaque groupe,</li>
+<li>de la visualisation sur les plans factoriels.</li>
+</ul></li>
+</ul>
+</section>
+<section id="la-cah-sous-r-exemple-des-iris-de-fisher" class="slide level2">
+<h2>La CAH sous R : exemple des Iris de Fisher</h2>
+<hr>
+<p>Les longueurs et largeurs de sépales et de pétales sont mesurées sur 150 iris, dont on connaît l’espèce : “setosa”, “versicolor” ou “virginica”.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(iris)</span></code></pre></div>
+<pre><code>## &#39;data.frame&#39;:    150 obs. of  5 variables:
+##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...</code></pre>
+</section>
+<section id="la-cah-sous-r-2" class="slide level2">
+<h2>La CAH sous R (2)</h2>
+<hr>
+<ul>
+<li>ACP sur les variables quantitatives :</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>iris.pca <span class="ot">=</span> <span class="fu">PCA</span>(iris, <span class="at">ncp =</span> <span class="dv">4</span>,</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">quali.sup =</span> <span class="dv">5</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li>Options de la fonction <em>PCA</em> :
+<ul>
+<li><strong>ncp</strong> : indique le nombre de composantes principales à calculer. Ici, autant qu’il y a de variables quantitatives (4). Par défaut, <em>ncp = 5</em>.</li>
+<li><strong>quali.sup</strong> : projette le centre de gravité des modalités des variables qualitatives indiquées sur le plan factoriel. Ici, la variable qualitative est <em>Species</em>, en <span class="math inline">\(5\)</span>ème position dans la table.</li>
+<li><strong>quanti.sup</strong> : projette les variables quantitatives indiquées sur le plan factoriel.</li>
+<li>Les variables indiquées dans <em>xxx.sup</em> sont <strong>illustratives</strong> et <strong>ne participent pas à la construction des axes factoriels</strong>.</li>
+<li><strong>graph</strong> : affiche ou non les projections des données et variables sur le premier plan factoriel. Par défaut, <em>graph = TRUE</em>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="la-cah-sous-r-3" class="slide level2">
+<h2>La CAH sous R (3)</h2>
+<hr>
+<p>Représentation graphique sur le premier plan factoriel:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) <span class="co"># pour afficher les graphiques</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># côte à côte</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;ind&quot;</span>, <span class="at">label =</span> <span class="st">&quot;quali&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">=</span> <span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;var&quot;</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1,p2, <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">widths =</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span></code></pre></div>
+<ul>
+<li><strong>choix = “ind”</strong> : représentation des individus sur le plan factoriel,</li>
+<li><strong>choix = “var”</strong> : représentation du cercle des corrélations sur le plan factoriel,</li>
+<li><strong>axes = c(1,2) (défaut)</strong> : choix des axes représentés sur le plan factoriel,</li>
+<li><strong>label = “quali”</strong> : ajout des noms des modalités illustratives.</li>
+<li><strong>grid.arrange</strong> crée une grille (tableau) telle que 1 case = 1 graphique : <em>ncol, nrow</em> nombre de lignes et de colonnes de la grille. Ici 1 ligne et 2 colonnes. <em>widths, heigths</em> réglage des tailles des graphiques.</li>
+</ul>
+</section>
+<section id="la-cah-sous-r-4" class="slide level2">
+<h2>La CAH sous R (4)</h2>
+<hr>
+<p>Résultat du code précédent :</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gridExtra) <span class="co"># pour afficher les graphiques</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                   <span class="co"># côte à côte</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">=</span> <span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;ind&quot;</span>, <span class="at">label =</span> <span class="st">&quot;quali&quot;</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">=</span> <span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;var&quot;</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1,p2, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-8-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-5" class="slide level2">
+<h2>La CAH sous R (5)</h2>
+<hr>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+##  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+##  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+##  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+##  Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+##  3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+##  Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+##        Species  
+##  setosa    :50  
+##  versicolor:50  
+##  virginica :50  
+##                 
+##                 
+## </code></pre>
+</section>
+<section id="la-cah-sous-r-6" class="slide level2">
+<h2>La CAH sous R (6)</h2>
+<hr>
+<ul>
+<li>Certaines variables sont sur une échelle jusqu’à <span class="math inline">\(2\)</span> fois plus grande que d’autres <span class="math inline">\(\Longrightarrow\)</span> avant de lancer la classification, nécessité de <strong>standardiser</strong> les variables afin d’éviter les problèmes d’échelle (sinon toute la classification s’appuiera sur la ou les variable(s) de plus grande échelle) :</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>iris.std <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">scale</span>(iris[,<span class="sc">-</span><span class="dv">5</span>])) <span class="co"># ici, on enlève </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># la variable</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># numéro 5, </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># qui est </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                                        <span class="co"># qualitative</span></span></code></pre></div>
+<p>où la fonction <em>data.frame</em> permet de transformer l’objet rendu par <em>scale</em> en un format gérable en entrée par la fonction de classification.</p>
+<ul>
+<li><strong>Note</strong> : on peut calculer la matrice des dissemblances entre les individus de la base de données</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>D <span class="ot">=</span> <span class="fu">dist</span>(iris.std)</span></code></pre></div>
+</section>
+<section id="la-cah-sous-r-7" class="slide level2">
+<h2>La CAH sous R (7)</h2>
+<hr>
+<ul>
+<li>Calcul du dendrogramme avec la fonction <em>HCPC</em> (librairie <em>FactoMineR</em>) :</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dendro.ward <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">consol =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">&quot;ward&quot;</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">graph =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li><strong>nb.clust</strong> : nombre de groupes souhaité. Si <em>nb.clust = -1</em>, un algorithme d’optimisation est utilisé pour le choisir automatiquement. Si <em>nb.clust = 0</em> (par défaut), l’utilisateur choisit en cliquant sur le dendrogramme.</li>
+<li><strong>consol</strong> : applique ou non un algorithme de consolidation à l’aide des centres mobiles (voir suite du cours). Par défaut, <em>consol = TRUE</em>.</li>
+<li><strong>method</strong> : méthode d’agrégation des groupes. Les méthodes vues précédemment sont <em>ward</em> (méthode de Ward), <em>single</em> (lien simple), <em>complete</em> (lien complet) et <em>average</em> (lien moyen). Par défaut, <em>method = ward</em>.</li>
+</ul>
+</section>
+<section id="la-cah-sous-r-8" class="slide level2">
+<h2>La CAH sous R (8)</h2>
+<hr>
+<p>Représentation du dendrogramme :</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">rect =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li><strong>choice = “tree”</strong> renvoie la représentation graphique du dendrogramme,</li>
+<li><strong>rect = FALSE</strong> ne représente pas les rectangles identifiant la classification. Par défaut <em>rect = TRUE</em>.</li>
+<li>Le diagramme en barres représente l’inertie (= indice) nécessaire pour regrouper les groupes 2 à 2 au long de l’algorithme. Plus la différence d’inertie est grande, et plus les groupes rassemblés sont différents. Option <em>tree.barplot = TRUE</em> par défaut dans la fonction <em>plot</em>, mettre à <em>FALSE</em> pour ne pas le représenter.</li>
+</ul>
+</section>
+<section id="la-cah-sous-r-9" class="slide level2">
+<h2>La CAH sous R (9)</h2>
+<hr>
+<p>Résultat du code précédent :</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">rect =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-14-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-10" class="slide level2">
+<h2>La CAH sous R (10)</h2>
+<hr>
+<ul>
+<li>Représentation du dendrogramme avec la classification choisie :</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-11" class="slide level2">
+<h2>La CAH sous R (11)</h2>
+<hr>
+<p>Représentation des découpes possibles sur le dendrogramme</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dendro.ward2 <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="dv">2</span>, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">consol =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">&quot;ward&quot;</span>, </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="co"># découpe la fenêtre graphique en </span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                  <span class="co"># 2 cases (1 ligne, 2 colonnes)</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward2, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-16-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-12" class="slide level2">
+<h2>La CAH sous R (12)</h2>
+<hr>
+<p>Enlever les noms des observations en bas du dendrogramme :</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward2, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-13" class="slide level2">
+<h2>La CAH sous R (13)</h2>
+<hr>
+<p>Changer les titres des figures :</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Classification à 3 groupes&quot;</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward2, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Classification à 2 groupes&quot;</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-14" class="slide level2">
+<h2>La CAH sous R (14)</h2>
+<hr>
+<p>Comparaison avec la méthode du lien complet :</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dendro.complet <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">consol =</span> <span class="cn">FALSE</span>, <span class="at">method =</span> <span class="st">&quot;complete&quot;</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Dendrogramme avec Ward&quot;</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.complet, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">tree.barplot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">&quot;Dendrogramme avec lien complet&quot;</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-19-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-15" class="slide level2">
+<h2>La CAH sous R (15)</h2>
+<hr>
+<ul>
+<li><strong>Note</strong> : le choix par défaut dans la fonction <em>plot</em> est <em>choice = “3D.map”</em>, qui donne la représentation en 3D suivante :</li>
+</ul>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">title =</span> <span class="st">&quot;Dendrogramme avec Ward et clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-16" class="slide level2">
+<h2>La CAH sous R (16)</h2>
+<hr>
+<p>Représentation de la classification par le critère de Ward sur le premier plan factoriel</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, <span class="at">ind.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li><strong>choice = “map”</strong> renvoie la projection sur le premier plan factoriel des données, avec une couleur par groupe renvoyés par le dendrogramme,</li>
+<li><strong>draw.tree = FALSE</strong> ne représente pas les liens de regroupements entre individus sur le plan. Par défaut, <em>draw.tree = TRUE</em>,</li>
+<li><strong>ind.names = FALSE</strong> ne représente pas les noms des observations sur les points du graphique. Par défaut, <em>ind.names = TRUE</em>.</li>
+</ul>
+</section>
+<section id="la-cah-sous-r-17" class="slide level2">
+<h2>La CAH sous R (17)</h2>
+<hr>
+<p>Résultat du code précédent</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, <span class="at">ind.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-22-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-18" class="slide level2">
+<h2>La CAH sous R (18)</h2>
+<hr>
+<p>Création des profils d’iris à l’aide du cercle des corrélations</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;var&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-23-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-19" class="slide level2">
+<h2>La CAH sous R (19)</h2>
+<hr>
+<p>Comparaison avec le critère du lien complet :</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.complet, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ind.names =</span> <span class="cn">FALSE</span>, <span class="at">title =</span> <span class="st">&quot;Lien complet&quot;</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ind.names =</span> <span class="cn">FALSE</span>, <span class="at">title =</span> <span class="st">&quot;Ward&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-24-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-20" class="slide level2">
+<h2>La CAH sous R (20)</h2>
+<hr>
+<p>Comparaison avec les espèces (où <em>habillage</em> indique le numéro de colonne de la variable qualitative à utiliser pour colorer les points)</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;ind&quot;</span>, <span class="at">label =</span> <span class="st">&quot;quali&quot;</span>, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">habillage =</span> <span class="dv">5</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-25-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="la-cah-sous-r-21" class="slide level2">
+<h2>La CAH sous R (21)</h2>
+<hr>
+<p>Nouvelle table de données en sortie de la fonction <em>HCPC</em> (où le $ sélectionne l’objet <em>data.clust</em> dans la liste en sortie)</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(dendro.ward<span class="sc">$</span>data.clust)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width clust
+## 1   -0.8976739  1.01560199    -1.335752   -1.311052     1
+## 2   -1.1392005 -0.13153881    -1.335752   -1.311052     1
+## 3   -1.3807271  0.32731751    -1.392399   -1.311052     1
+## 4   -1.5014904  0.09788935    -1.279104   -1.311052     1
+## 5   -1.0184372  1.24503015    -1.335752   -1.311052     1
+## 6   -0.5353840  1.93331463    -1.165809   -1.048667     1</code></pre>
+<p>Récupération de la classification :</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>groupes <span class="ot">=</span> dendro.ward<span class="sc">$</span>data.clust<span class="sc">$</span>clust</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>groupes</span></code></pre></div>
+<pre><code>##   [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [38] 1 1 1 1 2 1 1 1 1 1 1 1 1 3 3 3 2 3 2 3 2 3 2 2 3 2 3 2 3 2 2 2 2 3 3 3 3
+##  [75] 3 3 3 3 3 2 2 2 2 3 2 3 3 2 2 2 2 3 2 2 2 2 2 3 2 2 3 3 3 3 3 3 2 3 3 3 3
+## [112] 3 3 3 3 3 3 3 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+## [149] 3 3
+## Levels: 1 2 3</code></pre>
+</section>
+<section id="tp-application-de-la-cah-sur-les-données-de-satisfaction-sur-les-villes" class="slide level2">
+<h2>TP : application de la CAH sur les données de satisfaction sur les villes</h2>
+<hr>
+<ul>
+<li>Charger les données sur l’enquête de satisfaction sur les villes où il fait bon vivre (fichier Villes.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>satisfv <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Villes.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfv[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfv<span class="sc">$</span>ville</span></code></pre></div>
+<p>Ici, on nomme les observations à l’aide de la colonne 1 (idenfiant “ville”). Dans les représentations graphiques, on laissera <em>label</em> et <em>ind.names</em> par défaut afin d’avoir les noms des villes sur les graphiques.</p>
+<ul>
+<li>Effectuer une ACP sur ces données, puis une CAH. Sélectionner un nombre de groupes et les représenter sur le premier plan factoriel.</li>
+</ul>
+</section>
+<section id="tp-application-de-la-cah-sur-les-données-de-satisfaction-sur-les-hôtels" class="slide level2">
+<h2>TP : application de la CAH sur les données de satisfaction sur les hôtels</h2>
+<hr>
+<ul>
+<li>Charger les données sur l’enquête de satisfaction de la chaîne d’hôtels 3 étoiles (fichier Hotels.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>satisfh <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Hotels.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfh[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfh<span class="sc">$</span>Nom[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>]</span></code></pre></div>
+<ul>
+<li><p>Pourquoi est-il judicieux de standardiser ces données, alors que ce n’est pas forcément nécessaire pour les villes ?</p></li>
+<li><p>Refaire les analyses demandées sur le jeu de données précédent.</p></li>
+</ul>
+</section>
+<section id="centres-mobiles" class="slide level2">
+<h2>Centres mobiles</h2>
+<hr>
+<ul>
+<li><p>Algorithme dû principalement à Forgy (1965) : E. Forgy, <em>Cluster analysis of multivariate data : Efficiency versus interpretability of classification</em>, Biometrics, 21:768:780, 1965</p></li>
+<li><p><strong>Prémisses ou variantes</strong> : Thorndike (1953), <em>k-means</em> MacQueen (1967), Ball &amp; Hall (1967)</p></li>
+<li><p><strong>Généralisation marquante</strong> : Algorithme des <em>nuées dynamiques</em> proposé par Diday (1971)</p></li>
+<li><p>Adapté aux <strong>grands jeux de données</strong> :</p>
+<ul>
+<li>traitement séquentiel possible</li>
+<li>ne requiert pas le calcul d’une matrice <span class="math inline">\(n\times n\)</span> de distances entre individus</li>
+</ul></li>
+</ul>
+</section>
+<section id="algorithme-k-means" class="slide level2">
+<h2>Algorithme (k-means)</h2>
+<hr>
+<center>
+<img data-src="Images/gif_kmeans.gif" style="width:40.0%" alt="Algorithme des Centres Mobiles" />
+</center>
+</section>
+<section id="description-de-lalgorithme" class="slide level2">
+<h2>Description de l’algorithme</h2>
+<hr>
+<ul>
+<li><span class="math inline">\(n\)</span> individus, décrits par <span class="math inline">\(p\)</span> variables, à classifier en <span class="math inline">\(k\)</span> classes (<strong><span class="math inline">\(k\)</span> fixé</strong>)</li>
+<li><strong>Etape 0</strong> :
+<ul>
+<li><span class="math inline">\(k\)</span> centres provisoires <span class="math inline">\(\{C_1^0,\ldots,C_k^0\}\)</span> tirés au hasard.</li>
+<li><span class="math inline">\(k\)</span> groupes <span class="math inline">\(\{P_1^0,\ldots,P_k^0\}\)</span> créés à partir des centres en regroupant les données les plus proches de chaque centre.</li>
+<li>Obtention de la classification <span class="math inline">\(P^0\)</span>.</li>
+</ul></li>
+<li><strong>Etape j</strong> :
+<ul>
+<li><span class="math inline">\(\{C_1^j,\ldots,C_k^j\}\)</span> centres (= points moyens) des <span class="math inline">\(k\)</span> groupes <span class="math inline">\(\{P_1^{j-1},\ldots,P_k^{j-1}\}\)</span> construits à l’étape <span class="math inline">\(j-1\)</span>.</li>
+<li><span class="math inline">\(k\)</span> nouveaux groupes <span class="math inline">\(\{P_1^j,\ldots,P_k^j\}\)</span> créés à partir des nouveaux centres suivant la même règle qu’à l’étape 0.</li>
+<li>Obtention de la partition <span class="math inline">\(P^j\)</span>.</li>
+</ul></li>
+<li><strong>Fin de l’algorithme</strong> : l’algorithme converge vers une classification stable. Arrêt lorsque la classification reste la même, ou lorsque la variance intra-classes ne décroit plus, ou encore lorsque le nombre maximal d’itérations est atteint.</li>
+</ul>
+</section>
+<section id="un-exemple-simple-1" class="slide level2">
+<h2>Un exemple simple</h2>
+<hr>
+<p><span class="math inline">\(k=2\)</span> classes, centres initiaux choisis au hasard, par exemple A et B.</p>
+<p><strong>Etape 0</strong> :</p>
+<center>
+<img data-src="Images/centresmobilesjouet1.jpg" style="width:40.0%" />
+</center>
+<ul>
+<li>C1 = A attire le point A</li>
+<li>C2 = B attire les points B, C, D et E.</li>
+<li><span class="math inline">\(\Longrightarrow\)</span> <strong>Nouveaux centres</strong> : C1 (1 ; 9) et C2 (6,5 ; 3,5)</li>
+</ul>
+</section>
+<section id="un-exemple-simple-2-1" class="slide level2">
+<h2>Un exemple simple (2)</h2>
+<hr>
+<p><strong>Etape 1</strong> :</p>
+<center>
+<img data-src="Images/centresmobilesjouet2.jpg" style="width:40.0%" />
+</center>
+<ul>
+<li>C1 attire les point A et B</li>
+<li>C2 attire les points C, D et E.</li>
+<li><span class="math inline">\(\Longrightarrow\)</span> <strong>Nouveaux centres</strong> : C1 (1 ; 8,5) et C2 (8,3 ; 2)</li>
+</ul>
+</section>
+<section id="un-exemple-simple-3-1" class="slide level2">
+<h2>Un exemple simple (3)</h2>
+<hr>
+<p><strong>Etape 2</strong> :</p>
+<center>
+<img data-src="Images/centresmobilesjouet2.jpg" style="width:40.0%" />
+</center>
+<p>Mêmes classes que précédemment <span class="math inline">\(\Longrightarrow\)</span> la méthode s’arrête.</p>
+</section>
+<section id="atouts-et-limites-des-méthodes" class="slide level2">
+<h2>Atouts et limites des méthodes</h2>
+<hr>
+<ul>
+<li><strong>Atouts et limites de la CAH</strong>
+<ul>
+<li><strong>Atouts</strong> : fournit à la fois les classes et leur nombre.</li>
+<li><strong>Limites</strong> :
+<ul>
+<li>Souvent malaisé de choisir la coupure significative sur le dendrogramme</li>
+<li>Partition non-optimale en raison de sa structure hiérarchique</li>
+<li>Fort coût algorithmique lorsque <span class="math inline">\(n\)</span> devient grand</li>
+</ul></li>
+</ul></li>
+<li><strong>Atouts et limites des centres mobiles</strong>
+<ul>
+<li><strong>Atouts</strong> :
+<ul>
+<li>Coût algorithmique faible</li>
+<li>Traitement séquentiel</li>
+</ul></li>
+<li><strong>Limites</strong> :
+<ul>
+<li>Nombre de classes fixé a priori</li>
+<li>Partition obtenue fortement dépendante des centres provisoires des classes</li>
+</ul></li>
+</ul></li>
+<li><strong>Idée</strong> : Mixer les 2 méthodes (CAH et centres mobiles)</li>
+</ul>
+</section>
+<section id="classification-mixte" class="slide level2">
+<h2>Classification mixte</h2>
+<hr>
+<ul>
+<li><p><strong>Etape préliminaire si <span class="math inline">\(n\)</span> est grand</strong> : Classification en <span class="math inline">\(q\)</span> classes, avec <span class="math inline">\(n&gt;&gt;q\)</span> (<span class="math inline">\(&gt;&gt;k\)</span> le nombre de classes final désiré), en utilisant la méthode des centres mobiles.</p></li>
+<li><p><strong>Etape 1</strong> : Classification ascendante hiérarchique sur les <span class="math inline">\(q\)</span> éléments (centres) obtenus à l’étape précédente, ou directement sur les données si <span class="math inline">\(n\)</span> est petit.</p>
+<p><span class="math inline">\(\Longrightarrow\)</span> Choix du nombre <span class="math inline">\(k\)</span> de groupes pour la classification.</p></li>
+<li><p><strong>Etape 2</strong> : Optimisation par les centres mobiles avec <span class="math inline">\(k\)</span> classes, appliqué sur les <span class="math inline">\(n\)</span> individus originels.</p></li>
+</ul>
+</section>
+<section id="centres-mobiles-sous-r-exemple-des-iris-de-fisher" class="slide level2">
+<h2>Centres mobiles sous R : exemple des Iris de Fisher</h2>
+<hr>
+<p>Choix du nombre de classes (cf. CAH) : <span class="math inline">\(2\)</span> ou <span class="math inline">\(3\)</span>. Application des centres mobiles (<span class="math inline">\(k\)</span>-means ou <span class="math inline">\(k\)</span>-moyennes):</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>iris.std <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">scale</span>(iris[,<span class="sc">-</span><span class="dv">5</span>]))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>km2 <span class="ot">=</span> <span class="fu">kmeans</span>(iris.std, <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">10</span>)</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>km3 <span class="ot">=</span> <span class="fu">kmeans</span>(iris.std, <span class="dv">3</span>, <span class="at">nstart =</span> <span class="dv">10</span>)</span></code></pre></div>
+<p>L’option “nstart” permet de stabiliser la méthode vis à vis de l’initialisation des centres. Statistiques et classification obtenues:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(km2)</span></code></pre></div>
+<pre><code>## [1] &quot;cluster&quot;      &quot;centers&quot;      &quot;totss&quot;        &quot;withinss&quot;     &quot;tot.withinss&quot;
+## [6] &quot;betweenss&quot;    &quot;size&quot;         &quot;iter&quot;         &quot;ifault&quot;</code></pre>
+</section>
+<section id="centres-mobiles-sous-r-2" class="slide level2">
+<h2>Centres mobiles sous R (2)</h2>
+<hr>
+<p>Eléments utiles en sortie de la fonction <em>kmeans</em>:</p>
+<p>Le vecteur des groupes associant à chaque observation le numéro du groupe auquel elle appartient :</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>cluster</span></code></pre></div>
+<pre><code>##   [1] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+##  [38] 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+##  [75] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [112] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+## [149] 1 1</code></pre>
+<p>Coordonnées des centres de groupes :</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>centers</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width
+## 1    0.5055957  -0.4252069     0.650315   0.6253518
+## 2   -1.0111914   0.8504137    -1.300630  -1.2507035</code></pre>
+</section>
+<section id="centres-mobiles-sous-r-3" class="slide level2">
+<h2>Centres mobiles sous R (3)</h2>
+<hr>
+<p>Effectifs dans chaque groupe :</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>size</span></code></pre></div>
+<pre><code>## [1] 100  50</code></pre>
+<p>Variances dans chaque groupe :</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>withinss</span></code></pre></div>
+<pre><code>## [1] 173.52867  47.35062</code></pre>
+<p>Variance intra-groupes (somme de withinss) :</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>tot.withinss</span></code></pre></div>
+<pre><code>## [1] 220.8793</code></pre>
+</section>
+<section id="centres-mobiles-sous-r-4" class="slide level2">
+<h2>Centres mobiles sous R (4)</h2>
+<hr>
+<p>Variance inter-groupes :</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>betweenss</span></code></pre></div>
+<pre><code>## [1] 375.1207</code></pre>
+<p>Variance totale (tot.withinss+betweenss) :</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>km2<span class="sc">$</span>totss</span></code></pre></div>
+<pre><code>## [1] 596</code></pre>
+</section>
+<section id="classification-mixte-sous-r" class="slide level2">
+<h2>Classification mixte sous R</h2>
+<hr>
+<p>Représentation de la classification mixte (CAH+Centres mobiles) à <span class="math inline">\(2\)</span> classes sur le premier plan factoriel : on consolide dans la fonction <em>HCPC</em> en indiquant le nombre de groupes souhaité (ici <em>nb.clust=2</em>) et <em>consol = TRUE</em> (valeur par défaut) :</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>dendro.ward2 <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="dv">2</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward2, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, <span class="at">ind.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-39-1.png" width="55%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-mixte-sous-r-2" class="slide level2">
+<h2>Classification mixte sous R (2)</h2>
+<hr>
+<p><strong>Note 1</strong> : en mettant <em>nb.clust = -1</em> dans <em>HCPC</em>, on obtient la classification dite “optimale” avec choix automatique du nombre de classes à partir du dendrogramme</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>dendro.ward <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, <span class="at">ind.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-40-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-mixte-sous-r-3" class="slide level2">
+<h2>Classification mixte sous R (3)</h2>
+<hr>
+<p>Comparaison avec les espèces</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris.pca, <span class="at">choix =</span> <span class="st">&quot;ind&quot;</span>,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">habillage =</span> <span class="dv">5</span>, <span class="at">label =</span> <span class="st">&quot;quali&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-41-1.png" width="70%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-mixte-sous-r-4" class="slide level2">
+<h2>Classification mixte sous R (4)</h2>
+<hr>
+<p><strong>Note 2</strong> : en ne fixant aucune option dans <em>plot</em>, on obtient la représentation dans le premier plan factoriel, ainsi que le dendrogramme</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>dendro.ward <span class="ot">=</span> <span class="fu">HCPC</span>(iris.std, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">title =</span> <span class="st">&quot;Dendrogramme avec Ward et clusters&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-42-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-mixte-sous-r-5" class="slide level2">
+<h2>Classification mixte sous R (5)</h2>
+<hr>
+<ul>
+<li><p>Afin de réduire le nombre de données si la base est trop grande (<strong>étape préliminaire</strong> de la classification mixte), on fixe l’option <em>kk = &lt; nb de classes désiré &gt; </em> dans la fonction <em>HCPC</em> (par exemple, si <span class="math inline">\(n&gt;10000\)</span>, on peut fixer <em>kk = 1000</em> dans <em>HCPC</em>). <strong>Attention !</strong> Dans ce cas, <em>HCPC</em> <strong>ne fait pas</strong> de consolidation, et il faut donc faire passer un <em>kmeans</em> ensuite (<strong>étape 2</strong> de la classification mixte) pour effectuer la consolidation soi-même.</p></li>
+<li><p>Si la consolidation a été faite en-dehors de <em>HCPC</em> avec <em>kmeans</em>, voici un exemple de code pour représenter les groupes sur le premier plan factoriel (où <em>habillage</em> impose de mettre une couleur par individu, et <em>col.hab</em> définit quelle couleur est utilisée pour chaque individu. Ici, 2 couleurs, une par groupe)</p></li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iris.pca, <span class="at">choix=</span><span class="st">&quot;ind&quot;</span>, <span class="at">label =</span> <span class="st">&quot;quali&quot;</span>, </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">habillage =</span> <span class="st">&quot;ind&quot;</span>, <span class="at">col.hab=</span>km2<span class="sc">$</span>cluster)</span></code></pre></div>
+<ul>
+<li>Si le nombre de données n’est pas trop grand, la fonction <em>HCPC</em> fait la classification mixte par défaut</li>
+</ul>
+</section>
+<section id="tp-application-de-la-classification-mixte-sur-les-données-de-satisfaction-sur-les-villes" class="slide level2">
+<h2>TP : application de la classification mixte sur les données de satisfaction sur les villes</h2>
+<hr>
+<ul>
+<li>Charger les données sur l’enquête de satisfaction sur les villes où il fait bon vivre (fichier Villes.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>satisfv <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Villes.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfv[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfv<span class="sc">$</span>ville</span></code></pre></div>
+<ul>
+<li><p>Refaire une classification mixte, avec le nombre de groupes choisi à l’issue de la CAH.</p></li>
+<li><p>Représenter les groupes obtenus sur le premier plan factoriel, et effectuer un profilage des villes suivant les caractéristiques évaluées.</p></li>
+</ul>
+</section>
+<section id="tp-application-de-la-classification-mixte-sur-les-données-de-satisfaction-sur-les-hôtels" class="slide level2">
+<h2>TP : application de la classification mixte sur les données de satisfaction sur les hôtels</h2>
+<hr>
+<ul>
+<li>Charger les données sur l’enquête de satisfaction de la chaîne d’hôtels 3 étoiles (fichier Hotels.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>satisfh <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Hotels.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfh[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfh<span class="sc">$</span>Nom[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>]</span></code></pre></div>
+<ul>
+<li><p>Refaire les analyses demandées sur le jeu de données précédent.</p></li>
+<li><p>Croiser les profils obtenus avec les villes où sont situées les hôtels évalués.</p></li>
+</ul>
+</section>
+<section id="classification-sur-facteurs" class="slide level2">
+<h2>Classification sur facteurs</h2>
+<hr>
+<ul>
+<li><strong>Variables quantitatives</strong> : Analyse en Composantes Principales (ACP).
+<ul>
+<li>Elimination des fluctuations aléatoires (= bruit de mesures) constituant l’essentiel de la variance prise en compte par les derniers axes.</li>
+<li>Lissage des données.</li>
+<li>Production de groupes <strong>plus homogènes</strong>.</li>
+</ul></li>
+<li><strong>Variables qualitatives</strong> : Analyse des Correspondances Multiples (ACM).
+<ul>
+<li>Transformation des variables en variables quantitatives via un <strong>tableau disjonctif complet</strong>.</li>
+</ul></li>
+<li><strong>Remarque</strong> : ACM nécessaire pour intégrer les variables qualitatives à la classification, par contre ACP pas toujours utile pour les variables quantitatives.</li>
+</ul>
+</section>
+<section id="passer-aux-coordonnées-factorielles" class="slide level2">
+<h2>Passer aux coordonnées factorielles</h2>
+<hr>
+<ul>
+<li><p><strong>Sélection d’un sous-espace factoriel</strong> de dimension suffisante <span class="math inline">\(q&lt;p\)</span>,</p></li>
+<li><p><strong>Classification</strong> des <span class="math inline">\(n\)</span> individus représentés par leurs composantes sur les <span class="math inline">\(q\)</span> premiers axes factoriels.</p></li>
+<li><p><strong>Remarque</strong> : équivalence entre les classifications des <span class="math inline">\(n\)</span> individus sur l’ensemble</p>
+<ul>
+<li>des <span class="math inline">\(p\)</span> variables,</li>
+<li>des <span class="math inline">\(p\)</span> facteurs issus d’une analyse factorielle, seule la représentation des données change (changement de base).</li>
+</ul></li>
+<li><p><strong>Attention</strong> : si l’ACP est effectuée sur la <strong>matrice des corrélations</strong>, cela revient à standardiser les variables</p>
+<p><span class="math inline">\(\Longrightarrow\)</span> inutile de standardiser les facteurs avant d’effectuer la classification.</p></li>
+</ul>
+</section>
+<section id="classification-sur-facteurs-sous-r-iris-de-fisher" class="slide level2">
+<h2>Classification sur facteurs sous R : Iris de Fisher</h2>
+<hr>
+<p>Sélection des <span class="math inline">\(q\)</span> facteurs sur lesquels la classification est effectuée</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>iris.pca <span class="ot">=</span> <span class="fu">PCA</span>(iris, <span class="at">ncp =</span> <span class="dv">4</span>, <span class="at">quali.sup =</span> <span class="dv">5</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_eig</span>(iris.pca, <span class="at">choice =</span> <span class="st">&quot;variance&quot;</span>, </span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">addlabels =</span> <span class="cn">TRUE</span>)<span class="sc">+</span><span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-46-1.png" width="65%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-sur-facteurs-sous-r-2" class="slide level2">
+<h2>Classification sur facteurs sous R (2)</h2>
+<hr>
+<p>La fonction <em>HCPC</em> peut prendre en entrée soit un jeu de données (<em>dataframe</em>), soit un objet créé par les fonctions <em>PCA</em> (ACP) ou <em>MCA</em> (ACM) de FactoMineR. Donc :</p>
+<ul>
+<li>Soit on effectue la classification mixte directement sur les composantes principales <span class="math inline">\(1\)</span> et <span class="math inline">\(2\)</span> :</li>
+</ul>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>facteurs <span class="ot">=</span> <span class="fu">data.frame</span>(iris.pca<span class="sc">$</span>ind<span class="sc">$</span>coord[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<ul>
+<li>Soit on refait tourner la fonction <em>PCA</em> ou <em>MCA</em> avec le nombre de facteurs choisis (option <em>ncp = </em>)</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>facteurs <span class="ot">=</span> <span class="fu">PCA</span>(iris, <span class="at">ncp =</span> <span class="dv">2</span>, <span class="at">quali.sup =</span> <span class="dv">5</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<ul>
+<li>Dendrogramme issu de la CAH sur les facteurs de l’ACP :</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>dendro <span class="ot">=</span> <span class="fu">HCPC</span>(facteurs, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">rect =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</section>
+<section id="classification-sur-facteurs-sous-r-3" class="slide level2">
+<h2>Classification sur facteurs sous R (3)</h2>
+<hr>
+<p>Résultat du code précédent :</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>dendro <span class="ot">=</span> <span class="fu">HCPC</span>(facteurs, <span class="at">nb.clust =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">graph =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro, <span class="at">choice =</span> <span class="st">&quot;tree&quot;</span>, <span class="at">rect =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-50-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-sur-facteurs-sous-r-4" class="slide level2">
+<h2>Classification sur facteurs sous R (4)</h2>
+<hr>
+<p>Représentation dans le premier plan factoriel :</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">ind.names =</span> <span class="cn">FALSE</span>, <span class="at">title =</span> <span class="st">&quot;Classification sur facteurs&quot;</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dendro.ward, <span class="at">choice =</span> <span class="st">&quot;map&quot;</span>, <span class="at">draw.tree =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">ind.names =</span> <span class="cn">FALSE</span>, <span class="at">title =</span> <span class="st">&quot;Classification sur les données&quot;</span>)</span></code></pre></div>
+<p><img src="Classification_DU_J1_files/figure-revealjs/unnamed-chunk-51-1.png" width="60%" style="display: block; margin: auto;" /></p>
+</section>
+<section id="classification-mixte-avec-r-à-retenir" class="slide level2">
+<h2>Classification mixte avec R : à retenir</h2>
+<hr>
+<ul>
+<li><strong>Si le nombre d’observations n’est pas trop grand</strong> :
+<ul>
+<li>effectuer la classification mixte sur les données standardisées, ou sur les composantes principales choisies, avec la fonction <em>HCPC</em>,</li>
+<li>choisir un nombre de groupes (si le nombre optimal fourni par <em>HCPC</em> ne convient pas),</li>
+<li>faire les profils et les représentations graphiques souhaitées directement à partir des sorties de <em>HCPC</em>.</li>
+</ul></li>
+<li><strong>Si le nombre d’observations est trop grand</strong> :
+<ul>
+<li>effectuer la classification mixte sur les données standardisées, ou sur les composantes principales choisies, avec la fonction <em>HCPC</em> et l’option <em>kk=</em>,</li>
+<li>consolider la classification avec la fonction <em>kmeans</em>, où le nombre de groupes est issu de <em>HCPC</em>, ou choisi à partir du dendrogramme,</li>
+<li>faire les profils et les représentations graphiques souhaitées à partir des sorties de <em>PCA</em> et <em>kmeans</em>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="tp-classification-sur-facteurs-pour-les-données-de-satisfaction-sur-les-villes-et-les-hôtels" class="slide level2">
+<h2>TP : Classification sur facteurs pour les données de satisfaction sur les villes et les hôtels</h2>
+<hr>
+<ul>
+<li>Effectuer la classification sur facteurs sur les données de satisfaction sur les villes (fichier Villes.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>satisfv <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Villes.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfv[,<span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfv<span class="sc">$</span>ville</span></code></pre></div>
+<ul>
+<li>Effectuer la classification sur facteurs sur les données de satisfaction sur les hôtels (fichier Hotels.csv) :</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>satisfh <span class="ot">=</span> <span class="fu">read.csv2</span>(<span class="st">&quot;Donnees/Hotels.csv&quot;</span>, <span class="at">header =</span> T)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> satisfh[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>, <span class="sc">-</span><span class="dv">1</span>]</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(x) <span class="ot">=</span> satisfh<span class="sc">$</span>Nom[<span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>]</span></code></pre></div>
+<ul>
+<li>Comparer les profils obtenus avec ceux produits par la classification sur les données d’origine.</li>
+<li>Dans chaque cas, décider si le débruitage était utile, et expliquer pourquoi.</li>
+</ul>
+<!-- ## Cartes auto-organisatrices -->
+</section>
+    </div>
+  </div>
+
+  <script src="Classification_DU_J1_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="Classification_DU_J1_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
