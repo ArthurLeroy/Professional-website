@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="- Servane Gey - MAP5, Université de Paris" />
+  <meta name="author" content="- Benjamin Guedj - Inria - University College London" />
+  <meta name="author" content="- Pierre Latouche - MAP5, Université de Paris" />
+  <title>slides.utf8</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="slides_files/header-attrs-2.6/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><img data-src="images/UniversiteParis_logo.jpg" style="width:8cm" alt="image alt &lt;" /> <img data-src="images/map5.jpg" style="width:6cm" alt="image alt &gt;" /> <br> <br>
+<hr />
+Multi-task learning models for functional data and application to the prediction of sports performances <br>
+<hr /></h1>
+    <h2 class="author"><p style="text-align:center;">
+<font size="6"><strong>Arthur Leroy</strong> - MAP5, Université de Paris</font>
+</p></h2>
+    <h2 class="author"><p style="text-align:center;">
+<font size="5"><em>joint work with</em></font>
+</p></h2>
+    <h2 class="author">- <strong>Servane Gey</strong> - MAP5, Université de Paris</h2>
+    <h2 class="author">- <strong>Benjamin Guedj</strong> - Inria - University College London</h2>
+    <h2 class="author">- <strong>Pierre Latouche</strong> - MAP5, Université de Paris</h2>
+    <h3 class="date">Séminaire de Probabilités et Statistiques - IMAG - 19/04/2021</h3>
+</section>
+
+<section class="slide level2">
+
+
+</section>
+<section id="origins-of-the-work" class="slide level2">
+<h2>Origins of the work</h2>
+<hr />
+<p><span class="fragment">A problem:</span></p>
+<ul>
+<li class = "fragment">
+Several papers (<em>Boccia &amp; al - 2017</em>, <em>Kearney &amp; Hayes - 2018</em>) point out <strong>limits</strong> of focusing on best performers in young categories.
+<li class = "fragment">
+Sport experts seek new objective criteria for <span class="emphasized">talent identification.
+</ul>
+<p><br> <span class="fragment">An opportunity:</span></p>
+<ul class = "fragment">
+<li>
+The <strong>French Swimming Federation</strong> (FFN) provides a massive database gathering most of the national competition’s results since 2002.
+<center>
+<img data-src="images/photo.jpg" style="width:30.0%" />
+</center>
+</ul>
+</section>
+<section id="data" class="slide level2">
+<h2>Data</h2>
+<hr />
+<p>Performances in competition for FFN members:</p>
+<center>
+<img data-src="images/data1.png" style="width:100.0%" />
+</center>
+</section>
+<section id="data-1" class="slide level2">
+<h2>Data</h2>
+<hr />
+<p>Performances in competition for FFN members:</p>
+<center>
+<img data-src="images/data2.png" style="width:100.0%" />
+</center>
+<ul>
+<li>
+<span class="emphasized">Irregular</span> time series (in number of observations and location),
+<li class = "fragment">
+<span class="emphasized">Many</span> different swimmers per category,
+</ul>
+</section>
+<section id="data-2" class="slide level2">
+<h2>Data</h2>
+<hr />
+<p>Performances in competition for FFN members:</p>
+<center>
+<img data-src="images/data3.png" style="width:100.0%" />
+</center>
+<ul>
+<li><span class="emphasized">Irregular</span> time series (in number of observations and location),</li>
+<li><span class="emphasized">Many</span> different swimmers per category,</li>
+<li><span class="emphasized">A few </span>observations per swimmer.</li>
+</ul>
+</section>
+<section id="objectives" class="slide level2">
+<h2>Objectives</h2>
+<hr />
+<p><br></p>
+<p><span class="fragment"> <strong>Are there different patterns of progression among swimmers?</strong> </span><br />
+<span class="fragment"> Leroy et al. - <em>Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</em> - Applied Sciences - 2018 </span></p>
+<p><br> <span class="fragment"> <strong>Can we provide probabilistic predictions of future performances?</strong> </span><br />
+<span class="fragment"> Leroy et al. - <em><span class="smallcaps">Magma</span>: Inference and Prediction with Multi-Task Gaussian Processes</em> - <em>Under submission in Machine Learning</em> - <a href="https://github.com/ArthurLeroy/MAGMA" class="uri">https://github.com/ArthurLeroy/MAGMA</a> </span></p>
+<p><br> <span class="fragment"> <strong>May possible group structures improve the quality of predictions?</strong> </span><br />
+<span class="fragment"> Leroy et al. - <em>Cluster-Specific Predictions with Multi-Task Gaussian Processes</em> - <em>Under submission in JMLR</em> - <a href="https://github.com/ArthurLeroy/MAGMAclust" class="uri">https://github.com/ArthurLeroy/MAGMAclust</a> </span></p>
+<!-- Trois questions applicatives qui ont conduits à des problèmes statistiques assez généraux et non triviaux. Une a pu être traitée à partir d'une analyse exploratoire initiale. Les deux autres ont nécessité des contributions méthodologiques spécifiques. Ces questions sont somme toute classiques, mais présentent des difficultés dans le cadre assez inconfortable, que sont irrégulières. Ces particularité sont une des difficultés majeurs du travail qui va suivre et aura demandé une attention spécifique tout au long de la thèse. -->
+</section>
+<section id="objectives-1" class="slide level2">
+<h2>Objectives</h2>
+<hr />
+<p><strong>Are there different patterns of progression among swimmers?</strong></p>
+<center>
+<img data-src="images/raw_curves.png" style="width:80.0%" />
+</center>
+</section>
+<section id="common-representation-and-curve-clustering" class="slide level2">
+<h2>Common representation and curve clustering</h2>
+<hr />
+<p>A common representation as <span class="emphasized">functional data</span> is proposed by using <strong>B-splines</strong> decomposition.</p>
+<p>Clustering curves with <strong>FunHDDC</strong> algorithm (<em>Bouveyron &amp; Jacques - 2011</em>, <em>Schmutz et al. - 2020</em>) highlights different <span class="emphasized">patterns</span> of progression. These groups, relating both on level and trend, are consistent groups with sport experts knowledge.</p>
+<center>
+<img data-src="images/multclust.png" height="450" />
+</center>
+</section>
+<section id="limits-in-terms-of-modelling" class="slide level2">
+<h2>Limits in terms of modelling</h2>
+<hr />
+<p>This approach suffers from severe <span class="emphasized">limitations</span> such as:</p>
+<ul>
+<li class="fragment">
+unsatisfying individual modellings (side effects, sensibility to sparsity, …),
+<li class="fragment">
+a lack of probabilistic prediction methods,
+<li class="fragment">
+persisting troubles with irregular measurements.
+</ul>
+<center>
+<img data-src="images/splines.png" style="width:75.0%" />
+</center>
+</section>
+<section id="objectives-2" class="slide level2">
+<h2>Objectives</h2>
+<hr />
+<p><strong>Can we provide probabilistic predictions of future performances?</strong></p>
+<center>
+<img data-src="images/magma_swimmers.png" style="width:80.0%" />
+</center>
+</section>
+<section id="gaussian-process-regression" class="slide level2">
+<h2>Gaussian process regression</h2>
+<hr />
+<p><strong>No restrictions</strong> on <span class="math inline">\(f\)</span> but a <span class="emphasized">prior distribution</span> on a functional space: <span class="math inline">\(f \sim \mathcal{GP}(0,C(\cdot,\cdot))\)</span></p>
+<center>
+<img data-src="images/GP.png" height="350" />
+</center>
+<span class="fragment">
+<ul>
+<li>
+Powerful non parametric method offering <span class="emphasized">probabilistic predictions</span>,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+Computational complexity in <span class="emphasized"><span class="math inline">\(\mathcal{O}(N^3)\)</span></span>, with N the number of observations,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+Correspondence with infinitly wide (deep) neural networks (<em>Neal - 1994</em>, <em>Lee et al. - 2018</em>).
+</ul>
+<p></span></p>
+</section>
+<section id="modelling-and-prediction-with-a-unique-gp" class="slide level2">
+<h2>Modelling and prediction with a unique GP</h2>
+<hr />
+<center>
+<img data-src="images/gif_gp.gif" style="width:70.0%" />
+</center>
+<p>GPs provide an ideal framework for modelling although <span class="emphasized">insufficient</span> for direct predictions.</p>
+</section>
+<section id="multi-task-gp-with-common-mean-magma" class="slide level2">
+<h2>Multi-task GP with common mean (<span class="smallcaps">Magma</span>)</h2>
+<hr />
+<div class="block">
+<p><span class="math display">\[y_i = \mu_0 + f_i + \epsilon_i\]</span></p>
+</div>
+<p>with:</p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\mu_0 \sim \mathcal{GP}(m_0, K_{\theta_0}),\)</span>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(f_i \sim \mathcal{GP}(0, \Sigma_{\theta_i}), \ \perp \!\!\! \perp_i,\)</span>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\epsilon_i \sim \mathcal{GP}(0, \sigma_i^2), \  \perp \!\!\! \perp_i.\)</span>
+</ul>
+<p></span></p>
+<p class="fragment">
+It follows that:
+</p>
+<div class="block fragment">
+<p><span class="math display">\[y_i \mid \mu_0 \sim \mathcal{GP}(\mu_0, \Sigma_{\theta_i} + \sigma_i^2 I), \ \perp \!\!\! \perp_i\]</span></p>
+</div>
+<p class="fragment">
+<span class="math inline">\(\rightarrow\)</span> Unified GP framework with a <span class="emphasized">common mean</span> process <span class="math inline">\(\mu_0\)</span>, and <span class="emphasized">individual-specific</span> process <span class="math inline">\(f_i\)</span>,
+</p>
+<p class="fragment">
+<span class="math inline">\(\rightarrow\)</span> Naturaly <span class="emphasized">handles irregular grids</span> of input data.
+</p>
+<p><span class="fragment"> <strong>Goal:</strong> Learn the hyper-parameters, (and <span class="math inline">\(\mu_0\)</span>’s hyper-posterior).<br />
+<strong>Difficulty:</strong> The likelihood depends on <span class="math inline">\(\mu_0\)</span>, and individuals are <strong>not independent</strong>. </span></p>
+</section>
+<section id="notation-and-dimensionality" class="slide level2">
+<h2>Notation and dimensionality</h2>
+<hr />
+<p>Each individual has its specific vector of inputs <span class="math inline">\(\textbf{t}_i\)</span> associated with outputs <span class="math inline">\(\textbf{y}_i\)</span>.<br />
+The mean process <span class="math inline">\(\mu_0\)</span> requires to define <strong>pooled vectors</strong> and additional notation follows:</p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\textbf{y} = (\textbf{y}_1,\dots, \textbf{y}_i, \dots, \textbf{y}_M)^T,\)</span>
+<li>
+<span class="math inline">\(\textbf{t} = (\textbf{t}_1,\dots,\textbf{t}_i, \dots, \textbf{t}_M)^T,\)</span>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\textbf{K}_{\theta_0}^{\textbf{t}}\)</span>: covariance matrix from the process <span class="math inline">\(\mu_0\)</span> evaluated on <span class="math inline">\(\color{red}{\textbf{t}},\)</span>
+<li>
+<span class="math inline">\(\boldsymbol{\Sigma}_{\theta_i}^{\textbf{t}_i}\)</span>: covariance matrix from the process <span class="math inline">\(f_i\)</span> evaluated on <span class="math inline">\(\color{blue}{\textbf{t}_i},\)</span>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\Theta = \{ \theta_0, (\theta_i)_i, \sigma_i^2 \}\)</span>: the set of hyper-parameters,
+<li>
+<span class="math inline">\(\boldsymbol{\Psi}_{\theta_i, \sigma_i^2}^{\textbf{t}_i} = \boldsymbol{\Sigma}_{\theta_i}^{\textbf{t}_i} + \sigma_i^2 I_{N_i}.\)</span>
+</ul>
+<p></span></p>
+<p>While GP are infinite-dimensional objects, a tractable inference on a finite set of observations <span class="emphasized">fully determines</span> the overall properties. <br></p>
+<p>However, handling distributions with <strong>differing dimensions</strong> constitutes a <span class="emphasized">major technical challenge</span>.</p>
+</section>
+<section id="em-algorithm-e-step" class="slide level2">
+<h2>EM algorithm: E step</h2>
+<hr />
+<div class="theorem">
+<p>Assuming to know <span class="math inline">\(\hat{\Theta}\)</span>, the hyper-posterior distribution of <span class="math inline">\(\mu_0\)</span> is given by: <span class="math display">\[
+\begin{align}
+  p(\mu_0(\color{red}{\mathbf{t}}) \mid \textbf{y}, \hat{\Theta})
+  &amp;\propto \mathcal{N}(\mu_0(\color{red}{\mathbf{t}}); m_0(\color{red}{\textbf{t}}), \textbf{K}_{\hat{\theta}_0}^{\color{red}{\textbf{t}}}) \times \prod\limits_{i =1}^M \mathcal{N}(\mathbf{y}_i;  \mu_0( \color{blue}{\textbf{t}_i}), \boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2}^{\color{blue}{\textbf{t}_i}}) \\
+  &amp;= \mathcal{N}(\mu_0(\color{red}{\mathbf{t}});  \hat{m}_0(\color{red}{\textbf{t}}), \hat{\textbf{K}}^{\color{red}{\textbf{t}}}),
+\end{align}
+\]</span></p>
+</div>
+<p>with:</p>
+<span class="fragment">
+<div class="block" >
+<ul>
+<li>
+<span class="math inline">\(\hat{\textbf{K}} = \left( {\mathbf{K}_{\hat{\theta}_0}^{\color{red}{\textbf{t}}}}^{-1} + \sum\limits_{i = 1}^M {\boldsymbol{\tilde{\Psi}}_{\hat{\theta}_i \hat{\sigma}_i^2}^{\color{blue}{\textbf{t}_i}}}^{-1} \right)^{-1},\)</span>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\hat{m}_0(\color{red}{\textbf{t}}) = \hat{\textbf{K}} \left( {\mathbf{K}_{\hat{\theta}_0}^{\color{red}{\textbf{t}}}}^{-1} m_0(\color{red}{\textbf{t}}) + \sum\limits_{i = 1}^M {\boldsymbol{\tilde{\Psi}}_{\hat{\theta}_i, \hat{\sigma}_i^2}^{\color{blue}{\textbf{t}_i}}}^{-1} \tilde{y}_i(\color{blue}{\textbf{t}_i}) \right).\)</span>
+</ul>
+</span>
+</div>
+</section>
+<section id="em-algorithm-m-step" class="slide level2">
+<h2>EM algorithm: M step</h2>
+<hr />
+<p><br></p>
+<div class="theorem">
+<p>Assuming to know <span class="math inline">\(p(\mu_0(\color{red}{\textbf{t}}) \mid \textbf{y}, \hat{\Theta})\)</span>, the estimated set of hyper-parameters is given by:</p>
+<p><span class="math display">\[
+\begin{align*}
+    \hat{\Theta} 
+    &amp;= \underset{\Theta}{\arg\max} \ \mathbb{E}_{\mu_0} [ \log \ p(\textbf{y}, \mu_0(\color{red}{\textbf{t}}) \mid \Theta )] \\
+    &amp;=  \log \mathcal{N} \left( \hat{m}_0(\color{red}{\textbf{t}}); m_0(\color{red}{\textbf{t}}), \mathbf{K}_{\theta_0}^{\color{red}{\textbf{t}}}  \right) - \dfrac{1}{2} Tr \left(  \hat{\mathbf{K}}^{\color{red}{\textbf{t}}} {\mathbf{K}_{\theta_0}^{\color{red}{\textbf{t}}}}^{-1} \right) \\
+    &amp; \ \ \ +  \sum\limits_{i = 1}^{M}\left\{  \log  \mathcal{N} \left( \mathbf{y}_i; \hat{m}_0(\color{blue}{\mathbf{t}_i}), \boldsymbol{\Psi}_{\theta_i, \sigma_i^2}^{\color{blue}{\mathbf{t}_i}}  \right) - \dfrac{1}{2} Tr \left(   \hat{\mathbf{K}}^{\color{blue}{\mathbf{t}_i}} {\boldsymbol{\Psi}_{\theta_i, \sigma_i^2}^{\color{blue}{\mathbf{t}_i}}}^{-1}  \right)  \right\}.
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="em-algorithm-m-step-1" class="slide level2">
+<h2>EM algorithm: M step</h2>
+<hr />
+<p><br></p>
+<div class="theorem">
+<p>Assuming to know <span class="math inline">\(p(\mu_0(\mathbf{t}) \mid \textbf{y}, \hat{\Theta})\)</span>, the estimated set of hyper-parameters is given by:</p>
+<p><span class="math display">\[
+\begin{align*}
+    \hat{\Theta} 
+    &amp;= \underset{\Theta}{\arg\max} \ \mathbb{E}_{\mu_0} [ \log \ p(\textbf{y}, \mu_0(\mathbf{t}) \mid \Theta )] \\
+    &amp;=  \log \mathcal{N} \left( \hat{m}_0(\mathbf{t}); m_0(\mathbf{t}), \mathbf{K}_{\color{red}{\theta_0}}^{\mathbf{t}}  \right) - \dfrac{1}{2} Tr \left(  \hat{\mathbf{K}}^{\mathbf{t}} {\mathbf{K}_{\color{red}{\theta_0}}^{\mathbf{t}}}^{-1} \right) \\
+    &amp; \ \ \ +  \sum\limits_{i = 1}^{M}\left\{  \log  \mathcal{N} \left( \mathbf{y}_i; \hat{m}_0(\mathbf{t}_i), \boldsymbol{\Psi}_{\color{blue}{\theta_i}, \color{blue}{\sigma_i^2}}^{\mathbf{t}_i} \right) - \dfrac{1}{2} Tr \left(  \hat{\mathbf{K}}^{\mathbf{t}_i} {\boldsymbol{\Psi}_{\color{blue}{\theta_i}, \color{blue}{\sigma_i^2}}^{\mathbf{t}_i}}^{-1}  \right)  \right\}.
+\end{align*}
+\]</span></p>
+</div>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(\hat{m}_0(\mathbf{t})\)</span> naturally acts like observed values for <span class="math inline">\(\mu_0\)</span>, and <span class="math inline">\(\hat{\mathbf{K}}^{\mathbf{t}}\)</span> induces a variance penalty term,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+<span class="math inline">\(2\)</span> or <span class="math inline">\(M + 1\)</span> problems of numerical optimisation (<span class="emphasized">analytical gradients</span> are available).
+</ul>
+<p></span></p>
+<!-- ## Step by step estimation of $\mu_0$ -->
+<!-- <hr /> -->
+<!-- $\mathbb{E} \left[ \mu_0(\textbf{t}) \mid Data \right] \pm CI_{0.95}$ -->
+<!-- <center>![](images/train_it_0.png){height=450}</center> -->
+<!-- *Iteration counter* : **0** -->
+</section>
+<section id="prediction" class="slide level2">
+<h2>Prediction</h2>
+<hr />
+<p><br> For a <span class="emphasized">new individual</span>, we observe some data <span class="math inline">\(y_*(\textbf{t}_*)\)</span>. Let us recall:</p>
+<div class="block">
+<p><span class="math display">\[y_* \mid \mu_0 \sim \mathcal{GP}(\mu_0, \boldsymbol{\Psi}_{\theta_*, \sigma_*^2}), \ \perp \!\!\! \perp_i\]</span></p>
+</div>
+<p><strong>Goals:</strong></p>
+<span class="fragment">
+<ul>
+<li>
+derive a <span class="emphasized">analytical</span> predictive distribution at arbitrary inputs <span class="math inline">\(\mathbf{t}^{p}\)</span>,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+sharing the information from training individuals, <em>stored</em> in the mean process <span class="math inline">\(\mu_0\)</span>.
+</ul>
+<p></span></p>
+<p><span class="fragment"> <strong>Difficulties:</strong> </span></p>
+<span class="fragment">
+<ul>
+<li>
+the model is conditionned over <span class="math inline">\(\mu_0\)</span>, a latent, <span class="emphasized">unobserved</span> quantity,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+defining the adequate target distribution is not straightforward,
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+working on a <span class="emphasized">new grid</span> of inputs <span class="math inline">\(\mathbf{t}^{p}_{*}= (\mathbf{t}_{*}, \mathbf{t}^{p})^{\intercal},\)</span> potentially distinct from <span class="math inline">\(\mathbf{t}.\)</span>
+</ul>
+<p></span></p>
+</section>
+<section id="prediction-the-key-idea" class="slide level2">
+<h2>Prediction: the key idea</h2>
+<hr />
+<p>Defining a <strong>multi-task prior distribution</strong> by:</p>
+<ul>
+<li class="fragment">
+<span class="emphasized">conditioning</span> on training data,
+<li class="fragment">
+<span class="emphasized">integrating</span> over <span class="math inline">\(\mu_0\)</span>’s hyper-posterior distribution.
+</ul>
+<div class="theorem fragment">
+<p><span class="math display">\[\begin{align}
+  p(y_* (\textbf{t}_*^{p}) \mid \textbf{y})
+   &amp;= \int p\left(y_* (\textbf{t}_*^{p}) \mid \textbf{y}, \mu_0(\textbf{t}_*^{p})\right) p(\mu_0 (\textbf{t}_*^{p}) \mid \textbf{y}) \ d \mu_0(\mathbf{t}^{p}_{*}) \\
+  &amp;= \int \underbrace{ p \left(y_* (\textbf{t}_*^{p}) \mid \mu_0 (\textbf{t}_*^{p}) \right)}_{\mathcal{N}(y_*; \mu_0, \Psi_*)} \ \underbrace{p(\mu_0 (\textbf{t}_*^{p}) \mid \textbf{y})}_{\mathcal{N}(\mu_0; \hat{m}_0, \hat{K})} \ d \mu_0(\mathbf{t}^{p}_{*}) \\
+  &amp;= \mathcal{N}( \hat{m}_0 (\mathbf{t}^{p}_{*}), \Gamma)
+\end{align}\]</span></p>
+</div>
+<p><span class="fragment"> with: </span></p>
+<div class="block fragment">
+<p><span class="math display">\[\Gamma = \boldsymbol{\Psi}_{\theta_*, \sigma_*^2}^{\mathbf{t}^{p}_{*}} + \hat{K}^{\mathbf{t}^{p}_{*}}\]</span></p>
+</div>
+</section>
+<section id="prediction-additional-steps" class="slide level2">
+<h2>Prediction: additional steps</h2>
+<hr />
+<p><br></p>
+<span class="fragment">
+<ul>
+<li>
+Multi-task prior:
+<div class="block">
+<p><span class="math display">\[p \left( \begin{bmatrix}
+                 y_*(\color{red}{\mathbf{t}_{*}}) \\
+                 y_*(\color{blue}{\mathbf{t}^{p}}) \\
+               \end{bmatrix} \mid \textbf{y} \right) = \mathcal{N} \left( 
+               \begin{bmatrix}
+                 y_*(\color{red}{\mathbf{t}_{*}})  \\
+                 y_*(\color{blue}{\mathbf{t}^{p}}) \\
+               \end{bmatrix}; \
+              \begin{bmatrix}
+                 \hat{m}_0(\color{red}{\mathbf{t}_{*}})  \\
+                 \hat{m}_0(\color{blue}{\mathbf{t}^{p}}) \\
+               \end{bmatrix},
+              \begin{pmatrix}
+                 \Gamma_{\color{red}{**}} &amp; \Gamma_{\color{red}{*}\color{blue}{p}} \\
+                 \Gamma_{\color{blue}{p}\color{red}{*}} &amp; \Gamma_{\color{blue}{pp}}
+              \end{pmatrix} \right)\]</span></p>
+</div>
+</ul>
+<p></span></p>
+<span class="fragment">
+<ul>
+<li>
+Multi-task posterior:
+<div class="block">
+<p><span class="math display">\[p(y_*(\color{blue}{\mathbf{t}^{p}})  \mid y_*(\color{red}{\mathbf{t}_{*}}), \textbf{y}) = \mathcal{N} \Big( y_*(\color{blue}{\mathbf{t}^{p}}); \ \hat{\mu}_{*}(\color{blue}{\mathbf{t}^{p}}) , \hat{\Gamma}_{\color{blue}{pp}} \Big)\]</span></p>
+</div>
+</ul>
+<p></span></p>
+<p>with:</p>
+<div class = "block fragment">
+<ul>
+<li class = "fragment">
+<span class="math inline">\(\hat{\mu}_{*}(\color{blue}{\mathbf{t}^{p}}) = \hat{m}_0(\color{blue}{\mathbf{t}^{p}}) + \Gamma_{\color{blue}{p}\color{red}{*}}\Gamma_{\color{red}{**}}^{-1} (y_*(\color{red}{\mathbf{t}_{*}}) - \hat{m}_0 (\color{red}{\mathbf{t}_{*}}))\)</span>
+<li class = "fragment">
+<span class="math inline">\(\hat{\Gamma}_{\color{blue}{pp}} = \Gamma_{\color{blue}{pp}} - \Gamma_{\color{blue}{p}\color{red}{*}}\Gamma_{\color{red}{**}}^{-1} \Gamma_{\color{red}{*}\color{blue}{p}}\)</span>
+</div>
+</ul>
+<p><br></p>
+<p><span class="fragment"> This <strong>multi-task posterior distribution</strong> provides the desired <span class="emphasized">probabilistic predictions</span>. </span></p>
+</section>
+<section id="a-picture-is-worth-1000-words" class="slide level2">
+<h2>A picture is worth 1000 words</h2>
+<hr />
+<ul>
+<li>Same <strong>data</strong>, same <strong>hyper-parameters</strong></li>
+<li>Standard GP (left), <span class="smallcaps">Magma</span> (right)</li>
+</ul>
+<p><br></p>
+<center>
+<img data-src="images/Figure_1.png" style="width:100.0%" />
+</center>
+</section>
+<section id="a-gif-is-worth-109-words" class="slide level2">
+<h2>A GIF is worth <span class="math inline">\(10^9\)</span> words</h2>
+<hr />
+<center>
+<img src="images/gif_magma.gif" width="80%">
+</center>
+</section>
+<section id="illustration-gp-regression" class="slide level2">
+<h2>Illustration: GP regression</h2>
+<hr />
+<center>
+<img data-src="images/Figure_2.png" height="400" />
+</center>
+<center>
+<img data-src="images/table_magma.png" style="width:70.0%" />
+</center>
+</section>
+<section id="objectives-3" class="slide level2">
+<h2>Objectives</h2>
+<hr />
+<p><strong>May eventual group structures improve the quality of predictions?</strong></p>
+<p><br></p>
+<center>
+<img data-src="images/shape_cluster.png" style="width:100.0%" />
+</center>
+</section>
+<section id="magma-clustering-magmaclust" class="slide level2">
+<h2><span class="smallcaps">Magma</span> + Clustering = <span class="smallcaps">MagmaClust</span></h2>
+<hr />
+<p>A <strong>unique</strong> underlying mean process might be too restrictive.</p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Mixture</span> of multi-task GPs:</p>
+<div class="block">
+<p><span class="math display">\[y_i = \mu_0 + f_i + \epsilon_i\]</span></p>
+</div>
+<p>with:</p>
+<ul class="fragment fade-in">
+<li>
+<span class="math inline">\(\color{red}{Z_{i}} \sim \mathcal{M}(1, \color{red}{\boldsymbol{\pi}}), \ \perp \!\!\! \perp_i,\)</span>
+</ul>
+<ul>
+<li><span class="math inline">\(\mu_0 \sim \mathcal{GP}(m_0, K_{\theta_0}), \ \perp \!\!\! \perp_k,\)</span></li>
+<li><span class="math inline">\(f_i \sim \mathcal{GP}(0, \Sigma_{\theta_i}), \ \perp \!\!\! \perp_i,\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{GP}(0, \sigma_i^2), \  \perp \!\!\! \perp_i.\)</span></li>
+</ul>
+<p>It follows that:</p>
+<div class="block">
+<p><span class="math display">\[y_i \mid \mu_0 \sim \mathcal{GP}(\mu_0, \Sigma_{\theta_i} + \sigma_i^2 I), \ \perp \!\!\! \perp_i\]</span></p>
+</div>
+</section>
+<section id="magma-clustering-magmaclust-1" class="slide level2">
+<h2><span class="smallcaps">Magma</span> + Clustering = <span class="smallcaps">MagmaClust</span></h2>
+<hr />
+<p>A <strong>unique</strong> underlying mean process might be too restrictive.</p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Mixture</span> of multi-task GPs:</p>
+<div class="block">
+<p><span class="math display">\[y_i \mid \{\color{red}{Z_{ik}} = 1 \} = \mu_{\color{red}{k}} + f_i + \epsilon_i\]</span></p>
+</div>
+<p>with:</p>
+<ul>
+<li><span class="math inline">\(\color{red}{Z_{i}} \sim \mathcal{M}(1, \color{red}{\boldsymbol{\pi}}), \ \perp \!\!\! \perp_i,\)</span></li>
+<li><span class="math inline">\(\mu_{\color{red}{k}} \sim \mathcal{GP}(m_{\color{red}{k}}, \color{red}{C_{\gamma_{k}}})\ \perp \!\!\! \perp_{\color{red}{k}},\)</span></li>
+<li><span class="math inline">\(f_i \sim \mathcal{GP}(0, \Sigma_{\theta_i}), \ \perp \!\!\! \perp_i,\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{GP}(0, \sigma_i^2), \  \perp \!\!\! \perp_i.\)</span></li>
+</ul>
+<p>It follows that:</p>
+<div class="block">
+<p><span class="math display">\[y_i \mid \mu_0 \sim \mathcal{GP}(\mu_0, \Sigma_{\theta_i} + \sigma_i^2 I), \ \perp \!\!\! \perp_i\]</span></p>
+</div>
+</section>
+<section id="magma-clustering-magmaclust-2" class="slide level2">
+<h2><span class="smallcaps">Magma</span> + Clustering = <span class="smallcaps">MagmaClust</span></h2>
+<hr />
+<p>A <strong>unique</strong> underlying mean process might be too restrictive.</p>
+<p><span class="math inline">\(\rightarrow\)</span> <span class="emphasized">Mixture</span> of multi-task GPs:</p>
+<div class="block">
+<p><span class="math display">\[y_i \mid \{\color{red}{Z_{ik}} = 1 \} = \mu_{\color{red}{k}} + f_i + \epsilon_i\]</span></p>
+</div>
+<p>with:</p>
+<ul>
+<li><span class="math inline">\(\color{red}{Z_{i}} \sim \mathcal{M}(1, \color{red}{\boldsymbol{\pi}}), \ \perp \!\!\! \perp_i,\)</span></li>
+<li><span class="math inline">\(\mu_{\color{red}{k}} \sim \mathcal{GP}(m_{\color{red}{k}}, \color{red}{C_{\gamma_{k}}})\ \perp \!\!\! \perp_{\color{red}{k}},\)</span></li>
+<li><span class="math inline">\(f_i \sim \mathcal{GP}(0, \Sigma_{\theta_i}), \ \perp \!\!\! \perp_i,\)</span></li>
+<li><span class="math inline">\(\epsilon_i \sim \mathcal{GP}(0, \sigma_i^2), \  \perp \!\!\! \perp_i.\)</span></li>
+</ul>
+<p>It follows that:</p>
+<div class="block">
+<p><span class="math display">\[y_i \mid \{  \boldsymbol{\mu} , \color{red}{\boldsymbol{\pi}} \} \sim \sum\limits_{k=1}^K{ \color{red}{\pi_k} \ \mathcal{GP}\Big(\mu_{\color{red}{k}},   \Psi_i \Big)}, \ \perp \!\!\! \perp_i\]</span></p>
+</div>
+</section>
+<section id="learning" class="slide level2">
+<h2>Learning</h2>
+<hr />
+<p><br></p>
+<p><span class="fragment"> The integrated likelihood is <strong>not tractable</strong> anymore due to <span class="emphasized">posterior dependencies</span> between <span class="math inline">\( \boldsymbol{\mu} = \{\mu_k\}_k\)</span> and <span class="math inline">\(\mathbf{Z}= \{Z_i\}_i\)</span>. </span></p>
+<p><br></p>
+<p><span class="fragment"> Variational inference still allows us to maintain <strong>closed-form</strong> approximations. For any distribution <span class="math inline">\(q\)</span>: <span class="math display">\[\log p(\textbf{y} \mid \Theta) = \mathcal{L}(q; \Theta) + KL \big( q \mid \mid p(\boldsymbol{\mu}, \boldsymbol{Z} \mid \textbf{y}, \Theta)\big)\]</span> </span></p>
+<p><br></p>
+<p><span class="fragment"> The posterior independance is <em>forced</em> by an <span class="emphasized">approximation assumption</span>: <span class="math inline">\(q(\boldsymbol{\mu}, \boldsymbol{Z}) = q_{\boldsymbol{\mu}}(\boldsymbol{\mu})q_{\boldsymbol{Z}}(\boldsymbol{Z}).\)</span> </span></p>
+<p><br></p>
+<p><span class="fragment">Maximising the <strong>lower bound</strong> <span class="math inline">\(\mathcal{L}(q; \Theta)\)</span> induces natural <span class="emphasized">factorisations</span> over clusters and individuals for the variational distributions. </span></p>
+</section>
+<section id="variational-em-e-step" class="slide level2">
+<h2>Variational EM: E step</h2>
+<hr />
+<div class="theorem">
+<p>The optimal variational distributions are <span class="emphasized">analytical</span> and <span class="emphasized">factorise</span> such as:</p>
+<p><span class="math display">\[
+\begin{align}
+\hat{q}_{\boldsymbol{\mu}}(\boldsymbol{\mu}) &amp;= \prod\limits_{k = 1}^K \mathcal{N}(\mu_k;\hat{m}_k, \hat{\textbf{C}}_k)  \\
+\hat{q}_{\boldsymbol{Z}}(\boldsymbol{Z}) &amp;= \prod\limits_{i = 1}^M \mathcal{M}(Z_i;1, \color{red}{\boldsymbol{\tau}_i})
+\end{align}
+\]</span></p>
+</div>
+<p>with:</p>
+<div class="block fragment" >
+<span class="math display">\[
+\color{red}{\tau_{ik}} = \dfrac{\hat{\pi}_{k}\ \mathcal{N}\left( \mathbf{y}_i; \hat{m}_k, \boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2} \right) \exp \left(  -\frac{1}{2} \textrm{tr}\left( {\boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2}}^{-1}  \hat{\textbf{C}}_k \right)  \right) }{\sum\limits_{l = 1}^{K} \hat{\pi}_{l}\ \mathcal{N}\left( \mathbf{y}_i; \hat{m}_l , \boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2} \right) \exp\left(  -\frac{1}{2} \textrm{tr}\left( {\boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2}}^{-1} \hat{\textbf{C}}_l \right)  \right)}, \ \forall i, \forall k.
+\]</span>
+<div>
+
+</section>
+<section id="variational-em-m-step" class="slide level2">
+<h2>Variational EM: M step</h2>
+<hr />
+<div class="theorem">
+<p>Optimising <span class="math inline">\(\mathcal{L}(\hat{q}; \Theta)\)</span> w.r.t. <span class="math inline">\(\Theta\)</span> induces independant maximisation problems:</p>
+<p><span class="math display">\[
+\begin{align*}
+    \hat{\Theta} 
+    &amp;= \text{arg}\max\limits_{\Theta} \mathbb{E}_{\boldsymbol{\mu},\boldsymbol{Z}} \left[ \log p(\textbf{y},\boldsymbol{\mu}, \boldsymbol{Z} \mid \Theta)\right] \\
+    &amp;= \sum\limits_{k = 1}^{K}\ \mathcal{N} \left( \hat{m}_k; \ m_k, \boldsymbol{C}_{\color{red}{\gamma_k}}  \right) - \dfrac{1}{2} \textrm{tr}\left( \mathbf{\hat{C}}_k\boldsymbol{C}_{\color{red}{\gamma_k}}^{-1}\right) \\
+        &amp; \hspace{1cm} + \sum\limits_{k = 1}^{K}\sum\limits_{i = 1}^{M}\tau_{ik}\ \mathcal{N} \left( \mathbf{y}_i; \ \hat{m}_k, \boldsymbol{\Psi}_{\color{blue}{\theta_i}, \color{blue}{\sigma_i^2}}  \right) - \dfrac{1}{2} \textrm{tr}\left( \mathbf{\hat{C}}_k\boldsymbol{\Psi}_{\color{blue}{\theta_i}, \color{blue}{\sigma_i^2}}^{-1}\right) \\ 
+        &amp; \hspace{1cm} + \sum\limits_{k = 1}^{K}\sum\limits_{i = 1}^{M}\tau_{ik}\log \color{green}{\pi_{k}}
+\end{align*}
+\]</span></p>
+</div>
+</section>
+<section id="covariance-structure-assumption-4-sub-models" class="slide level2">
+<h2>Covariance structure assumption: 4 sub-models</h2>
+<hr />
+<p><br></p>
+<p>Sharing the covariance structures offers a compromise between <span class="emphasized">flexibility</span> and <span class="emphasized">parsimony</span>:</p>
+<p><br></p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\mathcal{H}_{oo}:\)</span> common mean process - common individual process - <span class="math inline">\(\color{orange}{2}\)</span> HPs,
+<li class="fragment">
+<span class="math inline">\(\mathcal{H}_{\color{red}{k}o}:\)</span> <span class="emphasized">specific</span> mean process - common individual process - <span class="math inline">\(\color{orange}{K + 1}\)</span> HPs,
+<li class="fragment">
+<span class="math inline">\(\mathcal{H}_{o\color{blue}{i}}:\)</span> common mean process - <span class="emphasized">specific</span> individual process - <span class="math inline">\(\color{orange}{M + 1}\)</span> HPs,
+<li class="fragment">
+<span class="math inline">\(\mathcal{H}_{\color{red}{k}\color{blue}{i}}:\)</span> <span class="emphasized">specific</span> mean process - <span class="emphasized">specific</span> individual process - <span class="math inline">\(\color{orange}{M + K}\)</span> HP.
+</ul>
+</section>
+<section id="prediction-1" class="slide level2">
+<h2>Prediction</h2>
+<hr />
+<ul>
+<li class="fragment">
+EM for estimating <span class="math inline">\(p(\color{red}{Z_*} \mid \textbf{y}, \hat{\Theta})\)</span>, <span class="math inline">\(\hat{\theta}_*\)</span>, and <span class="math inline">\(\hat{\sigma}_*^2\)</span>,
+<li class="fragment">
+Multi-task prior: <span class="math display">\[
+p \left( \begin{bmatrix}
+                 y_*(\textbf{t}_*) \\
+                 y_*(\textbf{t}_p) \\
+               \end{bmatrix} \mid \color{red}{Z_{*k}}=1 , \textbf{y} \right) = \mathcal{N} \left( \begin{bmatrix}
+                 y_*(\textbf{t}_*) \\
+                 y_*(\textbf{t}_p) \\
+               \end{bmatrix};
+              \begin{bmatrix}
+                 \hat{m}_k(\textbf{t}_*) \\
+                 \hat{m}_k(\textbf{t}^p) \\
+               \end{bmatrix},
+              \begin{pmatrix}
+                 \Gamma_{**}^k &amp; \Gamma_{*p}^k \\
+                 \Gamma_{p*}^k &amp; \Gamma_{pp}^k
+              \end{pmatrix} \right), \color{red}{\forall k},
+\]</span>
+<li class="fragment">
+Multi-task posterior:
+<div class="block">
+<p><span class="math display">\[
+p(y_*(\textbf{t}^p)  \mid y_*(\textbf{t}_*), \color{red}{Z_{*k}} = 1, \textbf{y}) = \mathcal{N} \big( \hat{\mu}_{*}^k (\textbf{t}^p) , \hat{\Gamma}_{pp}^{k} \big), \ \color{red}{\forall k},
+\]</span></p>
+</div>
+<li class="fragment">
+Predictive multi-task GPs mixture:
+<div class="theorem">
+<p><span class="math display">\[p(y_*(\textbf{t}^p) \mid y_*(\textbf{t}_*), \textbf{y}) = \color{red}{\sum\limits_{k = 1}^{K} \tau_{*k}} \ \mathcal{N} \big( \hat{\mu}_{*}^k(\textbf{t}^p) , \hat{\Gamma}_{pp}^k(\textbf{t}^p) \big).\]</span></p>
+</div>
+</ul>
+</section>
+<section id="illustration-magma-vs-magmaclust" class="slide level2">
+<h2>Illustration: <span class="smallcaps">Magma</span> vs <span class="smallcaps">MagmaClust</span></h2>
+<hr />
+<br> <br> <br>
+<center>
+<img data-src="images/illu_compare2.png" height="430" /> <img data-src="images/illu_compare3.png" height="430" />
+</center>
+</section>
+<section id="clustering-performances" class="slide level2">
+<h2>Clustering performances</h2>
+<hr />
+<center>
+<img data-src="images/RI_vs_alternatives.png" height="650" />
+</center>
+</section>
+<section id="predictive-performances" class="slide level2">
+<h2>Predictive performances</h2>
+<hr />
+<p><br><br><br><br></p>
+<center>
+<img data-src="images/table_magmaclust.png" style="width:100.0%" />
+</center>
+</section>
+<section id="and-what-about-the-swimmers" class="slide level2">
+<h2>And what about the swimmers ?</h2>
+<hr />
+<center>
+Standard GP regression
+</center>
+</center>
+<center>
+<img data-src="images/gp_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="and-what-about-the-swimmers-1" class="slide level2">
+<h2>And what about the swimmers ?</h2>
+<hr />
+<center>
+<span class="smallcaps">Magma</span>
+</center>
+<center>
+<img data-src="images/magma_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="and-what-about-the-swimmers-2" class="slide level2">
+<h2>And what about the swimmers ?</h2>
+<hr />
+<center>
+<span class="smallcaps">MagmaClust</span>
+</center>
+<center>
+<img data-src="images/magmaclust_swimmers.png" style="width:85.0%" />
+</center>
+</section>
+<section id="predictive-performances-on-swimmers-datasets" class="slide level2">
+<h2>Predictive performances on swimmers datasets</h2>
+<hr />
+<p><br></p>
+<center>
+<img data-src="images/table_swimmers.png" style="width:100.0%" />
+</center>
+</section>
+<section id="did-i-mention-that-i-like-gifs" class="slide level2">
+<h2>Did I mention that I like GIFs ?</h2>
+<hr />
+<center>
+<img src="images/gif_heatmap.gif" width=80%>
+</center>
+</section>
+<section id="perspectives-model-selection-in-magmaclust" class="slide level2">
+<h2>Perspectives: model selection in <span class="smallcaps">MagmaClust</span></h2>
+<hr />
+<p><em>Leroy &amp; al. - 2020 - preprint</em></p>
+<p>After convergence of the VEM algorithm, a variational-BIC expression can be derived as:</p>
+<div class="theorem">
+<p><span class="math display">\[\begin{align*}
+    VBIC(K) 
+    &amp;= \mathcal{L}(\hat{q}; \hat{\Theta}) - \dfrac{\mathrm{card}\{HP \}}{2} \log M \\
+    &amp;= \sum\limits_{i=1}^M \sum\limits_{k=1}^K \left[  \tau_{ik} \left( \log \mathcal{N}\left( \mathbf{y}_i; \hat{m}_k(\mathbf{t}_i), {\boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2}^{\mathbf{t}_i}} \right) - \dfrac{1}{2}  Tr ( \mathbf{\hat{C}}_k^{\mathbf{t}} {\boldsymbol{\Psi}_{\hat{\theta}_i, \hat{\sigma}_i^2}^{\mathbf{t}_i}}^{-1}) + \log \dfrac{\hat{\pi_k}}{\tau_{ik}}  \right) \right] \\
+    &amp; \hspace{0.5cm} + \sum\limits_{k=1}^K  \Bigg[ \log \mathcal{N} \left( \hat{m}_k(\textbf{t}); m_k(\mathbf{t}) , {\mathbf{C}_{\hat{\gamma}_k}^{\mathbf{t}^{p}_{*}}} \right)  - \dfrac{1}{2} Tr( \mathbf{\hat{C}}_k^{\mathbf{t}} {\mathbf{C}_{\hat{\gamma}_k}^{\mathbf{t}^{p}_{*}}}^{-1})  \\ 
+    &amp; \hspace{2cm} + \dfrac{1}{2} \log \mid \mathbf{\hat{C}}_k^{\mathbf{t}} \mid + N \log 2 \pi +  N  \Bigg] - \dfrac{\alpha_i + \alpha_k + (K - 1)}{2} \log M.
+\end{align*}\]</span></p>
+</div>
+</section>
+<section id="perspectives" class="slide level2">
+<h2>Perspectives</h2>
+<hr />
+<p><br></p>
+<ul>
+<li class = "fragment">
+<bp>Enable association with sparse GP approximations,</bp>
+<li class = "fragment">
+<bp>Extend to multivariate functional regression,</bp>
+<li class = "fragment">
+<bp>Develop an online version,</bp>
+<li class = "fragment">
+<bp>Integrate to the FFN app and launch real-life tests,</bp>
+<li class = "fragment">
+<bp>Investigate GP variational encoder for functional data.</bp>
+</ul>
+<p><br><br><br></p>
+<center>
+<bp class= "fragment">Thank you for your attention</bp>
+</center>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<hr />
+<ul>
+<li><strong>Neal</strong> - <em>Priors for infinite networks</em> - University of Toronto - 1994</li>
+<li><strong>Shi and Wang</strong> - <em>Curve prediction and clustering with mixtures of Gaussian process functional regression models</em> - Statistics and Computing - 2008<br />
+</li>
+<li><strong>Bouveyron and Jacques</strong> - <em>Model-based clustering of time series in group-specific functional subspaces</em> - Advances in Data Analysis and Classification - 2011</li>
+<li><strong>Boccia et al.</strong> - <em>Career Performance Trajectories in Track and Field Jumping Events from Youth to Senior Success: The Importance of Learning and Development</em> - PLoS ONE - 2017</li>
+<li><strong>Lee et al.</strong> - <em>Deep Neural Networks as Gaussian Processes</em> - ICLR - 2018<br />
+</li>
+<li><strong>Kearney et Hayes</strong> - <em>Excelling at youth level in competitive track and field athletics is not a prerequisite for later success</em> - Journal of Sports Sciences - 2018</li>
+<li><strong>Leroy et al.</strong> - <em>Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</em> - Applied Sciences - 2018<br />
+</li>
+<li><strong>Schmutz et al.</strong> - <em>Clustering multivariate functional data in group-specific functional subspaces</em> - <em>Computational Statistics</em> - 2020<br />
+</li>
+<li><strong>Leroy et al.</strong> - <em><span class="smallcaps">Magma</span>: Inference and Prediction with Multi-Task Gaussian Processes</em> - Under review - 2020</li>
+<li><strong>Leroy et al.</strong> - <em>Cluster-Specific Predictions with Multi-Task Gaussian Processes</em> - Under review - 2020</li>
+</ul>
+</section>
+<section id="annexe" class="slide level2">
+<h2>Annexe</h2>
+<p>Two important prediction steps of <span class="smallcaps">Magma</span> have been omitted for clarity:</p>
+<ul>
+<li><span class="emphasized">Recomputing</span> the hyper-posterior distribution on the new grid: <span class="math display">\[
+p\left( \mu_0 (\textbf{t}_*^{p}) \mid \textbf{y} \right),
+\]</span></li>
+<li><span class="emphasized">Estimating</span> the hyper-parameters of the new individual: <span class="math display">\[
+\hat{\theta}_*, \hat{\sigma}_*^2 =  \underset{\theta_*, \sigma_*^2}{\arg\max} \  p(y_* (\textbf{t}_*) \mid \textbf{y}, \theta_*, \sigma_*^2 ).
+\]</span></li>
+</ul>
+<p><br></p>
+<p>The <span class="emphasized">computational complexity</span> for learning is given by:</p>
+<ul>
+<li><span class="smallcaps">Magma</span>: <span class="math display">\[ 
+\mathcal{O}(M\times N_i^3 + N^3)
+\]</span></li>
+<li><span class="smallcaps">MagmaClust</span>: <span class="math display">\[ 
+\mathcal{O}(M\times N_i^3 + K \times N^3)
+\]</span></li>
+</ul>
+</section>
+<section id="annexe-magmaclust-remaining-clusters" class="slide level2">
+<h2>Annexe: <span class="smallcaps">MagmaClust</span>, remaining clusters</h2>
+<hr />
+<br> <br> <br>
+<center>
+<img data-src="images/illu_2_other_clusters.png" height="430" />
+</center>
+</section>
+<section id="annexe-model-selection-performances-of-vbic" class="slide level2">
+<h2>Annexe: model selection performances of VBIC</h2>
+<hr />
+<br> <br> <br>
+<center>
+<img data-src="images/table_vbic.png" style="width:100.0%" />
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
