@@ -491,13 +491,31 @@ Fit a GP on functional or high frequency data (sparse approximations)
 <li class = "fragment">
 Handle a few correlated time series (LMC, Multi-Output GPs, …)
 </ul>
-<p><span class="fragment">However, do we have a way to deal with
-millions of correlated time series simultaneously?</span></p>
-<span class = "fragment">
+<p><br></p>
+<p><span class="fragment">However, are we able to deal with <span
+class="emphasized">millions of correlated time series</span>
+simultaneously?</span></p>
+<p><br></p>
+<p><span class="fragment"> For our current project, we observe:
+</span></p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\color{blue}{M} \simeq 300\)</span>
+individuals,
+<li class="fragment">
+with <span class="math inline">\(\color{red}{P} \simeq 700 000\)</span>
+gene-related time series each,
+<li class="fragment">
+observed over <span class="math inline">\(N \simeq 10\)</span>
+timestamps.
+</ul>
+</section>
+<section id="context-illustration" class="slide level2">
+<h2>Context: illustration</h2>
+<hr>
 <center>
-<img data-src="images/illu_gusto.png" height="380" />
+<img data-src="images/illu_gusto.png" style="width:100.0%" />
 </center>
-<p></span></p>
 </section>
 <section id="multi-task-gp-with-common-mean-magma" class="slide level2">
 <h2>Multi-task GP with common mean (<span
@@ -512,16 +530,13 @@ Multi-Task Gaussian Processes with Common Mean</em> - Machine Learning -
 \epsilon_i\]</span></p>
 </div>
 <p>with:</p>
-<p><span class="fragment"> <span class="math inline">\(\mu_0 \sim
-\mathcal{GP}(m_0, K_{\theta_0}),\)</span> </span> <span
-class="fragment"> <span class="math inline">\(f_i \sim \mathcal{GP}(0,
-\Sigma_{\theta_i}),\)</span> </span> <span class="fragment"> <span
+<p><span class="math inline">\(\mu_0 \sim \mathcal{GP}(m_0,
+K_{\theta_0}),\)</span> <span class="math inline">\(f_i \sim
+\mathcal{GP}(0, \Sigma_{\theta_i}),\)</span> <span
 class="math inline">\(\epsilon_i \sim \mathcal{GP}(0, \sigma_i^2),
-\  \perp \!\!\! \perp_i.\)</span> </span></p>
-<p class="fragment">
-It follows that:
-</p>
-<div class="block fragment">
+\  \perp \!\!\! \perp_i.\)</span></p>
+<p>It follows that:</p>
+<div class="block">
 <p><span class="math display">\[y_i \mid \mu_0 \sim \mathcal{GP}(\mu_0,
 \Sigma_{\theta_i} + \sigma_i^2 I), \ \perp \!\!\! \perp_i\]</span></p>
 </div>
