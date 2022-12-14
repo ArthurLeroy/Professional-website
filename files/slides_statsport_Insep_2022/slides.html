@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Groupe Statistique et Sport" />
+  <meta name="author" content="de la" />
+  <meta name="author" content="Société française de Statistique" />
+  <title>image alt   Dessiner l’information sans feuille ni crayon :   quelques visualisations pour données issues du sport    </title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="slides_files/header-attrs-2.18/header-attrs.js"></script>
+    <script src="slides_files/kePrint-0.0.1/kePrint.js"></script>
+    <link href="slides_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><img data-src="Figures/logo_sfds2.png"
+style="width:8cm" alt="image alt" /> <br> Dessiner l’information sans
+feuille ni crayon : <br> quelques visualisations pour données issues du
+sport <br> <br></h1>
+    <h2 class="author"><font size="6">Groupe Statistique et
+Sport</font></h2>
+    <h2 class="author"><font size="4">de la</font></h2>
+    <h2 class="author"><font size="6">Société française de
+Statistique</font></h2>
+    <h3 class="date"><br> <font size="5">Sport, Data Science &amp;
+Applications - INSEP - 15/12/2022</font></h3>
+</section>
+
+<section
+id="données-dentrainement-issues-de-centrales-inertielles-et-gps"
+class="slide level2">
+<h2>Données d’entrainement issues de centrales inertielles et GPS</h2>
+<hr>
+<p>Exemple illustatif d’une base de données collectées par centrales
+inertielles et capteurs GPS lors de séances d’entrainement de course
+:</p>
+<div
+style="border: 1px solid #ddd; padding: 5px; overflow-x: scroll; width:100%; ">
+<table class=" lightable-classic" style="font-family: Cambria; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Exercice
+</th>
+<th style="text-align:left;">
+Entrainement
+</th>
+<th style="text-align:right;">
+Temps_total
+</th>
+<th style="text-align:right;">
+Vit_max
+</th>
+<th style="text-align:right;">
+Acc_max
+</th>
+<th style="text-align:right;">
+Dist_sup_6km_h
+</th>
+<th style="text-align:right;">
+Dist_70_80_max
+</th>
+<th style="text-align:right;">
+Dist_80_90_max
+</th>
+<th style="text-align:right;">
+Dist_sup_90_max
+</th>
+<th style="text-align:right;">
+Acc_sup_3ms2
+</th>
+<th style="text-align:right;">
+Nb_sprints_sup_90_max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Session
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+884
+</td>
+<td style="text-align:right;">
+8.99746
+</td>
+<td style="text-align:right;">
+4.45434
+</td>
+<td style="text-align:right;">
+1428.38
+</td>
+<td style="text-align:right;">
+173.39
+</td>
+<td style="text-align:right;">
+256.9
+</td>
+<td style="text-align:right;">
+150.09
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Echauffement Footing
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+380
+</td>
+<td style="text-align:right;">
+2.91903
+</td>
+<td style="text-align:right;">
+1.04082
+</td>
+<td style="text-align:right;">
+343.91
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Echauffement Gammes
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+284
+</td>
+<td style="text-align:right;">
+4.47329
+</td>
+<td style="text-align:right;">
+1.57306
+</td>
+<td style="text-align:right;">
+110.08
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Accel 1
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+5.63288
+</td>
+<td style="text-align:right;">
+1.67416
+</td>
+<td style="text-align:right;">
+35.81
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Accel 2
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+6.67784
+</td>
+<td style="text-align:right;">
+1.92783
+</td>
+<td style="text-align:right;">
+43.51
+</td>
+<td style="text-align:right;">
+8.26
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Accel 3
+</td>
+<td style="text-align:left;">
+2021_11_16_Technique_Sprint
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+7.08214
+</td>
+<td style="text-align:right;">
+2.18577
+</td>
+<td style="text-align:right;">
+47.06
+</td>
+<td style="text-align:right;">
+11.99
+</td>
+<td style="text-align:right;">
+0.0
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="fragment">
+Ces dispositifs receuillent des centaines de variables différentes par
+séance, l’objectif initial était de faire apparaitre quelques grandeurs
+caractéristiques de la séance dans sa globalité.
+</p>
+<p class="fragment">
+<span class="math inline">\(\rightarrow\)</span> Garder un visuel <span
+class="emphasized">commun</span> et <span
+class="emphasized">clair</span> pour toutes les séances, qui peuvent
+être très différentes entre elles de par le nombre et la variété des
+exercices.
+</p>
+</section>
+<section id="objectif-initial-visualisation-dune-séance-complète"
+class="slide level2">
+<h2>Objectif initial : visualisation d’une séance complète</h2>
+<hr>
+<center>
+<img data-src="Figures/resume_session.png" style="width:60.0%" />
+</center>
+</section>
+<section
+id="avantage-additionel-comparer-différentes-séances-entres-elles"
+class="slide level2">
+<h2>Avantage additionel : comparer différentes séances entres elles</h2>
+<hr>
+<center>
+<img data-src="Figures/compare_sessions.png" style="width:55.0%" />
+</center>
+</section>
+<section id="comparer-ce-qui-est-comparable" class="slide level2">
+<h2>Comparer ce qui est comparable</h2>
+<hr>
+<br>
+<p class="fragment">
+Pour la précédente illustration, il était important de pouvoir comparer
+toutes les variables clefs dans un visuel <span
+class="emphasized">uniforme</span>, aussi clair que possible, pour une
+comparaison exhaustive.
+</p>
+<p class="fragment">
+Cependant, il a fallu passer par une <span
+class="emphasized">renormalisation</span> des données (centrer et
+réduire) pour pouvoir comparer visuellement des quantités très
+différentes, à la fois en terme d’unité et d’ordre de grandeur (mètres,
+secondes, <span class="math inline">\(m.s^{-1}\)</span>, <span
+class="math inline">\(m.s^{-2}\)</span>).
+</p>
+<br>
+<p class="fragment">
+<span class="math inline">\(\rightarrow\)</span> En général, il est plus
+intéressant de proposer des visualisations entre variables
+<strong>naturellement comparables</strong>.
+</p>
+<p class="fragment">
+Pour illustrer cet aspect, nous proposons dans les prochains graphiques
+de visualiser les <span class="emphasized">distances parcourues</span> à
+différentes intensités pour tous les exercices d’une séance (même unité,
+en mètres). Pour finir, nous étudierons les relations entre <span
+class="emphasized">vitesse maximale</span> et <span
+class="emphasized">accélération maximale</span> pour les différentes
+séances.
+</p>
+</section>
+<section
+id="visualiser-distance-parcourue-par-intensité-et-par-exercice"
+class="slide level2">
+<h2>Visualiser distance parcourue par intensité et par exercice</h2>
+<hr>
+<center>
+<img data-src="Figures/histogram_no_color.gif" style="width:70.0%" />
+</center>
+</section>
+<section id="si-une-image-vaut-1000-mots-un-gif-en-vaut-bien-106"
+class="slide level2">
+<h2>Si une image vaut <span class="math inline">\(1000\)</span> mots, un
+GIF en vaut bien <span class="math inline">\(10^6\)</span> …</h2>
+<hr>
+<center>
+<img data-src="Figures/histogram_color.gif" style="width:75.0%" />
+</center>
+</section>
+<section id="mais-les-rapports-pdf-réclament-des-images-statiques"
+class="slide level2">
+<h2>… Mais les rapports PDF réclament des images statiques</h2>
+<hr>
+<center>
+<img data-src="Figures/histogram_static.png" style="width:70.0%" />
+</center>
+</section>
+<section id="suivi-de-lintensité-des-séances-au-cours-du-temps"
+class="slide level2">
+<h2>Suivi de l’intensité des séances au cours du temps</h2>
+<hr>
+<center>
+<img data-src="Figures/series_temp.gif" style="width:90.0%" />
+</center>
+</section>
+<section
+id="focaliser-sur-des-variables-clefs-pour-représenter-une-séance"
+class="slide level2">
+<h2>Focaliser sur des variables clefs pour représenter une séance …</h2>
+<hr>
+<center>
+<img data-src="Figures/evol_vit_acc.gif" style="width:70.0%" />
+</center>
+</section>
+<section id="et-rajouter-le-détail-si-nécessaire" class="slide level2">
+<h2>… Et rajouter le détail si nécessaire</h2>
+<hr>
+<p>Ici les valeurs pour chaque exercice sont représentées en plus des
+points de la séance complète</p>
+<center>
+<img data-src="Figures/evol_vit_acc_static.png" style="width:75.0%" />
+</center>
+</section>
+<section id="a-vous-de-jouer" class="slide level2">
+<h2>A vous de jouer</h2>
+<hr>
+<p>Si vous souhaitez manipuler vous même ces visualisations, sur cet
+exemple ou à vos propres données, n’hésitez pas à utiliser l’<span
+class="emphasized">application web</span> qui a été implémentée pour
+l’occasion (à l’aide du package Rshiny pour les connaisseurs) : [lien]
+[screenshot].</p>
+<p><br></p>
+<p>Vous pourrez personnaliser les graphiques, visualiser les variables
+de votre choix, et exporter le résultat pour illustrer votre prochain
+rapport PDF, sans feuille ni crayon (ni excel, par pitié).</p>
+<p><br></p>
+<center>
+<font size="8"><span class="emphasized">Merci pour votre attention et à
+vos suggestions !</span></font>
+</center>
+</section>
+<section id="bonus-version-statique-des-séries-temporelles"
+class="slide level2">
+<h2>Bonus : Version statique des séries temporelles</h2>
+<hr>
+<center>
+<img data-src="Figures/series_temp_static.png" style="width:70.0%" />
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
