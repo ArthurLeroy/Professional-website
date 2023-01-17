@@ -27,7 +27,7 @@
 					<h1 id="logo"><a href="#">Arthur Leroy, PhD</a></h1>
 					<p>Statistics and Machine Learning<br />
 					   Research Associate at<br />
-					   <a href="https://www.sheffield.ac.uk/">The University of Sheffield</a>
+					   <a href="https://www.manchester.ac.uk/">The University of Manchester</a>
 					</p>
 				</header>
 				<nav id="nav">
@@ -61,8 +61,9 @@
 										template freebie by <a href="http://html5up.net">HTML5 UP</a>.</p> -->
 									</header>
 									<p>	
-										In September 2021, I joined the <a href="https://www.sheffield.ac.uk/dcs">Department of Computer Science</a> at <a href="https://www.sheffield.ac.uk/">The University of Sheffield</a> as a <b>Research Associate</b>. 
-										Prior to this position, I have been an ATER (Teaching and Research Assistant) and a PhD student at <a href="http://map5.mi.parisdescartes.fr/">MAP5 </a>-<a href="https://u-paris.fr/en/"> Université de Paris</a>.
+										In April 2022, I joined the <a href="https://www.cs.manchester.ac.uk/">Department of Computer Science</a> at <a href="https://www.manchester.ac.uk/">The University of Manchester</a> as a <b>Research Associate</b> in <a href="https://maalvarezl.github.io/">Mauricio Álvarez</a>'s group.
+										I also worked on my current project at <a href="https://www.sheffield.ac.uk/">The University of Sheffield</a> between September 2021 and April 2022. 
+										Prior to these positions, I have been an ATER (Teaching and Research Assistant) and a PhD student at <a href="http://map5.mi.parisdescartes.fr/">MAP5 </a>-<a href="https://u-paris.fr/en/"> Université de Paris</a>.
 										I completed my PhD under the supervision of <a href="http://www.math-info.univ-paris5.fr/~gey/">Servane Gey</a> (MAP5), <a href="http://helios.mi.parisdescartes.fr/~platouch/">Pierre Latouche</a> (MAP5) and
 										<a href="https://bguedj.github.io">Benjamin Guedj</a> (Inria - UCL). <br />
 										<br />	
@@ -89,21 +90,25 @@
 									</p>
 									<ul class="feature-icons">
 										<li class="fa-book">Publications</li>
+										<h5>Book contributions</h5>
+											&bull; <a href="https://link.springer.com/article/10.1007/s10994-022-06172-1">Statistics Meets Sports: What We Can Learn from Sports Data</a> <br>
+											A. Leroy, P. Latouche, B. Guedj, S. Gey - Machine Learning - 2022<br>
+										<h5>Journal articles</h5>
 										<p> 
+											&bull; <a href="https://link.springer.com/article/10.1007/s10994-022-06172-1">MAGMA: Inference and Prediction using Multi-Task Gaussian Processes with Common Mean</a> <br />
+											A. Leroy, P. Latouche, B. Guedj, S. Gey - Machine Learning - 2022<br>
 											&bull; <a href="https://journals.humankinetics.com/view/journals/ijspp/aop/article-10.1123-ijspp.2021-0375/article-10.1123-ijspp.2021-0375.xml">International Swimming League: Do Successive Events Lead to Improve Swimming Performance?</a> <br />
 											R. Pla, A. Leroy, Yannis Raineteau, Philippe Hellard - IJSPP - 2021 <br>
-											&bull; <a href="files/Thesis-Arthur_LEROY.pdf">Multi-task learning models for functional data and application to sports performances prediction</a> <br />
+											&bull; <a href="files/Thesis-Arthur_LEROY.pdf">Multi-task learning models for functional data and application to sports performances prediction</a> <br>
 											A. Leroy  - PhD Thesis - 2020 <br>
-											&bull; <a href="https://arxiv.org/abs/2011.07866">Cluster-Specific Predictions with Multi-Task Gaussian Processes</a> <br />
-											A. Leroy, P. Latouche, B. Guedj, S. Gey - PREPRINT - 2020<br />
-											&bull; <a href="https://arxiv.org/abs/2007.10731">MAGMA: Inference and Prediction with Multi-Task Gaussian Processes</a> <br />
-											A. Leroy, P. Latouche, B. Guedj, S. Gey - PREPRINT - 2020<br />
-											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000543">Bayesian approach to quantify morphological impact on performance in international elite freestyle swimming</a> <br />
-											R. Pla, A. Leroy, R. Massal, M. Bellami, F. Kaillani, P. Hellard, J-F. Toussaint, A. Sedeaud - BMJ SEM - 2019  <br />
-											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000573">Robust Exponential Decreasing Index (REDI): adaptive and robust method for computing cumulated workload</a> <br />
-											I. Moussa, A. Leroy, G. Sauliere, J. Schipman, J-F Toussaint, A. Sedeaud - BMJ SEM - 2019  <br />
-											&bull; <a href="https://www.mdpi.com/2076-3417/8/10/1766">Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</a> <br />																		    
-											A. Leroy, A. Marc, O. Dupas, J. L. Rey, S. Gey - Applied Sciences - 2018<br />
+											&bull; <a href="https://arxiv.org/abs/2011.07866">Cluster-Specific Predictions with Multi-Task Gaussian Processes</a> <br>
+											A. Leroy, P. Latouche, B. Guedj, S. Gey - PREPRINT - 2020<br>
+											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000543">Bayesian approach to quantify morphological impact on performance in international elite freestyle swimming</a> <br>
+											R. Pla, A. Leroy, R. Massal, M. Bellami, F. Kaillani, P. Hellard, J-F. Toussaint, A. Sedeaud - BMJ SEM - 2019  <br>
+											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000573">Robust Exponential Decreasing Index (REDI): adaptive and robust method for computing cumulated workload</a> <br>
+											I. Moussa, A. Leroy, G. Sauliere, J. Schipman, J-F Toussaint, A. Sedeaud - BMJ SEM - 2019  <br>
+											&bull; <a href="https://www.mdpi.com/2076-3417/8/10/1766">Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</a> <br>																		    
+											A. Leroy, A. Marc, O. Dupas, J. L. Rey, S. Gey - Applied Sciences - 2018<br>
 										</p>
 										<li class="fa-code">Codes</li>
 										<p> 
@@ -117,8 +122,16 @@
 									<!--	<li class="fa-bolt">Lightning bolt</li>  -->
 										<li class="fa-users">Community </li>
 										<h5>Talks</h5>
-										<p> &bull; CMStatistics 2021 - London - 18/12/2021 <br>
-												<a href="files/slides_CMStatistics_2021/slides.html">Multi-task Gaussian processes models for functional data and application to the prediction of swimming performances</a> <br />
+										<p> &bull;Sport, Data Science & Applications - INSEP - Paris - 15/12/2022 - <a href="https://arthurleroy.shinyapps.io/Visualisation_Stat_Sport/"> [Web app]</a> <br>
+												<a href="files/slides_statsport_Insep_2022/slides.html">Dessiner l'information sans feuille ni crayon : quelques visualisations pour données issues du sport</a> <br>
+											&bull; NeurIPS Workshop on Gaussian Processes, Spatiotemporal Modeling, and Decision-making Systems - 02/12/2022  - <a href="files/slides_NeurIPS_2022/poster.pdf"> [Poster]</a> <br>
+												<a href="files/slides_NeurIPS_2022/slides.html">Multi-Means Gaussian Processes: A novel probabilistic framework for multi-correlated longitudinal data</a> <br>
+											&bull; Machine Learning Retreat - Sheffield - 01/07/2022 <br>
+												<a href="files/slides_ML_Sheffield_2022/slides.html">Multi-Mean Gaussian Processes: A novel probabilistic framework for multi-correlated longitudinal data</a> <br>
+											&bull; ADSAI 2022 - Manchester - 20/06/2022 <br>
+												<a href="files/slides_ADSAI_2022/slides.html">Multi-Mean Gaussian Processes: A novel probabilistic framework for multi-correlated longitudinal data</a> <br>
+											&bull; CMStatistics 2021 - London - 18/12/2021 <br>
+												<a href="files/slides_CMStatistics_2021/slides.html">Multi-task Gaussian processes models for functional data and application to the prediction of swimming performances</a> <br>
 											&bull; 52èmes Journées de Statistiques - Nice - 07-06-2021 <br>
 											   <a href="files/slides_jds_2021/slides.html">Mélange de processus gaussiens multi-tâches et prédictions cluster-spécifiques</a> <br />
 											&bull; Maths et Sport - Mathématiques en mouvement - 19/05/2021<br>
@@ -129,7 +142,7 @@
 											   <a href="files/slides_DUT_info/slides.html">IA et sport : prédire les performances futures en natation avec des algorithmes</a> <br />
 											&bull; Workshop du LaPsyDe - 22/01/2021<br />
 											   <a href="files/mixed_model">Mixed models</a> <br />
-											&bull; Soutenance de thèse - 09/12/2020 - <a href="https://youtu.be/gAaKoKq9UDo">Replay defense</a><br /> - <a href="https://www.youtube.com/watch?v=SwBUAMojCKU&ab_channel=ArthurLeroy">Replay defense + questions</a><br />
+											&bull; Soutenance de thèse - 09/12/2020 - <a href="https://youtu.be/gAaKoKq9UDo">Replay defense</a> - <a href="https://www.youtube.com/watch?v=SwBUAMojCKU&ab_channel=ArthurLeroy">Replay defense + questions</a><br>
 											   <a href="soutenance.html">Soutenance de thèse</a> - <a href="defense.html">PhD thesis defense</a> <br />
 											&bull; Le corps statistique - La Gaîté Lyrique - 26/11/2020 <br />
 											   <a href="files/slides_gaite_lyrique/slides.html">Quand la statistique et le sport font équipe</a> <br />
@@ -156,11 +169,20 @@
 											   Analyse de la Performance en Pentathlon Moderne <br />
 										</p>
 										<h5>Miscellaneous</h5>
-										    &bull; Co-founder and vice-president of the group <a href="https://www.sfds.asso.fr/fr/statistique_et_sport/618-statistique_et_sport/">Statistique et Sport</a> in the <a href="https://www.sfds.asso.fr/">SFdS</a>  <br />
-										    &bull; Co-organization of the 'Statistique et Sport' conference <a href="files/seminaire_statistique_et_sport_progr.pdf">2018</a> & <a href="https://www.sfds.asso.fr/newsletter-1231-2da1ec851dee8e956acc69108a2b71b8">2019</a> <br />
-											&bull; Member of the group <a href="https://www.sfds.asso.fr/fr/jeunes_statisticiens/468-les_jeunes_statisticiens/">Jeunes Statisticien.ne.s</a> in the <a href="https://www.sfds.asso.fr/">SFdS</a>  <br>
+										    &bull; Co-founder and vice-president of the group <a href="https://www.sfds.asso.fr/fr/statistique_et_sport/618-statistique_et_sport/">Statistique et Sport</a> of the <a href="https://www.sfds.asso.fr/">SFdS</a>  <br />		
+											&bull; Treasurer of the group <a href="https://www.sfds.asso.fr/fr/jeunes_statisticiens/468-les_jeunes_statisticiens/">Jeunes Statisticien.ne.s</a> of the <a href="https://www.sfds.asso.fr/">SFdS</a>  <br>
+										    &bull; Co-organization of the 'Statistique et Sport' seminar <a href="files/seminaire_statistique_et_sport_progr.pdf">2018</a> & <a href="https://www.sfds.asso.fr/newsletter-1231-2da1ec851dee8e956acc69108a2b71b8">2019</a> & <a href="https://www.insep.fr/fr/agenda/sport-data-science-applications">2022</a><br />
+											&bull; Co-organization of the <a href="https://www.sfds.asso.fr/fr/jeunes_statisticiens/manifestations/journees_ysp/564-accueil_ysp/">10th Young Statisticians and Probabilists</a> conference <br>
 											&bull; Podcast <a href="https://interstices.info/lintelligence-artificielle-pour-detecter-les-futurs-sportifs-de-haut-niveau/">Interstices</a> <br>
-										    &bull; Press article in <a href="https://www.lesnumeriques.com/appli-logiciel/pourquoi-sport-francais-est-en-retard-dans-big-data-a3545.html">Les numériques</a> 
+										    &bull; Press article in <a href="https://www.lesnumeriques.com/appli-logiciel/pourquoi-sport-francais-est-en-retard-dans-big-data-a3545.html">Les numériques</a> <br>
+											&bull; Reviewer for the following peer-reviewed journals and conferences: <br>
+											<a href="https://jmlr.org/"> Journal of Machine Learning Reasarch</a>, &nbsp;
+											<a href="https://neurips.cc/"> NeurIPS</a>, &nbsp;
+											<a href="https://aistats.org/"> AISTATS</a>, &nbsp;
+											<a href="https://www.springer.com/journal/11222"> Statistics and Computing</a>, &nbsp;
+											<a href="https://rss.onlinelibrary.wiley.com/journal/14679876"> Journal of the Royal Statistical Society (Series C)</a>, &nbsp;
+											<a href="https://www.tandfonline.com/toc/rjsp20/current"> Journal of Sports Sciences</a>, &nbsp;
+											<a href="https://peerj.com/"> PeerJ</a>
 									</ul>
 								</div>
 							</section>
@@ -230,6 +252,8 @@
 											<div class="inner">
 												<h3>Supervised students</h3>
 												<p>
+													<a href="https://www.linkedin.com/in/alexia-grenouillat-91b31122b/">Alexia Grenouillat</a>, INSA Toulouse - 2022 (M1 internship) - <a href="files/Rapport_stage_Alexia.pdf">Report</a><br>
+													<a href="https://www.linkedin.com/in/hugo-leli%C3%A8vre-0a0b95201/">Hugo Lelièvre</a>, INSA Toulouse - 2022 (M1 internship) - <a href="files/Rapport_stage_Hugo.pdf">Report</a><br>
 													<a href="https://www.linkedin.com/in/pathepierre/">Pierre Pathé</a>, Université Paris 1 - 2021 (M2 internship)<br>
 													<a href="https://www.linkedin.com/in/leonard-gousset-bb3a9b197/">Léonard Gousset</a>, IUT de Paris, Rives de Seine - 2021 (STID intership) - <a href="files/Rapport_Leonard.pdf">Report</a>  - <a href=" https://arthurleroy.shinyapps.io/App_NataSTID/">Web App</a><br> 
 													<a href="https://www.linkedin.com/in/james-haziza-1907b91a2/">James Haziza</a>, IUT de Paris, Rives de Seine - 2021 (STID intership) - <a href=" https://arthurleroy.shinyapps.io/App_NataSTID/">Web App</a><br>
@@ -248,14 +272,14 @@
 									<header class="major"> <h2>Contact</h2> </header>
 										<dl class="alt">
 											<h4>Address</h4>
-											<dd> Office 136 <br> Department of Computer Science &bull; The University of Sheffield <br> 211 Portobello, Sheffield S14DP &bull; United Kingdom</dd>
+											<dd> Office G33 <br> Department of Computer Science &bull; The University of Manchester <br> Kilburn Building, Oxford Rd, Manchester M13 9PL &bull; United Kingdom</dd>
 											<ul class="actions">
-												<li><a href="https://www.google.com/maps/place/Department+of+Computer+Science/@53.3810342,-1.4799678,15z/data=!4m2!3m1!1s0x0:0xf36c3526a2b08b2a?sa=X&ved=2ahUKEwi8vt2qzePyAhVK3qQKHbzGCqsQ_BIwHXoECFkQBQ" class="button">Google Maps</a></li>
+												<li><a href="https://goo.gl/maps/tnLH82RPnHC7MYQP8" class="button">Google Maps</a></li>
 											</ul>
 
 											<h4>Email</h4>
 											<dd> arthur.leroy.pro@gmail.com </dd>
-											<dd> a.leroy@sheffield.ac.uk </dd>
+											<dd> arthur.leroy@manchester.ac.uk </dd>
 										</dl>	
 								</div>
 							</section>
@@ -612,7 +636,7 @@
 					<section id="footer">
 						<div class="container">
 							<ul class="copyright">
-								<li><a href="https://en.wikipedia.org/wiki/Creative_Commons_license"><i class="fa fa-creative-commons"></i> BY-SA</a> Arthur Leroy, 2018<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li><a href="https://en.wikipedia.org/wiki/Creative_Commons_license"><i class="fa fa-creative-commons"></i> BY-SA</a> Arthur Leroy, 2022<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
 					</section>
