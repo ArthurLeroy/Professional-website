@@ -90,25 +90,27 @@
 									</p>
 									<ul class="feature-icons">
 										<li class="fa-book">Publications</li>
-										<h5>Book contributions</h5>
-											&bull; <a href="https://link.springer.com/article/10.1007/s10994-022-06172-1">Statistics Meets Sports: What We Can Learn from Sports Data</a> <br>
-											A. Leroy, P. Latouche, B. Guedj, S. Gey - Machine Learning - 2022<br>
 										<h5>Journal articles</h5>
-										<p> 
+										<p>
+											&bull; <a href="https://jmlr.org/papers/v24/20-1321.html">Cluster-Specific Predictions with Multi-Task Gaussian Processes</a> <br>
+											A. Leroy, P. Latouche, B. Guedj, S. Gey - Journal of Machine Learning Research - 2023<br>
 											&bull; <a href="https://link.springer.com/article/10.1007/s10994-022-06172-1">MAGMA: Inference and Prediction using Multi-Task Gaussian Processes with Common Mean</a> <br />
 											A. Leroy, P. Latouche, B. Guedj, S. Gey - Machine Learning - 2022<br>
 											&bull; <a href="https://journals.humankinetics.com/view/journals/ijspp/aop/article-10.1123-ijspp.2021-0375/article-10.1123-ijspp.2021-0375.xml">International Swimming League: Do Successive Events Lead to Improve Swimming Performance?</a> <br />
 											R. Pla, A. Leroy, Yannis Raineteau, Philippe Hellard - IJSPP - 2021 <br>
 											&bull; <a href="files/Thesis-Arthur_LEROY.pdf">Multi-task learning models for functional data and application to sports performances prediction</a> <br>
 											A. Leroy  - PhD Thesis - 2020 <br>
-											&bull; <a href="https://arxiv.org/abs/2011.07866">Cluster-Specific Predictions with Multi-Task Gaussian Processes</a> <br>
-											A. Leroy, P. Latouche, B. Guedj, S. Gey - PREPRINT - 2020<br>
 											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000543">Bayesian approach to quantify morphological impact on performance in international elite freestyle swimming</a> <br>
 											R. Pla, A. Leroy, R. Massal, M. Bellami, F. Kaillani, P. Hellard, J-F. Toussaint, A. Sedeaud - BMJ SEM - 2019  <br>
 											&bull; <a href="https://bmjopensem.bmj.com/content/5/1/e000573">Robust Exponential Decreasing Index (REDI): adaptive and robust method for computing cumulated workload</a> <br>
 											I. Moussa, A. Leroy, G. Sauliere, J. Schipman, J-F Toussaint, A. Sedeaud - BMJ SEM - 2019  <br>
 											&bull; <a href="https://www.mdpi.com/2076-3417/8/10/1766">Functional Data Analysis in Sport Science: Example of Swimmers’ Progression Curves Clustering</a> <br>																		    
 											A. Leroy, A. Marc, O. Dupas, J. L. Rey, S. Gey - Applied Sciences - 2018<br>
+										</p>
+										<h5>Book contributions</h5>
+										<p>
+											&bull; <a href="https://www.cambridgescholars.com/product/978-1-5275-9273-5/">Statistics Meets Sports: What We Can Learn from Sports Data</a> <br>
+											Editors: Yves Dominicy and Christophe Ley - 2023<br>
 										</p>
 										<li class="fa-code">Codes</li>
 										<p> 
@@ -122,7 +124,9 @@
 									<!--	<li class="fa-bolt">Lightning bolt</li>  -->
 										<li class="fa-users">Community </li>
 										<h5>Talks</h5>
-										<p> &bull;Sport, Data Science & Applications - INSEP - Paris - 15/12/2022 - <a href="https://arthurleroy.shinyapps.io/Visualisation_Stat_Sport/"> [Web app]</a> <br>
+										<p> &bull;S-Training seminars - 24/02/2023 <br>
+												<a href="files/slides_S-Training_2023/slides.html">Dessiner l'information sans feuille ni crayon : quelques visualisations pour données issues du sport</a> <br>
+											&bull;Sport, Data Science & Applications - INSEP - Paris - 15/12/2022 - <a href="https://arthurleroy.shinyapps.io/Visualisation_Stat_Sport/"> [Web app]</a> <br>
 												<a href="files/slides_statsport_Insep_2022/slides.html">Dessiner l'information sans feuille ni crayon : quelques visualisations pour données issues du sport</a> <br>
 											&bull; NeurIPS Workshop on Gaussian Processes, Spatiotemporal Modeling, and Decision-making Systems - 02/12/2022  - <a href="files/slides_NeurIPS_2022/poster.pdf"> [Poster]</a> <br>
 												<a href="files/slides_NeurIPS_2022/slides.html">Multi-Means Gaussian Processes: A novel probabilistic framework for multi-correlated longitudinal data</a> <br>
@@ -182,7 +186,9 @@
 											<a href="https://www.springer.com/journal/11222"> Statistics and Computing</a>, &nbsp;
 											<a href="https://rss.onlinelibrary.wiley.com/journal/14679876"> Journal of the Royal Statistical Society (Series C)</a>, &nbsp;
 											<a href="https://www.tandfonline.com/toc/rjsp20/current"> Journal of Sports Sciences</a>, &nbsp;
-											<a href="https://peerj.com/"> PeerJ</a>
+											<a href="https://peerj.com/"> PeerJ</a> <br>
+											<img src ="images/I_review_JMLR.gif" width="100" height="100" />
+											
 									</ul>
 								</div>
 							</section>

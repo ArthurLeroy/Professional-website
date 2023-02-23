@@ -1,0 +1,175 @@
+﻿.reveal {
+ color: rgb(28, 33, 53);
+ font-family: Georgia, serif;
+ font-size: 30px;
+}
+
+.reveal ul {
+	font-size:30px;
+	text-align: left;
+	display: block;
+	list-style: none;
+}
+.reveal li:before {
+   content: "•";
+   font-size: 100%; 
+   padding-right: 5px;
+}
+
+.reveal li.menu-item {
+   margin:0 0 30px 0;   
+}
+
+.reveal ul span {
+	font-size:30px;
+	text-align: left;
+}
+
+.reveal ol {
+    display: block;
+}  
+
+.reveal section p {
+  font-size: 30px;
+  color: rgb(28, 33, 53);
+  text-align: left;
+}
+
+.reveal section bp {
+  font-size: 40px;
+  color: rgb(28, 33, 53);
+}
+
+.reveal .center {
+    text-align: center;
+ }
+
+.reveal h1 { 
+	font-size: 1.8em;
+ 	color : rgb(28, 33, 53);
+	font-family: Georgia, serif;
+} 
+
+.reveal h2 { 
+ 	color : rgb(28, 33, 53);
+	vertical-align: top;
+	text-align: left;
+	font-family: Georgia, serif;
+ }
+
+h1.title {
+	font-size: 46px;
+	font-family: Georgia, serif;
+	text-align: center;
+}
+
+h2.author {
+  font-size: 30px;
+  color : rgb(28, 33, 53);
+  text-align: center;
+  font-family: Georgia, serif;
+}
+
+
+h3.date {
+  font-size: 25px;
+  color : rgb(28, 33, 53);
+  font-family: Georgia, serif;
+  text-align: center;
+}
+
+
+.reveal {
+	overflow: visible;
+}
+
+.emphasized{
+	color : rgb(235, 125, 0);
+}
+.reveal section img {
+	text-align: center;
+}
+
+.reveal section img {
+    border: none;
+    box-shadow: none;
+}
+
+img[alt$=">"] {
+  float: right;
+}
+
+img[alt$="<"] {
+  float: left;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+}
+
+hr {
+	border:0;
+    width:100%;
+    height:2px;
+    background: rgb(235, 125, 0);
+}
+
+
+.block {
+  display: block;
+  font-style: italic;
+  font-size: 24px;
+  font-family: "Times New Roman";
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(247, 237, 234 );
+  box-shadow: 5px 10px 8px #888888;
+}
+
+.theorem {
+  display: block;
+  font-style: italic;
+  font-size: 24px;
+  font-family: "Times New Roman";
+  color: black;
+  border-radius: 10px;
+  background-color: rgb(247, 237, 234 );
+  box-shadow: 5px 10px 8px #888888;
+}
+.theorem::before {
+  content: "The first of many questions";
+  font-weight: bold;
+  font-style: normal;
+  display: inline-block;
+  width: -webkit-fill-available;
+  color: black;
+  text-align: left;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 5px 5px 7px;
+  background-color: lightgrey;
+}
+
+.theorem p {
+  padding: 15px 15px 15px 15px;
+}
+
+.white {
+   color: white;
+}
+
+.reveal .progress {
+  height: 0.7%;
+ }
+
+.reveal .progress span {
+  background: rgb(235, 125, 0);
+}
+
+.reveal .slide-number {
+  font-size: 15pt;
+  background: white;
+  color: rgb(235, 125, 0); }
