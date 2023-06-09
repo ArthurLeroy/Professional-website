@@ -114,9 +114,13 @@
 										</p>
 										<li class="fa-code">Codes</li>
 										<p> 
-											&bull; <a href="https://github.com/ArthurLeroy/MagmaClustR"> R package MagmaClustR</a> <br>
+											<img src ="images/logo_MagmaClustR.png" width="55" height="55" /> <a href="https://arthurleroy.github.io/MagmaClustR/"> R package MagmaClustR</a> <br>
 											<img src ="images/gif_magma.gif" width="305" height="250" />
 											<img src ="images/gif_heatmap.gif" width="305" height="250" />
+										</p>
+										<p> 
+											<img src ="images/logo_redi.png" width="50" height="60" /> <a href="https://grenouil.github.io/REDI/"> R package REDI</a> - <a href="https://arthurleroy.shinyapps.io/REDI/"> Web app</a> <br>
+											<img src ="images/REDI.png" width="405" height="250" />
 										</p>
 									
 									<!--	<li class="fa-cubes">Stack small boxes</li> --> 										
@@ -124,7 +128,9 @@
 									<!--	<li class="fa-bolt">Lightning bolt</li>  -->
 										<li class="fa-users">Community </li>
 										<h5>Talks</h5>
-										<p> &bull;S-Training seminars - 24/02/2023 <br>
+										<p> &bull; MODAL seminars - 11/04/2023 <br>
+												<a href="files/slides_MODAL_2023/slides.html">Multi-Mean Gaussian Processes: A novel probabilistic framework for multi-correlated longitudinal data</a> <br>
+											&bull; S-Training seminar - 24/02/2023<br>
 												<a href="files/slides_S-Training_2023/slides.html">Do sports problems require tailored methods or direct applications? On a swimming-oriented journey with a Bayesian roadmap.</a> <br>
 											&bull;Sport, Data Science & Applications - INSEP - Paris - 15/12/2022 - <a href="https://arthurleroy.shinyapps.io/Visualisation_Stat_Sport/"> [Web app]</a> <br>
 												<a href="files/slides_statsport_Insep_2022/slides.html">Dessiner l'information sans feuille ni crayon : quelques visualisations pour données issues du sport</a> <br>
@@ -178,8 +184,8 @@
 										    &bull; Co-organization of the 'Statistique et Sport' seminar <a href="files/seminaire_statistique_et_sport_progr.pdf">2018</a> & <a href="https://www.sfds.asso.fr/newsletter-1231-2da1ec851dee8e956acc69108a2b71b8">2019</a> & <a href="https://www.insep.fr/fr/agenda/sport-data-science-applications">2022</a><br />
 											&bull; Co-organization of the <a href="https://www.sfds.asso.fr/fr/jeunes_statisticiens/manifestations/journees_ysp/564-accueil_ysp/">10th Young Statisticians and Probabilists</a> conference <br>
 											&bull; Podcast <a href="https://interstices.info/lintelligence-artificielle-pour-detecter-les-futurs-sportifs-de-haut-niveau/">Interstices</a> <br>
-										    &bull; Press article in <a href="https://www.lesnumeriques.com/appli-logiciel/pourquoi-sport-francais-est-en-retard-dans-big-data-a3545.html">Les numériques</a>,
-											<a href="https://www.tf1info.fr/high-tech/la-gymnastique-les-teste-deja-impartiaux-les-robots-seront-ils-de-meilleurs-arbitres-que-les-hommes-intelligence-artificielle-jo-tokyo-2139705.htmland">LCI</a>
+										    &bull; Press article in <a href="https://www.lesnumeriques.com/appli-logiciel/pourquoi-sport-francais-est-en-retard-dans-big-data-a3545.html">Les numériques</a>, 
+											<a href="https://www.tf1info.fr/high-tech/la-gymnastique-les-teste-deja-impartiaux-les-robots-seront-ils-de-meilleurs-arbitres-que-les-hommes-intelligence-artificielle-jo-tokyo-2139705.htmland">LCI</a> and 
 											<a href="https://www.lanouvellerepublique.fr/a-la-une/et-si-les-maths-permettaient-de-detecter-les-futurs-medailles-olympiques">La Nouvelle République</a> <br>
 										
 											&bull; Reviewer for the following peer-reviewed journals and conferences: <br>
