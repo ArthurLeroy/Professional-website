@@ -92,7 +92,7 @@
 										<li class="fa-book">Publications</li>
 										<h5>Journal articles</h5>
 										<p>
-											&bull; <a href="https://arxiv.org/abs/2307.08975">Latent Variable Multi-output Gaussian Processes for Hierarchical Datasets</a> <br>
+											&bull; <a href="https://arxiv.org/abs/2308.16822">Latent Variable Multi-output Gaussian Processes for Hierarchical Datasets</a> <br>
 											C. Ma, A. Leroy, M. Alvarez - Preprint - 2023<br>
 											&bull; <a href="https://arxiv.org/abs/2307.08975">A Bayesian Framework for Multivariate Differential Analysis accounting for Missing Data</a> <br>
 											M. Chion, A. Leroy - Preprint - 2023<br>
@@ -136,7 +136,9 @@
 									<!--	<li class="fa-bolt">Lightning bolt</li>  -->
 										<li class="fa-users">Community </li>
 										<h5>Talks</h5> 
-										<p> &bull; University of North Carolina at Chapel Hill Biostatistics - 12/07/2023 <br>
+										<p> &bull; Gaussian Process Summer School - The University of Manchester 11/09/2023 <br>
+												<a href="files/slides_GPSS_2023/slides.html">Multi-Task Gaussian Processes</a> <br>
+											&bull; University of North Carolina at Chapel Hill Biostatistics - 12/07/2023 <br>
 												<a href="files/slides_PREMEDICAL_2023/slides.html">Multi-Mean Gaussian Processes: A novel probabilistic framework for multi-correlated functional data</a> <br>
 											&bull; PreMeDICaL seminars - 10/07/2023 <br>
 												<a href="files/slides_PREMEDICAL_2023/slides.html">Multi-Mean Gaussian Processes: A novel probabilistic framework for multi-correlated functional data</a> <br>
