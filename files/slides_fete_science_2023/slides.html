@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Arthur Leroy - Department of Computer Science, The University of Manchester        " />
+  <title>slides.knit</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+
+<link rel="stylesheet" href="slides_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="style.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="slides_files/header-attrs-2.20/header-attrs.js"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title"><img data-src="images/logo_U-Manchester.png"
+style="width:8cm" alt="image alt &lt;" /> <img
+data-src="images/QR_code_website.png" style="width:5cm"
+alt="image alt &gt;" /> <br>
+<hr>
+Comment utiliser les sciences du numérique pour tenter de prédire les
+performances sportives ?<br>
+<hr>
+<p><br></p></h1>
+    <h2 class="author"><strong>Arthur Leroy</strong> - Department of
+Computer Science, The University of Manchester <br> <br> <br> <br></h2>
+    <h3 class="date">Fête de la Science - Sport et numérique - Lille -
+11/10/2023</h3>
+</section>
+
+<section id="des-données-difficiles-à-analyser" class="slide level2">
+<h2>Des données difficiles à analyser</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur
+100m nage libre :</p>
+<center>
+<img data-src="images/data1.png" style="width:100.0%" />
+</center>
+</section>
+<section id="des-données-difficiles-à-analyser-1" class="slide level2">
+<h2>Des données difficiles à analyser</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur
+100m nage libre :</p>
+<center>
+<img data-src="images/data2.png" style="width:100.0%" />
+</center>
+<ul>
+<li>
+Données temporelles <span class="emphasized">irrégulières</span> (nombre
+de points et temps d’observations <strong>différents</strong>),
+<li class = "fragment">
+<span class="emphasized">Beaucoup</span> de nageurs pour chaque épreuve,
+</ul>
+</section>
+<section id="des-données-difficiles-à-analyser-2" class="slide level2">
+<h2>Des données difficiles à analyser</h2>
+<hr>
+<p>Performances de membres de la FFN, au cours de leur carrière, sur
+100m nage libre :</p>
+<center>
+<img data-src="images/data3.png" style="width:100.0%" />
+</center>
+<ul>
+<li>
+Données temporelles <span class="emphasized">irrégulières</span> (nombre
+de points et temps d’observations <strong>différents</strong>),
+<li>
+<span class="emphasized">Beaucoup</span> de nageurs pour chaque épreuve,
+<li>
+<span class="emphasized">Peu </span>d’observations pour chaque nageur.
+</ul>
+</section>
+<section id="mais-au-fait-comment-fait-on-pour-apprendre"
+class="slide level2">
+<h2>Mais au fait, comment fait on pour apprendre ?</h2>
+<hr>
+<center>
+<img data-src="images/robot-reading-ai.jpg" style="width:70.0%" />
+</center>
+</section>
+<section id="quelques-clarifications-sur-les-termes-à-la-mode"
+class="slide level2">
+<h2>Quelques clarifications sur les termes à la mode</h2>
+<hr>
+<center>
+<img data-src="images/IA.png" style="width:50.0%" />
+</center>
+<p>Le travail présenté ici se concentre sur deux grands problèmes de
+<em>machine learning </em>:</p>
+<ul>
+<li class="fragment">
+L’apprentissage <span class="emphasized">supervisé</span>, où l’on
+cherche à faire des prédictions à partir d’exemples.
+<li class="fragment">
+L’apprentissage <span class="emphasized">non-supervisé</span> (ou
+clustering), où l’on cherche à définir des groupes.
+</ul>
+</section>
+<section id="apprendre-ça-veut-dire-quoi" class="slide level2">
+<h2>Apprendre, ça veut dire quoi ?</h2>
+<hr>
+<p><br></p>
+<div class="block">
+<p><span class="math display">\[y = \color{green}{f}(x)\]</span></p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(x\)</span> est la donnée d’entrée (ici
+l’<strong>âge</strong> du nageur),
+<li class="fragment">
+<span class="math inline">\(y\)</span> est la donnée de sortie (ici la
+<strong>performance</strong> sur 100m),
+<li class="fragment">
+<span class="math inline">\(\color{green}{f}\)</span> est une <span
+class="emphasized">fonction inconnue</span> qui définie la
+<strong>relation</strong> entre les données d’entrée et de sortie.
+</ul>
+</div>
+<span class="fragment">
+<center>
+<img data-src="images/linear_reg.gif" style="width:40.0%" />
+</center>
+<p></span></p>
+</section>
+<section id="apprendre-cest-mettre-à-jour-ses-connaissances"
+class="slide level2">
+<h2>Apprendre, c’est mettre à jour ses connaissances</h2>
+<hr>
+<p>Imaginons qu’il existe une maladie telle que :</p>
+<ul>
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\color{red}{M}) = 0.001,\)</span>
+1 personne sur 1000 est malade en moyenne,
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(D \mid \color{red}{M}) =
+0.99,\)</span> un test de dépistage est fiable à 99% si vous êtes
+malade,
+<li class="fragment">
+<span class="math inline">\(\mathbb{P}(\bar{D} \mid
+\bar{\color{red}{M}}) = 0.99,\)</span> ce même test de dépistage est
+fiable à 99% si vous n’êtes malade,
+</ul>
+<p><span class="fragment"> D’après la <span class="emphasized">formule
+de Bayes</span>, la probabilité d’être malade lors d’un résultat positif
+au test est : </span></p>
+<div class="block fragment">
+<p><span class="math display">\[\mathbb{P}(\color{red}{M} \mid D) =
+\dfrac{\mathbb{P}(D \mid \color{red}{M})
+\times  \mathbb{P}(\color{red}{M})}{\mathbb{P}(D)} = \dfrac{0.99 \times
+0.001}{0.99 \times 0.001 + (1-0.99) \times 0.999} \simeq
+0.09\]</span></p>
+</div>
+<p><br></p>
+<p><span class="fragment">Ainsi, on aurait seulement <span
+class="emphasized">9% de chance</span> environ d’être effectivement
+malade malgré un résultat positif au test. <span></p>
+</section>
+<section id="apprendre-une-fonction-grâce-à-bayes" class="slide level2">
+<h2>Apprendre une fonction grâce à Bayes ?</h2>
+<hr>
+<center>
+<img data-src="images/illu_prior_gp.gif" style="width:60.0%" />
+</center>
+</section>
+<section id="apprendre-une-fonction-grâce-à-bayes-1"
+class="slide level2">
+<h2>Apprendre une fonction grâce à Bayes ?</h2>
+<hr>
+<center>
+<img data-src="images/illu_post_gp1.gif" style="width:60.0%" />
+</center>
+</section>
+<section id="apprendre-une-fonction-grâce-à-bayes-2"
+class="slide level2">
+<h2>Apprendre une fonction grâce à Bayes ?</h2>
+<hr>
+<center>
+<img data-src="images/illu_post_gp2.gif" style="width:60.0%" />
+</center>
+</section>
+<section id="apprendre-une-fonction-grâce-à-bayes-3"
+class="slide level2">
+<h2>Apprendre une fonction grâce à Bayes ?</h2>
+<hr>
+<center>
+<img data-src="images/illu_post_gp3.gif" style="width:60.0%" />
+</center>
+</section>
+<section
+id="pour-bien-apprendre-rien-de-tel-que-le-partage-dinformations"
+class="slide level2">
+<h2>Pour bien apprendre, rien de tel que le partage d’informations</h2>
+<hr>
+<br><br><br>
+<center>
+<img data-src="images/illu_gp.png"
+style="width:50.0%" /><img src="images/illu_magma.png" width="50%">
+</center>
+</section>
+<section
+id="pour-bien-apprendre-rien-de-tel-que-le-partage-dinformations-1"
+class="slide level2">
+<h2>Pour bien apprendre, rien de tel que le partage d’informations</h2>
+<hr>
+<br><br><br>
+<center>
+<img data-src="images/illu_gp_gif.gif"
+style="width:50.0%" /><img src="images/illu_magma_gif.gif" width="50%">
+</center>
+</section>
+<section id="peut-on-aussi-découvrir-des-groupes-pour-mieux-prédire"
+class="slide level2">
+<h2>Peut-on aussi découvrir des groupes pour mieux prédire ?</h2>
+<hr>
+<img data-src="images/illu_magmaclust2.png" style="width:100.0%" />
+</center>
+</section>
+<section
+id="voici-les-predictions-des-nageurs.-et-si-vous-faisiez-les-vôtres"
+class="slide level2">
+<h2>Voici les predictions des nageurs. Et si vous faisiez les vôtres
+?</h2>
+<hr>
+<center>
+<img src="images/pred_example_women_swimming_data.png" width=90%>
+</center>
+</section>
+    </div>
+  </div>
+
+  <script src="slides_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="slides_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: false,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+        height: 720,
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
