@@ -453,7 +453,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section>
     <h1 class="title"><img data-src="images/logo_U-Manchester.png"
 style="width:8cm" alt="image alt &lt;" /> <img
-data-src="images/QR_code_website.png" style="width:5cm"
+data-src="images/QR_code_shiny_magma.png" style="width:5cm"
 alt="image alt &gt;" /> <br>
 <hr>
 Comment utiliser les sciences du numérique pour tenter de prédire les
@@ -560,38 +560,54 @@ class="emphasized">fonction inconnue</span> qui définie la
 </center>
 <p></span></p>
 </section>
-<section id="apprendre-cest-mettre-à-jour-ses-connaissances"
+<section id="apprendre-cest-bien-mettre-à-jour-ses-connaissances"
 class="slide level2">
-<h2>Apprendre, c’est mettre à jour ses connaissances</h2>
+<h2>Apprendre, c’est bien mettre à jour ses connaissances</h2>
 <hr>
 <p>Imaginons qu’il existe une maladie telle que :</p>
 <ul>
 <li class="fragment">
 <span class="math inline">\(\mathbb{P}(\color{red}{M}) = 0.001,\)</span>
-1 personne sur 1000 est malade en moyenne,
+1 personne sur 1000 est <span style="color:red">malade</span> en
+moyenne,
 <li class="fragment">
-<span class="math inline">\(\mathbb{P}(D \mid \color{red}{M}) =
-0.99,\)</span> un test de dépistage est fiable à 99% si vous êtes
+<span class="math inline">\(\mathbb{P}(\color{blue}{D} \mid
+\color{red}{M}) = 0.99,\)</span> un test de <span
+style="color:blue">dépistage</span> est fiable à 99% si vous êtes
 malade,
 <li class="fragment">
-<span class="math inline">\(\mathbb{P}(\bar{D} \mid
-\bar{\color{red}{M}}) = 0.99,\)</span> ce même test de dépistage est
-fiable à 99% si vous n’êtes malade,
+<span class="math inline">\(\mathbb{P}(\bar{\color{blue}{D}} \mid
+\bar{\color{red}{M}}) = 0.99,\)</span> ce même test de <span
+style="color:blue">dépistage</span> est fiable à 99% si vous n’êtes
+<span style="color:red">malade</span>,
 </ul>
-<p><span class="fragment"> D’après la <span class="emphasized">formule
-de Bayes</span>, la probabilité d’être malade lors d’un résultat positif
-au test est : </span></p>
+<p><br></p>
+<p><br> <span class="fragment"> D’après la <span
+class="emphasized">formule de Bayes</span>, la probabilité d’être <span
+style="color:red">malade</span> lors d’un résultat positif au test est :
+</span></p>
 <div class="block fragment">
-<p><span class="math display">\[\mathbb{P}(\color{red}{M} \mid D) =
-\dfrac{\mathbb{P}(D \mid \color{red}{M})
-\times  \mathbb{P}(\color{red}{M})}{\mathbb{P}(D)} = \dfrac{0.99 \times
-0.001}{0.99 \times 0.001 + (1-0.99) \times 0.999} \simeq
-0.09\]</span></p>
+<p><span class="math display">\[\mathbb{P}(\color{red}{M} \mid
+\color{blue}{D}) = \dfrac{\mathbb{P}(\color{blue}{D} \mid
+\color{red}{M})
+\times  \mathbb{P}(\color{red}{M})}{\mathbb{P}(\color{blue}{D})} =
+\dfrac{0.99 \times 0.001}{0.99 \times 0.001 + (1-0.99) \times 0.999}
+\simeq 0.09\]</span></p>
 </div>
 <p><br></p>
 <p><span class="fragment">Ainsi, on aurait seulement <span
 class="emphasized">9% de chance</span> environ d’être effectivement
 malade malgré un résultat positif au test. <span></p>
+</section>
+<section id="cest-super-mais-quel-rapport-avec-nos-nageurs"
+class="slide level2">
+<h2>C’est super mais quel rapport avec nos nageurs ?</h2>
+<hr>
+<br> <br>
+<center>
+<img data-src="images/gif_pool.gif" style="width:30.0%" /><img
+data-src="images/raw_curves.png" style="width:60.0%" />
+</center>
 </section>
 <section id="apprendre-une-fonction-grâce-à-bayes" class="slide level2">
 <h2>Apprendre une fonction grâce à Bayes ?</h2>
@@ -625,6 +641,17 @@ class="slide level2">
 </center>
 </section>
 <section
+id="encore-une-fois-cest-super-mais-toi-tu-fais-quoi-dans-tout-ça"
+class="slide level2">
+<h2>Encore une fois c’est super, mais toi tu fais quoi dans tout ça
+?</h2>
+<hr>
+<center>
+<img data-src="images/Formule_GP.png" style="width:80.0%" /><img
+data-src="images/code.png" style="width:50.0%" />
+</center>
+</section>
+<section
 id="pour-bien-apprendre-rien-de-tel-que-le-partage-dinformations"
 class="slide level2">
 <h2>Pour bien apprendre, rien de tel que le partage d’informations</h2>
@@ -634,6 +661,9 @@ class="slide level2">
 <img data-src="images/illu_gp.png"
 style="width:50.0%" /><img src="images/illu_magma.png" width="50%">
 </center>
+<p>A <span class="emphasized">gauche</span>, l’algorithme classique
+existant, à <span class="emphasized">droite</span> le nouvel algorithme
+que l’on a developpé</p>
 </section>
 <section
 id="pour-bien-apprendre-rien-de-tel-que-le-partage-dinformations-1"
@@ -645,6 +675,9 @@ class="slide level2">
 <img data-src="images/illu_gp_gif.gif"
 style="width:50.0%" /><img src="images/illu_magma_gif.gif" width="50%">
 </center>
+<p>A <span class="emphasized">gauche</span>, l’algorithme classique
+existant, à <span class="emphasized">droite</span> le nouvel algorithme
+que l’on a developpé</p>
 </section>
 <section id="peut-on-aussi-découvrir-des-groupes-pour-mieux-prédire"
 class="slide level2">
@@ -654,13 +687,13 @@ class="slide level2">
 </center>
 </section>
 <section
-id="voici-les-predictions-des-nageurs.-et-si-vous-faisiez-les-vôtres"
+id="et-voilà-les-predictions-de-nageurs.-et-si-vous-faisiez-les-vôtres"
 class="slide level2">
-<h2>Voici les predictions des nageurs. Et si vous faisiez les vôtres
+<h2>Et voilà les predictions de nageurs. Et si vous faisiez les vôtres
 ?</h2>
 <hr>
 <center>
-<img src="images/pred_example_women_swimming_data.png" width=90%>
+<img src="images/pred_example_women_swimming_data.png" width=60%><img src="images/QR_code_shiny_magma.png" width=40%>
 </center>
 </section>
     </div>
